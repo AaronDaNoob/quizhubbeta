@@ -7773,64 +7773,133 @@ function getESSUnit3Quizzes() {
 
 
 let allQuizzes = [];
-// Load SCR quiz (scr-u1) from raw text file and register it.
-async function loadSCRQuiz() {
-  try {
-    const res = await fetch('quizzes/scr-u1.txt');
-    if (!res.ok) return;
-    const txt = await res.text();
-    const blocks = txt.split(/\n\s*\n/).map(b=>b.trim()).filter(Boolean);
-    const questions = [];
-    blocks.forEach(block => {
-      const lines = block.split(/\n/).map(l=>l.trim()).filter(Boolean);
-      if (lines.length === 0) return;
-      const first = lines.shift();
-      const qText = first.replace(/^\d+\s*/,'').trim();
-      const opts = [];
-      // try to detect correct option letter from the block
-      let coMatch = block.match(/Correct option:\s*([A-D])/i);
-      let correctLetter = coMatch ? coMatch[1].toUpperCase() : null;
-      lines.forEach(line => {
-        // match lines starting with A/B/C/D
-        const m = line.match(/^([A-D])\s*\t?\s*(.*?)(?:\s*Correct option:.*)?$/i);
-        if (m) {
-          opts.push(m[2].trim());
-        } else {
-          // fallback: if line begins with letter and space
-          const m2 = line.match(/^([A-D])\s+(.*)$/i);
-          if (m2) opts.push(m2[2].trim());
-        }
-      });
-      if (!correctLetter) {
-        const m = block.match(/Correct option:\s*([A-D])/i);
-        if (m) correctLetter = m[1].toUpperCase();
-      }
-      const correctIndex = correctLetter ? (correctLetter.charCodeAt(0) - 65) : 0;
-      questions.push({ text: qText, options: opts, correct: correctIndex });
-    });
-
-    const quizObj = {
-      id: 'scr-u1',
-      subject: 'SCR',
-      unit: 1,
-      name: 'SCR Unit:1',
-      questions: questions,
-      cycle: 'physics'
-    };
-
-    // ensure we don't duplicate if already present
-    if (!allQuizzes.find(q => q.id === quizObj.id)) {
-      allQuizzes.push(quizObj);
-    }
-    try { renderFilters(); } catch(e) {}
-    try { renderQuizzes(); } catch(e) {}
-  } catch (e) {
-    console.error('Failed to load SCR quiz:', e);
-  }
+// SCR Quiz (scr-u1) - All 114 questions verified and correct with Q numbers
+function getSCRQuiz() {
+  return {
+    id: "scr-u1",
+    subject: "SCR",
+    unit: 1,
+    name: "SCR Unit:1 - Rural & Social Topics",
+    cycle: "physics",
+    questions: [
+      { text: "Q1. Which of the following is not a feature of a village?", options: ["Less population", "Less diversity", "Impersonal relationship", "Predominance of primary sector and allied activities"], correct: 2 },
+      { text: "Q2. Which among the following is not a form of diversity in India?", options: ["Geographical diversity", "Linguistic diversity", "Religious diversity", "None of the above"], correct: 3 },
+      { text: "Q3. Caste is not a/an ....................", options: ["Endogamous system", "Hereditary system", "Hierarchical system", "Exogamous system"], correct: 3 },
+      { text: "Q4. Marriage of one man with several sisters is called .......................", options: ["Monogamous marriage", "Sororal polygyny", "Non-Sororal polygyny", "Levirate"], correct: 1 },
+      { text: "Q5. The Hindu Marriage Act was enacted in the year .......................", options: ["1945", "1955", "1965", "1975"], correct: 1 },
+      { text: "Q6. 'History of Human Marriage' is written by .....................", options: ["Malinowski", "Westermarck", "A.R. Desai", "S.C. Dube"], correct: 1 },
+      { text: "Q7. More women and less men may lead to ....................", options: ["Polygamy", "Polygyny", "Polyandry", "None of the above"], correct: 1 },
+      { text: "Q8. Which among the following is not an endogamous group?", options: ["Caste", "Varna", "Gotra", "Religion"], correct: 2 },
+      { text: "Q9. Kinship relations established through blood is called ......................", options: ["Affinal", "Conjugal", "Consanguineous", "None of the above"], correct: 2 },
+      { text: "Q10. Marriage of high caste man with a low caste woman is called.......................", options: ["Hypogamy", "Hypergamy", "Monogamy", "Endogamy"], correct: 0 },
+      { text: "Q11. When a man marries the sister of his death wife is called......................", options: ["Exogamy", "Endogamy", "Sororate", "Levirate"], correct: 2 },
+      { text: "Q12. Which of the following factors may bring changes in marriage system?", options: ["Traditional values", "Customs", "Folkways", "Modern education"], correct: 3 },
+      { text: "Q13. Private property in land introduced in India during ....................", options: ["Ancient period", "Medieval period", "British period", "After Independence"], correct: 2 },
+      { text: "Q14. Fragmentation of land may not lead to ..............................", options: ["Less yielding", "Poverty", "Higher production", "Growth of indebtedness"], correct: 2 },
+      { text: "Q15. The example of non-cultivating owners of land is ..........................", options: ["Absentee landlord", "Farmers", "Peasants", "None of the above"], correct: 0 },
+      { text: "Q16. The full form of OBC is........................", options: ["Other Backward Class", "Other Backward Caste", "Over Backward Class", "Over Backward Caste"], correct: 0 },
+      { text: "Q17. Common territory is a feature of ............................", options: ["SC", "ST", "OBC", "All of the above"], correct: 1 },
+      { text: "Q18. Geographical isolation is a problem for ......................................", options: ["Caste", "Class", "Tribe", "Religion"], correct: 2 },
+      { text: "Q19. Which of the following statement is NOT correct about Pradhan Mantra Kaushal Vikas Yojna?", options: ["It was launched in March 2015.", "It will be implemented by the ministry of skill development and entrepreneurship.", "It will provide training to 300 million youths.", "It will focus on the class X and class XII students."], correct: 2 },
+      { text: "Q20. Launching of Sansad Adarsh Gram Yojna is related to the................", options: ["Vallabh Bhai Patel", "Deen Dayal Upadhyay", "Mahatma Gandhi", "Jai Prakash Narayan"], correct: 3 },
+      { text: "Q21. Jawahar Gram Samriddhi Yojna was launched in...................", options: ["1999", "2001", "1996", "1995"], correct: 1 },
+      { text: "Q22. \"TRYSEM\" a Programme made for the", options: ["Employment to Rural youths", "Employment to Urban youths", "Development of nutrition intake in the food of poor of the country.", "Providing road connectivity to the villages"], correct: 0 },
+      { text: "Q23. When National Horticulture Mission was launched?", options: ["2001", "2010", "2005", "2007"], correct: 2 },
+      { text: "Q24. A scientific distinction between rural and urban community can be made on the basis of", options: ["density of population", "area covered", "occupation followed by people.", "None of these"], correct: 0 },
+      { text: "Q25. Industrialization weakens the ......................", options: ["Role of religion in social life", "Father's authority in the family", "Caste system", "All of these"], correct: 3 },
+      { text: "Q26. Unlike village community, urban society lacks in ..............................", options: ["Secondary social control", "Social tolerance", "Self - sufficiency", "None of these"], correct: 2 },
+      { text: "Q27. ......................... is a self - contained unit where members share a sense of belonging and a common territorial base.", options: ["Society", "Community", "Association", "None of these"], correct: 1 },
+      { text: "Q28. is the term used to refer the relationship between human beings and their physical environment", options: ["Human physiology", "Human ecology", "Human environment", "None of these"], correct: 1 },
+      { text: "Q29. The change in village community may be seen in.........................", options: ["Caste system", "Jajmani system", "Family system", "All of these"], correct: 3 },
+      { text: "Q30. Why did villages in India tend to have more autonomy than villages in surrounding countries?", options: ["Villages in India were recognized as independent social units, each with their own council of leaders", "Each village in India had its own army, which meant that villages had more political autonomy", "Villages in India had higher income which meant that villages had more economic autonomy", "None of these"], correct: 0 },
+      { text: "Q31. Why are the villages in India witnessing a change in their overall economic activities?", options: ["Bigger families and less sources of income", "Small agricultural lands with less productivity", "After getting educated, the younger generation does not want to stay in the villages", "All of these"], correct: 3 },
+      { text: "Q32. In India, which of the following year the Department of Ministry for Women and Child development was formed?", options: ["1983", "1985", "1987", "1991"], correct: 1 },
+      { text: "Q33. Which of the following factors responsible for contributing in social change?", options: ["Cultural pluralism", "Outstanding leadership", "Technological development", "All of these"], correct: 3 },
+      { text: "Q34. There were several evil social practices like sati, child marriage, ban on widow remarriage, practice of polygamy, etc. which wes a matter of debate during.................", options: ["17th Century", "18th Century", "19th Century", "20th Century"], correct: 2 },
+      { text: "Q35. Schedule V and VI of the Indian constitution are related to...............", options: ["Decide state boundaries between the states", "Decide the powers and responsibilities of Panchayati Raj", "Protection of rights of tribals", "Protection of minorities in the country"], correct: 2 },
+      { text: "Q36. Which one of the following is not the basis of community?", options: ["Common locality", "Community sentiment", "Common political ideology", "Common way of life"], correct: 2 },
+      { text: "Q37. Which among the following is the distinctive characteristic of human society?", options: ["Capacity to propagate offspring's", "Aggressive behaviour", "Culture", "Self or We feeling"], correct: 2 },
+      { text: "Q38. ............................. is a socially defined position in a group or society.", options: ["Role", "Interaction", "Status", "Deviance"], correct: 2 },
+      { text: "Q39. Farming is the chief occupation of the people belonging to ......................", options: ["The pastoral classes", "The agricultural classes", "The commercial classes", "None of the above"], correct: 1 },
+      { text: "Q40. In an agrarian society, who are living by tilling the lands of others on a crop sharing basis?", options: ["Cultivators", "Share croppers", "Overseers", "Seasonal peasants"], correct: 1 },
+      { text: "Q41. Patriarchal society means ......................", options: ["a society dominated by men", "a society dominated by women", "a society where there is equality between men and women", "None of these"], correct: 0 },
+      { text: "Q42. The Equal Remuneration Act, of _______ provides that equal wages should be paid to equal work.", options: ["1977", "1976", "1986", "2021"], correct: 1 },
+      { text: "Q43. The National Average of child sex ratio (number of girl children per thousand boys) in the country as per Census 2011 was ....................................", options: ["961", "944", "914", "1020"], correct: 2 },
+      { text: "Q44. ........................... are those laws that deal with family-related matters such as marriage, divorce, adoption, inheritance, etc.", options: ["Family Laws", "Law of Inheritance", "Religious Laws", "State Laws"], correct: 0 },
+      { text: "Q45. Deforestation may reduce the chances of ..............................", options: ["Rainfall", "Soil Erosion", "Landslides", "All of these"], correct: 0 },
+      { text: "Q46. What is the main significance of sustainable development?", options: ["to preserve the natural resources for the needs of the future generation", "to exploit the available resource for rapid improvement", "to increase the cost of available natural resources", "to increase the reservoirs of natural resources"], correct: 0 },
+      { text: "Q47. Which of the following is not a natural resource?", options: ["Water", "Electricity", "Air", "Soil"], correct: 1 },
+      { text: "Q48. Which sector is the backbone of Indian economy?", options: ["Agriculture sector", "Industrial sector", "Financial Sector", "Tourism Sector"], correct: 0 },
+      { text: "Q49. Which among the following does not belong to welfare schemes for the farmers?", options: ["Kisan Credit Card Scheme", "SHG Bank Linkage Programme", "National Agricultural Insurance Scheme", "Employee Referral Scheme"], correct: 3 },
+      { text: "Q50. When was On Farm Water Management Scheme launched?", options: ["July 2000", "March 2002", "March 2004", "January 2004"], correct: 1 },
+      { text: "Q51. Which of the following is the major source of fresh water which is available in India?", options: ["Ocean Water", "River Water", "Pond Water", "Ground Water"], correct: 3 },
+      { text: "Q52. The rank of India in terms of water availability per person pain the world is......................", options: ["130", "131", "132", "133"], correct: 3 },
+      { text: "Q53. Ground water is accessed by", options: ["Drilling/Digging Wells", "Drip Irrigation", "Bamboo Irrigation", "None of these"], correct: 0 },
+      { text: "Q54. Which Is Not a Source of Fresh Water?", options: ["Glaciers and ice sheets", "Oceans", "Rivers", "Surface run-off water"], correct: 1 },
+      { text: "Q55. Which of the following is/are not causes of water scarcity?", options: ["Growing Population", "Growing water intensive crops", "Expansion of Irrigation facilities", "Water harvesting techniques"], correct: 3 },
+      { text: "Q56. The Ministry of Water Resources estimates total water demand rising to in 2025 is .............", options: ["1093 BCM", "3003 BCM", "4053 BCM", "5083 BCM"], correct: 0 },
+      { text: "Q57. Which Policy stipulates water allocation priorities?", options: ["Jal Kranti Abhiyan", "National mission for Ganga clean", "National water policy", "Jal Shakti mission"], correct: 2 },
+      { text: "Q58. The Water (Prevention and Control of Pollution) Act was enacted in the year ..................", options: ["1979", "1974", "2004", "1994"], correct: 1 },
+      { text: "Q59. The rapid reduction in groundwater table in several regions in India is primarily the result is....", options: ["Climate change", "Over exploitation of the ground water for irrigation", "Ground water use for domestic purposes", "Lack of artificial recharge of ground water"], correct: 1 },
+      { text: "Q60. What is 'virtual water'?", options: ["Wastewater generated from domestic activities", "The volume of water used in the production of goods and services", "Water used for irrigation", "None of these"], correct: 1 },
+      { text: "Q61. A major portion of the rural population consists of ........................  income groups.", options: ["Low", "Medium", "High", "None of these"], correct: 0 },
+      { text: "Q62. Many companies are now turning their attention to .................  markets", options: ["Urban", "Rural", "Global", "None of these"], correct: 1 },
+      { text: "Q63. For rural marketing ..............................  pricing is more suitable.", options: ["Penetration", "Skimming", "Going", "None of these"], correct: 0 },
+      { text: "Q64. Marketing research is a part of .............................  stage of rural marketing strategy.", options: ["Execution", "Planning", "Feedback", "Implementation"], correct: 1 },
+      { text: "Q65. White revolution relates  to .....................", options: ["Agriculture", "Dairy (Milk) farming", "Aquaculture", "Mineral resources"], correct: 1 },
+      { text: "Q66. Green Revolution relates to .................", options: ["Agriculture", "Dairy (Milk) farming", "Aquaculture", "Mineral resources"], correct: 0 },
+      { text: "Q67. Blue revolution relates to ...................", options: ["Aquaculture", "Agriculture", "Milk production", "Bee Keeping"], correct: 0 },
+      { text: "Q68. Consider the following statements: 1) The Accelerated Irrigation Benefits Programme was launched during 1996-97 to provide loan assistance to poor farmers. 2) The Command Area Development Programme was launched in 1974-75 for the development of water-use efficiency. Which of these statements is/are correct?", options: ["1 only", "Both 1 and 2", "2 only", "None of these"], correct: 2 },
+      { text: "Q69. Unnat Bharat Ahiyaan is the flagship programme of the .........................", options: ["Ministry of Women and Child Welfare", "Ministry of Human Resource Development (MHRD)", "Ministry of Agriculture", "Ministry of Rural Development"], correct: 1 },
+      { text: "Q70. How many higher educational institutions have been identified for the implementation of Unnat Bharat Abhiyaan?", options: ["720", "750", "710", "950"], correct: 1 },
+      { text: "Q71. Which of the following is the 'National Coordinating Institute' for the implementation of Unnat Bharat Abhiyaan?", options: ["IIT Chenai", "IIT Bombay", "IISc Bangalore", "IIT Delhi"], correct: 3 },
+      { text: "Q72. The Unnat Bharat Abhiyaan is focused to promote development of rural areas based on .........", options: ["Ghandhian vision of 'rural republics' using local resources and decentralized eco-friendly technologies", "Ghandian vision of religious tolerance and grama swaraj", "Ghandian principle separation of politics from the influence of religion", "All of these"], correct: 0 },
+      { text: "Q73. Unnat Bharat Abhyaan has an intention to ...............", options: ["To build strong base of rural education in higher educational institutions", "To leverage knowledge and resources of premier educational and research institute in rural development", "To inform the students about government schemes and programmes for rural development", "None of these"], correct: 1 },
+      { text: "Q74. Unnat Bharat Abhiyaan focus on intervention in the following areas of rural development: 1. Human Resource Development 2. Material/Economic Development", options: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"], correct: 2 },
+      { text: "Q75. One of the following is not a characteristic of rural lifestyle.", options: ["Lower population density", "Better job opportunity in MNCs and higher level of income", "A smaller choice when it comes to shopping, medical services, etc.", "All of these"], correct: 1 },
+      { text: "Q76. 'Pongal' and 'Baisakhi' are the harvest festival of the following states respectively.", options: ["Panjab and Karnataka", "Tamil Nadu and Karnataka", "Tamil Nadu and Punjab", "Punjab and Tamil Nadu"], correct: 2 },
+      { text: "Q77. 'Geographical isolation' is one of the", options: ["Chronic health issues observed in rural areas of India", "One of the disparities faced by the rural people in India", "Method of punishment to the social offenders during traditional village life", "None of these"], correct: 1 },
+      { text: "Q78. One of the following is the basic unit of society.", options: ["Family", "Non Governmental Organizations", "Religious units", "Social clubs"], correct: 0 },
+      { text: "Q79. 'Coresidentiality' means", options: ["that the residences are located in the same locality in the rural area", "that they have joint ownership of property", "that members of a family live under the same roof", "that they eat together using a common kitchen"], correct: 2 },
+      { text: "Q80. 'Commensality' implies", options: ["that the residences are located in the same locality in the rural area", "that they have joint ownership of property", "that members of a family live under the same roof", "that they eat together using a common kitchen"], correct: 3 },
+      { text: "Q81. 'Co-parcenary' means", options: ["that the residences are located in the same locality in the rural area", "that they have joint ownership of property", "that members of a family live under the same roof", "that they eat together using a common kitchen"], correct: 1 },
+      { text: "Q82. 'Linear Settlement' means ....................", options: ["the houses are strung out, each surrounded by its own compound. However, there is little to physically demarcate where one village ends and another begins.", "a tight cluster of houses is surrounded by the fields of the villagers.", "simply a scattering of homesteads or clusters of two or three houses. In this case also physical demarcation of villages is not clear.", "None of these"], correct: 0 },
+      { text: "Q83. The biological and psychological function of a family include: 1. Reproduction 2. Division of Labour 3. Love and Affection 4. Selection of Life mate", options: ["1 only", "Both 1 and 2", "Both 1 and 3", "All of these"], correct: 2 },
+      { text: "Q84. Which of the following is not a social and economic function of a family? 1. Status establishment 2. Division of Labour 3. Love and Affection 4. Selection of Life mate", options: ["1 only", "Both 1 and 2", "4 only", "3 only"], correct: 3 },
+      { text: "Q85. Which of the following are the characteristics of caste system?", options: ["Restricted Food habits", "Reinforcement by Religious Beliefs", "Caste Associations", "All of these"], correct: 3 },
+      { text: "Q86. Caste and Gender are..............", options: ["Not related", "Highly correlated", "Caste has no influence on gender behaviour", "None of these"], correct: 1 },
+      { text: "Q87. Chastity of Women strongly related to ...............", options: ["Caste status", "Social behaviour of women", "Religious practices", "None of these"], correct: 0 },
+      { text: "Q88. Rural Value System is primarily ....................................", options: ["Individualistic", "Communitarian and relational", "Self oriented", "All of these"], correct: 1 },
+      { text: "Q89. One of the following is the reward of Rural Value System.", options: ["Economic dominance", "Political Status in the society", "Emotional Support", "None of these"], correct: 2 },
+      { text: "Q90. Which of the following underpins the existence of human society and civilization?", options: ["Regular source of income", "Socio-economic status", "Muscle and Money power", "Nature"], correct: 3 },
+      { text: "Q91. Which one of the following is a type of resource based on the sources of its origin?", options: ["Potential Resources", "Biotic and Abiotic resources", "Community Resources", "All of these"], correct: 1 },
+      { text: "Q92. Who stated 'Soul of India lives in her villages'.", options: ["Bala Gangadhara Tilak", "Mahatma Gandhiji", "Sardar Vallabha Bhai Patel", "None of these"], correct: 1 },
+      { text: "Q93. Gandhiji emphasised that all social property should be held in trust. This related to .............", options: ["Trusteeship", "Panchayat Raj System", "Democratic Decentralization", "All of these"], correct: 0 },
+      { text: "Q94. Which of the following related with development of Rural Road infrastructure?", options: ["Pradhan Mantri Kisan Samman Yojana (PMKSY)", "Pradhan Mantri Awaas Yojana - Gramin (PMAY – G)", "Pradhan Mantri Gram Sadak Yojana (PMGSY)", "All of these"], correct: 2 },
+      { text: "Q95. The Deendayal Upadhyaya Gram Jyoti Yojana (DDUGJY) was launched in ...........", options: ["2021", "2015", "2020", "2019"], correct: 1 },
+      { text: "Q96. The Pradhan Mantri Ujjwala Yojana (PMUY) aims to provide .....................", options: ["clean cooking fuel to rural poor", "Electricity connection to rural households", "Supply of pure and clear drinking water rural households", "All of these"], correct: 0 },
+      { text: "Q97. Which one of the following is instrumental Indian Green Revolution?", options: ["Former Prime Minister Smt. Indira Gandhi", "Shri M S Swaminathan", "Shri Varghese Kurian", "None of these"], correct: 1 },
+      { text: "Q98. Paramparagat Krishi Vikas Yojana (PKVY) was launched in 2015 by the Prime Minister Sri Narendra Modi regime to promote ..........................", options: ["Cultivation of commercial crops", "Dairy farming", "Organic farming", "None of these"], correct: 2 },
+      { text: "Q99. Which of the following is/are determinants of Rural Livelihood? 1. Gender 2. Caste 3. Inherited livelihood 4. Education and migration", options: ["1 and 2 only", "1, 2, and 4 only", "2, 3, and 4 only", "All of these"], correct: 3 },
+      { text: "Q100. Which of the following is/are not a factor determining the Rural Livelihood Diversification? 1. Age 2. Consumption habits and preferences 3. Access to the Credit facility and ability to borrow 4. Dependency Ratio", options: ["2 only", "1 and 3 only", "1, 2, and 4 only", "1, 3, and 4 only"], correct: 3 },
+      { text: "Q101. 'De Jure Possession' with respect to the ownership of land means ..............", options: ["Possession in the eyes of law with legal title to the land ownership", "Mere occupation and use of land and property", "Ownership of the land for being in possession for relatively longer period", "All of these"], correct: 0 },
+      { text: "Q102. The formal ownership rights/presumptive titling is based on legal documents such as ..............", options: ["Sale Deed", "Tax Receipts", "Record of Rights", "All of these"], correct: 3 },
+      { text: "Q103. Which of the following Act aims at 'digitization' of land records?", options: ["'Draft Model of Land Title Act, 2019' by NITI Aayog.", "National Sample Survey Report, 2019", "Land Redistribution and Reforms Policy, 2007", "Forest Rights Act, 2006"], correct: 0 },
+      { text: "Q104. Which of the following grants equal rights to the women of Hindu community to the ancestral property?", options: ["Hindu Marriage and Succession Act, 2005", "Hindu Succession (Amendment) Act, 2005", "Draft Model of Land Titles Act, 2019", "Land Redistribution and Reforms Policy, 2007"], correct: 1 },
+      { text: "Q105. The percentage amount of water locked up in glaciers is ............... of the water on earth.", options: ["5%", "3%", "2%", "97%"], correct: 2 },
+      { text: "Q106. Which of the following is not a water management method?", options: ["Desiltation", "Artificial rains and feeding", "Afforestation", "All of these"], correct: 1 },
+      { text: "Q107. The Water (Prevention and Control of Pollution) Act was enacted in ............... to provide for the prevention and control of water pollution, and for the maintaining or restoring of wholesomeness of water in the country.", options: ["1974", "1997", "2003", "2021"], correct: 0 },
+      { text: "Q108. Animal husbandry refers ..........................", options: ["to livestock raising and selective breeding", "to aquaculture", "Commercial exploitation of animals", "None of these"], correct: 0 },
+      { text: "Q109. Apiculture and Pisciculture related to the following respectively.", options: ["Fish Farming and Bee Farming", "Bee Farming and Fish Farming", "Bee Farming and Dairy Farming", "Poultry Farming and Fish Farming"], correct: 1 },
+      { text: "Q110. JAM Trinity for rural non-farm livelihood promotion means.....................", options: ["Job, Achievement and Money", "Jan Dhan, Aadhar and Mobile", "Jan Dhan, Account and Money", "None of these"], correct: 1 },
+      { text: "Q111. 'Skill India' campaign was launched in ...................", options: ["2020", "2015", "2018", "2022"], correct: 1 },
+      { text: "Q112. NRLM stands for:", options: ["National Rural Labour Mission", "National Rural Livelihood Mission", "National Rural Legislative Mission", "None of these"], correct: 1 },
+      { text: "Q113. Rural marketing is nowadays understood through the axes of 4A's which are", options: ["Availability, Affordability, Acceptability, and Awareness", "Availability, Affordability, Acceptability, and Ability", "Availability, Affordability, Ability, and Awareness", "Availability, Ability, Acceptability, and Awareness"], correct: 0 },
+      { text: "Q114. Which of the following is/are the challenges of Rural Marketing?", options: ["Dispersed markets", "Lack of communication and transport facilities", "Prevalence of spurious brands and seasonal demand", "All of these"], correct: 3 }
+    ]
+  };
 }
 
-// Kick off loader for scr-u1 after script initializes
-loadSCRQuiz();
 let currentQuiz = null;
 let currentQuestion = 0;
 let userAnswers = {};
@@ -8173,7 +8242,7 @@ function renderQuestion() {
   document.getElementById('contentArea').innerHTML = `
     <div class="question-panel">
       <div class="question-header">
-        <div class="question-number">Question ${currentQuestion + 1} of ${currentQuiz.questions.length}</div>
+        <div class="question-number">Q${currentQuestion + 1} of ${currentQuiz.questions.length}</div>
         <div class="question-text">${q.text}</div>
       </div>
       <div class="options-container">
@@ -8412,6 +8481,13 @@ document.addEventListener('keydown', (e) => {
 });
 
 init();
+// Register SCR quiz after init completes
+const scr_quiz = getSCRQuiz();
+if (!allQuizzes.find(q => q.id === scr_quiz.id)) {
+  allQuizzes.push(scr_quiz);
+  renderFilters();
+  renderQuizzes();
+}
   </script>
 <!-- Code injected by live-server -->
 <script>

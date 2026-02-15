@@ -1,0 +1,4 @@
+quiz_id,subject,unit,name,cycle,difficulty,question_text,options,correct,explanation
+chem-u1-1,Chemistry,1,Unit 1 - Example,chemistry,medium,What is the pH of pure water at 25°C?,7||6||8||14,0,Pure water has pH 7 at 25°C.
+chem-u1-1,Chemistry,1,Unit 1 - Example,chemistry,medium,Which particle is negatively charged?,Electron||Proton||Neutron,0,Electrons carry negative charge.
+phys-u1-1,Physics,1,Unit 1 - Mechanics,physics,medium,What is Newton's second law?,F=ma||E=mc^2||V=IR,0,Force = mass × acceleration.

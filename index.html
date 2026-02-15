@@ -1487,7 +1487,9 @@ function getSubjectColor(subject) {
     'Biology': '#45B7D1',          // Blue
     'EME': '#FFA500',              // Orange
     'Maths': '#9B59B6',       // Amethyst 
-    'ESS': '#27AE60'             // green
+    'ESS': '#27AE60',             // green
+    'SCR': '#9B2FD9',              // Purple
+    'COI': '#FF8C00'               // Bright Orange
   };
   return colors[subject] || '#999';
 }
@@ -7896,7 +7898,235 @@ function getSCRQuiz() {
       { text: "Q112. NRLM stands for:", options: ["National Rural Labour Mission", "National Rural Livelihood Mission", "National Rural Legislative Mission", "None of these"], correct: 1 },
       { text: "Q113. Rural marketing is nowadays understood through the axes of 4A's which are", options: ["Availability, Affordability, Acceptability, and Awareness", "Availability, Affordability, Acceptability, and Ability", "Availability, Affordability, Ability, and Awareness", "Availability, Ability, Acceptability, and Awareness"], correct: 0 },
       { text: "Q114. Which of the following is/are the challenges of Rural Marketing?", options: ["Dispersed markets", "Lack of communication and transport facilities", "Prevalence of spurious brands and seasonal demand", "All of these"], correct: 3 }
-    ]
+    ],
+    note: "the answers are not cross-checked. proceed with caution!"
+  };
+}
+
+// COI Quiz (coi-u1) - Constitution of India - 100 Questions
+function getCOIQuiz() {
+  return {
+    id: "coi-u1",
+    subject: "COI",
+    unit: 1,
+    name: "Unit 1",
+    cycle: "physics",
+    questions: [
+      { text: "Q1. The Constitution of India was enacted by a Constituent Assembly set up", options: ["under a resolution of the Provisional Government", "under the Cabinet Mission Plan, 1946", "by the Indian National Congress", "under the Indian Independence Act, 1947"], correct: 1 },
+      { text: "Q2. The members of the Constituent Assembly were", options: ["directly elected by the people", "nominated by various political parties", "nominated by the rulers of the Indian state", "elected by the provincial assemblies"], correct: 3 },
+      { text: "Q3. The Constituent Assembly set up under the Cabinet Mission Plan had a strength of", options: ["389 members", "487 members", "298 members", "411 members"], correct: 0 },
+      { text: "Q4. The first meeting of the Constituent Assembly of India was held on", options: ["16th August 1947", "09th December 1946", "26th November 1947", "26th January 1948"], correct: 1 },
+      { text: "Q5. Which one of the following acted as the Provisional President of the Constituent Assembly?", options: ["C. Rajagopalachari", "Dr. Sachhidanand Sinha", "Dr. Rajendra Prasad", "Jawaharlal Nehru"], correct: 1 },
+      { text: "Q6. On December 11, 1946 the Constituent Assembly elected ------ as its permanent Chairman / President.", options: ["Jawaharlal Nehru", "Dr. Rajendra Prasad", "K.M. Munshi", "Dr. B.R. Ambedkar"], correct: 1 },
+      { text: "Q7. Who acted as the Chairman of the Drafting Committee of the Constituent Assembly?", options: ["C. Rajagopalachari", "Rajendra Prasad", "Jawaharlal Nehru", "B.R. Ambedkar"], correct: 3 },
+      { text: "Q8. The strength of the Constituent Assembly, after the withdrawal of the Muslim League, was reduced to", options: ["329 members", "359 members", "299 members", "331 members"], correct: 2 },
+      { text: "Q9. The Objective Resolution, which outlined the philosophy of the Indian Constitution, was moved in the Constituent Assembly by", options: ["B.R. Ambedkar", "Dr. Rajendra Prasad", "Jawaharlal Nehru", "Dr. S. Radhakrishnan"], correct: 2 },
+      { text: "Q10. The Drafting Committee of the Constitution, including the chairman, comprised of", options: ["seven members", "nine members", "eight members", "five members"], correct: 2 },
+      { text: "Q11. The Constitution of India was adopted on", options: ["26th November 1949", "26th January 1949", "31st December 1949", "26 January 1950"], correct: 0 },
+      { text: "Q12. Who of the following is regarded as the architect of the Indian Constitution?", options: ["B.R. Ambedkar", "B. N. Rau", "Rajendra Prasad", "Jawaharlal Nehru"], correct: 0 },
+      { text: "Q13. Who of the following acted as the Constitutional Advisor to the Constituent Assembly?", options: ["Dr. Sachhidanand Sinha", "Dr. Rajendra Prasad", "B.R. Amebdkar", "B.N. Rau"], correct: 3 },
+      { text: "Q14. The Constitution of India came into force on", options: ["26th January 1950", "26th January 1952", "26th November 1949", "16 August, 1948"], correct: 0 },
+      { text: "Q15. The Constituent Assembly of India took all decisions by", options: ["two-thirds majority", "all the above methods", "consensus", "simple majority"], correct: 1 },
+      { text: "Q16. The Constitution of India, at present, contains", options: ["over 440 Articles", "295 Articles", "259 Articles", "395 Articles"], correct: 3 },
+      { text: "Q17. How many schedules the Constitution of India contains?", options: ["10", "12", "9", "11"], correct: 1 },
+      { text: "Q18. Into how many parts or chapters has Indian Constitution been divided?", options: ["22", "1", "11", "21"], correct: 0 },
+      { text: "Q19. The Constitution describes the Indian Union as", options: ["None of these", "India, i.e., Bharat", "India, i.e., Hindustan", "India, i.e., Bharatvarsha"], correct: 1 },
+      { text: "Q20. The idea of the Constitution of India was flashed for the first time by", options: ["Dr. Rajendra Prasad", "B R Ambedkar", "M K Gandhi", "None of these"], correct: 2 },
+      { text: "Q21. The Constitution of India", options: ["provides single citizenship", "provides double citizenship", "provides multiple citizenship", "contains no provision regarding citizenship"], correct: 0 },
+      { text: "Q22. Right to freedom can be restricted", options: ["on all the above noted grounds", "in the interest of friendly relations foreign states", "in the interest of public order", "in the interest of security of the states"], correct: 0 },
+      { text: "Q23. Which one of the following freedom, enshrined in Article 19 of the Constitution, has been abolished?", options: ["freedom to assemble peacefully with arms", "freedom to reside and settle in any part of the country", "freedom to acquire, hold, use and dispose of property", "freedom to carry on any profession, occupation, trade or business"], correct: 2 },
+      { text: "Q24. Which one of the following exercised the most profound influence on the Indian Constitution?", options: ["The Government of India Act, 1935", "The U.S. Constitution", "The UN Charter", "British Constitution"], correct: 0 },
+      { text: "Q25. The theory of 'basic structure of the Constitution' implies", options: ["that certain features of the Constitution can be changed only after seeking prior approval of the majority of the judges of the Supreme Court", "that certain features of the Constitution are so basic to the Constitution that they cannot be abrogated", "none of the above", "that certain features of the Constitution can be changed by the Parliament with the prior approval of the majority of the state legislatures"], correct: 1 },
+      { text: "Q26. Mountbatten plan refers to", options: ["Giving total independence to India by transferring power", "Partition of India", "Elect the members to form a Constituent Assembly", "None of these"], correct: 1 },
+      { text: "Q27. One of the following was not a member of the Cabinet Mission visited India in the year 1946", options: ["None of these", "Lord Pethick Lawrance", "Sir Stafford Cripps", "A. V. Alexander"], correct: 0 },
+      { text: "Q28. The voting age in general elections was reduced from 21 years to 18 years by the", options: ["44th Constitutional Amendment", "42nd Constitutional Amendment", "72nd Constitutional Amendment", "61st Constitutional Amendment"], correct: 3 },
+      { text: "Q29. The National Flag of India adopted in the name of", options: ["Women of India", "Freedom fighters", "M K Gandhi", "Queen Elizabeth"], correct: 0 },
+      { text: "Q30. What is the chief source of political power in India?", options: ["the Constitution", "the people", "the Parliament", "the Parliament and State Legislature"], correct: 1 },
+      { text: "Q31. The Fundamental Rights of Indian citizens are contained in", options: ["none of these", "Part III of the Constitution", "Part IV of the Constitution", "the Seventh Schedule of the Constitution"], correct: 1 },
+      { text: "Q32. Which one of the following ceased to be a Fundamental Right?", options: ["right to freedom of speech", "all these", "right to property", "right to constitutional remedies"], correct: 2 },
+      { text: "Q33. The Fundamental Rights of Indian citizens", options: ["can be suspended by the President during national emergency", "cannot be suspended under any condition", "can be suspended by the President with the prior approval of the Supreme Court at any time", "can be suspended by the President during all types of emergencies"], correct: 0 },
+      { text: "Q34. Who has been vested with the power to decide whether the restrictions imposed on the Fundamental Rights of Indian citizen are reasonable or not?", options: ["none of these", "the Judiciary", "the President", "the Parliament"], correct: 1 },
+      { text: "Q35. The Government of India introduced Bharat Ratna and Padma awards under", options: ["Article 18 of the Constitution", "Article 25 of the Constitution", "Article 14 of the Constitution", "none of the above Articles"], correct: 0 },
+      { text: "Q36. Under the provisions of which Article of the Constitution the government abolished the practice of untouchability?", options: ["Article 16", "Article 20", "Article 17", "Article 18"], correct: 2 },
+      { text: "Q37. The Fundamental Rights of a citizen can be suspended", options: ["by the Supreme Court", "by the Parliament through a law enacted by two-thirds majority", "by the President during a national emergency", "none of these"], correct: 2 },
+      { text: "Q38. For the enforcement of Fundamental Rights, the courts can issue", options: ["a writ", "an ordinance", "a notification", "a decree"], correct: 0 },
+      { text: "Q39. The Constitution guarantees right against exploitation of 1. Children, 2. Women, 3. Tribal, 4. Dalits. Select the correct answer using the following codes:", options: ["1,2 and 3", "2,3 and 4", "1 and 2", "1 and 3"], correct: 2 },
+      { text: "Q40. Which one of the following is a bulwark of personal freedom?", options: ["Habeas Corpus", "Mandamus", "Quo Warranto", "Certiorari"], correct: 0 },
+      { text: "Q41. Under the Indian Constitution, a citizen", options: ["cannot be deprived of his life and liberty under any condition", "can be deprived of life and liberty only in accordance with the procedure established by law", "None of these", "can be deprived of life and liberty by the President during emergency"], correct: 0 },
+      { text: "Q42. The writ of Habeas Corpus is issued", options: ["in the former of an order to stop proceedings in a certain case", "in the form of an order calling upon a person who has detained another person to bring that person before court and show authority for such detention", "by a superior court to the lower court directing it to transfer the record of proceedings in a case for its review", "by a superior court to do something in the nature of his allotted duty"], correct: 1 },
+      { text: "Q43. The writ of Quo Warranto is an order from a superior court", options: ["the produce a person detained by an official before the nearest court within 24 hours", "to an inferior court to stop proceedings in a particular case", "to the lower court to transfer a case pending before it to the superior court for trial.", "whereby it can call upon a person to show under what authority he is holding the office"], correct: 3 },
+      { text: "Q44. The writ of Mandamus is issued by a superior court", options: ["to produce an illegally detained person before a court within 24 hours", "to command a person or public authority to do something in the nature of public duty", "in all these cases", "to command a person or public authority to stop proceedings in a case in national interest"], correct: 1 },
+      { text: "Q45. The writ of Certiorari is issued by a superior court", options: ["to an inferior court to transfer the record of proceedings in a case for its review", "to an officer to show his right to hold a particular office", "to a public authority to produce a person detained by it before the court within 24 hours", "to an inferior court to stop further proceedings in a particular case"], correct: 3 },
+      { text: "Q46. Which of the following writs literally means 'you may have the body'?", options: ["Certiorari", "Quo Warranto", "Mandamus", "Habeas Corpus"], correct: 3 },
+      { text: "Q47. A writ of Prohibition is issued by a superior court", options: ["to prevent an inferior court or tribunal from exceeding its jurisdiction or acting contrary to the rules of natural justice", "to an inferior court of body exercising judicial or quasi-judicial functions to transfer the record of proceedings in a case for its review", "whereby it can call upon a person to show under what authority he is holding the office", "to an authority to produce an illegally detained person before the court"], correct: 1 },
+      { text: "Q48. Which one of the following writs literally means 'what is your authority'?", options: ["Prohibition", "Habeas Corpus", "Quo Warranto", "Certiorari"], correct: 2 },
+      { text: "Q49. Jobs are reserved for SC and ST category", options: ["on the basis of annual income", "at the time of appointment", "on all these conditions", "at the time of pay review"], correct: 1 },
+      { text: "Q50. Right to Privacy includes", options: ["right to reside in any part of", "right to personal liberty", "right to practice any profession and carry on any occupation", "right to move freely throughout the"], correct: 1 },
+      { text: "Q51. Minority may be", options: ["Linguistic or religious", "Gender and racial", "Regional or national", "Racial or regional"], correct: 0 },
+      { text: "Q52. Freedom of Press is included in", options: ["right to equality before law", "right to carry on any occupation or profession", "right to freedom of speech and expression", "right to personal liberty"], correct: 2 },
+      { text: "Q53. A person arrested under punitive detention enjoys the right to", options: ["to be produced before the magistrate", "to be informed of the reason for the arrest and detention", "all these", "consult a lawyer of his choice"], correct: 2 },
+      { text: "Q54. Which of the following comes under the jurisdiction of both the High Courts and the Supreme Court?", options: ["disputes between the Centre and the States", "disputes between the states inter state", "protection of the Fundamental Rights", "protection against violation of the Constitution."], correct: 2 },
+      { text: "Q55. A Member of Parliament enjoys immunity from prosecution for having said anything", options: ["at a Press Conference", "in the Parliament and its committees", "at any of these places", "during the session of the Parliament"], correct: 3 },
+      { text: "Q56. Which of the following is the guardian of the Fundamental Rights of the people enshrined in the Constitution?", options: ["The Supreme Court of India", "The President of India", "The Legislature", "The Parliament"], correct: 0 },
+      { text: "Q57. The following Article is available even to aliens", options: ["Article 20", "Article 30", "Article 19", "Article 29"], correct: 0 },
+      { text: "Q58. Which of the following confers upon the citizen, the right to approach a court of law for the protection and restoration of fundamental rights?", options: ["Right to life and liberty", "Right against Exploitation", "Right to Equality", "Right to Constitutional Remedy"], correct: 3 },
+      { text: "Q59. The Fundamental Rights imply the rights", options: ["which are indispensable for the growth of human personality", "which a man inherits from the nature at the time of his birth", "which are enforced by the State", "which impose no obligation on a State"], correct: 0 },
+      { text: "Q60. Which of the following immunities is available to the Governor of a State?", options: ["He cannot be arrested", "No criminal suit can be filed against the Governor", "No civil suit can be filed against the Governor", "All of the above"], correct: 3 },
+      { text: "Q61. As per Article 21A the State shall provide free and compulsory education for all children until they complete the age of", options: ["20 years", "18 years", "10 years", "14 years"], correct: 3 },
+      { text: "Q62. In which Articles the Right to Freedom of Religion is guaranteed under the Constitution of India?", options: ["19 – 21", "36 – 51", "14 – 18", "25 – 28"], correct: 3 },
+      { text: "Q63. Which one of the following Fundamental Rights was described by Dr. B.R. Ambedkar as 'the heart and soul of Constitution'?", options: ["right to constitutional remedies", "right to religion", "all the above", "right to equality"], correct: 0 },
+      { text: "Q64. A person cannot be detained under Preventive Detention law beyond a period of", options: ["six months", "two months", "three months", "six weeks"], correct: 2 },
+      { text: "Q65. Article 33 of Indian Constitution prohibits", options: ["the right of the armed forces personnel to form association and unions", "discrimination on matters of public appointment", "all the above", "the practice of 'Untouchability' in any form"], correct: 0 },
+      { text: "Q66. Constitution empowers the state governments to make special law and provisions for", options: ["Women and Children", "Workers in the Mines", "All of these", "Farmers"], correct: 0 },
+      { text: "Q67. Who are not entitled to form association", options: ["Farmers", "Police Constables", "Merchants", "Teachers"], correct: 1 },
+      { text: "Q68. Fundamental Duties of the Indian citizens were", options: ["added to the Constitution by the 441 Amendment", "added to the Constitution by the 42 amendment", "enshrined in the original Constitution", "added to the Constitution in the wake the Supreme Court judgment Keshavananda Bharati case, with consent of all the political parties"], correct: 1 },
+      { text: "Q69. The Fundamental Duties of citizens", options: ["lie scattered throughout the Constitution", "are contained in the Presidential Order issued in 1979", "are contained in Schedule IX of Constitution", "are contained in Part IV-A of Constitution"], correct: 3 },
+      { text: "Q70. Which one of the following has wrongly listed as a duty of Indian citizens", options: ["to promote harmony and the spirit common brotherhood among the people of India", "To uphold and protect the sovereign unity and integrity of the country", "to protect and preserve the natural environment", "to practice family planning and control population"], correct: 3 },
+      { text: "Q71. Fundamental duty demands", options: ["To avoid corruption and delay in work", "To abide by the Constitution", "To work sincerely", "To abide by moral rules"], correct: 1 },
+      { text: "Q72. Fundamental duties were incorporated in the constitution by the", options: ["42nd Amendment Act, 1978", "44th Amendment Act, 1978", "42nd Amendment Act, 1976", "25th Amendment Act, 1976"], correct: 2 },
+      { text: "Q73. An integral part of the Parliament is", options: ["the Prime Minister of India", "the Chief Justice of India", "the Election Commissioner", "the President of India"], correct: 3 },
+      { text: "Q74. The function of the Pro-Temp Speaker is to", options: ["Check if the election certificates of the members are in order", "swear-in members and hold charge till a regular Speaker is elected", "conduct the proceedings of the house in the absence of the Speaker", "officiate as Speaker when the Speaker is unlikely to be elected"], correct: 1 },
+      { text: "Q75. The differences between the two houses of Parliament are resolved through", options: ["the mediation of Minister for Parliamentary Affair", "a joint committee of the two houses, specially constituted for this purpose", "a joint session of the two houses", "mediatory efforts of the officers of the two houses"], correct: 2 },
+      { text: "Q76. The quorum or minimum number of members required to hold the meeting of either house of Parliament is", options: ["one-tenth", "one-fifth", "one-third", "one-fourth"], correct: 0 },
+      { text: "Q77. Which of the following bills can be introduced in the Parliament only with the prior approval of the President?", options: ["Money Bills", "all these", "bill pertaining to impeachment of President", "bill pertaining to powers of the Supreme Court"], correct: 0 },
+      { text: "Q78. The Speaker of the Lok Sabha has to address his letter of resignation to", options: ["the Prime Minister", "the Deputy Speaker of the Lok Sabha", "the President", "the Vice-President"], correct: 1 },
+      { text: "Q79. Who of the following is considered the custodian of Lok Sabha?", options: ["the leader of the Opposition", "the Chief Whip of the ruling party", "the Prime Minister", "the Speaker"], correct: 0 },
+      { text: "Q80. Who among the following may belong to the Rajya Sabha but can speak in both the Lok Sabha and the Rajya Sabha", options: ["ministers who are members of the Rajya Sabha", "the leader of the house in the Rajya Sabha", "the Deputy Chairman of the Rajya Sabha", "nominated members of the Rajya Sabha who are experts of a particular field"], correct: 0 },
+      { text: "Q81. A member, after being elected as Speaker of Lok Sabha, generally", options: ["becomes the Chief Spokesman of his party", "continues to be a member of the party and seeks to promote its interests", "cuts off his connections with his party", "joins the ruling party"], correct: 2 },
+      { text: "Q82. The Constitution has vested the executive power of the Union Government in", options: ["all the above three", "the Council of Ministers", "the President", "the Prime Minister"], correct: 2 },
+      { text: "Q83. To be eligible for election as President a candidate must be", options: ["over 35 years of age", "over 55 years of age", "over 60 years of age", "there is no age limit prescribed by the Constitution"], correct: 0 },
+      { text: "Q84. Who decides the disputes regarding election of the President?", options: ["the Parliament", "the Election Commission", "the Supreme Court", "both Supreme Court and High Courts"], correct: 2 },
+      { text: "Q85. If the President wishes to tender his resignation before the expiry of his normal term, he has to address the same to", options: ["the Chief Justice of India", "the Vice-President of India", "the Speaker of Lok Sabha", "the Election Commission"], correct: 1 },
+      { text: "Q86. The Vice-President is the ex-officio Chairman of", options: ["the National Development Council", "the Rajya Sabha", "None of the above", "the Planning Commission"], correct: 1 },
+      { text: "Q87. What is the maximum strength of the Lok Sabha at any time in future?", options: ["545", "550", "525", "543"], correct: 1 },
+      { text: "Q88. The members of Lok Sabha are", options: ["partly nominated and partly elected indirectly", "directly elected by the people", "indirectly elected through state legislatures", "partly elected directly and partly elected indirectly"], correct: 1 },
+      { text: "Q89. The Speaker of the Lok Sabha is", options: ["elected by the members of the two houses at a joint sitting", "elected by the members of the Lok Sabha", "appointed by the President on the recommendations of the Prime Minister", "appointed by the President"], correct: 1 },
+      { text: "Q90. The Parliament or a state legislature can declare a seat vacant if a member is absent without permission from the sessions for", options: ["120 days", "30 days", "90 days", "60 days"], correct: 3 },
+      { text: "Q91. No person can contest elections for the membership of the Lok Sabha at the union legislature and Vidhan Sabha of the state legislature unless he is a citizen of India and has completed the age of", options: ["25 years", "18 years and 21 years respectively", "30 years", "28 years and 30 years respectively"], correct: 0 },
+      { text: "Q92. Who of the following is the executive head of a State?", options: ["the President", "the Chief Minister", "None of these", "the Governor"], correct: 3 },
+      { text: "Q93. The Indian Judiciary is a", options: ["dependent system on legislature and executive", "single and integrated judicial system", "Highest law making body", "Act on the orders by the Indian Parliament"], correct: 1 },
+      { text: "Q94. The administrators of Union Territories are designated as", options: ["Commissioner", "Governor", "Lieutenant Governor", "Chief Secretary"], correct: 2 },
+      { text: "Q95. The Supreme Court of India enjoys the power of judicial review which implies that it can declare the laws passed by the legislature and orders issued by the executive as unconstitutional, if", options: ["initiate cases at its own discretion", "review its own judgements", "they contravene any provision of the Constitution", "review the working of the subordinate courts"], correct: 2 },
+      { text: "Q96. While imparting justice, the Supreme Court relies on the principle of", options: ["Due process of law", "Procedure established by law", "Rule of Law", "All of these"], correct: 3 },
+      { text: "Q97. A judge of the Supreme Court can relinquish office before the completion of his tenure addressing his resignation to", options: ["the Union Law Minister", "the Chief Justice of India", "the President", "the Prime Minister of India"], correct: 2 },
+      { text: "Q98. The members of the State Legislative Council are", options: ["wholly nominated", "wholly elected indirectly", "wholly elected directly by the people", "partly elected and partly nominated"], correct: 3 },
+      { text: "Q99. The maximum gap between two sessions of Parliament can be", options: ["four months", "one year", "six months", "nine months"], correct: 2 },
+      { text: "Q100. The Chief Justice and other judges of the High Court are appointed by", options: ["the Governor", "the Prime Minister", "the President of India", "the Chief Justice of India"], correct: 2 }
+    ],
+    note: "the answers are not cross-checked. proceed with caution!"
+  };
+}
+
+function getCOIQuiz_Unit2() {
+  return {
+    id: "coi-u2",
+    subject: "COI",
+    unit: 2,
+    name: "Unit 2",
+    cycle: "physics",
+    questions: [
+      { text: "Q1. The power to form new states or change the boundaries of existing states rests with", options: ["the Election Commission", "the President", "the Parliament", "none of these"], correct: 3 },
+      { text: "Q2. The states were reorganized on linguistic basis in", options: ["1956", "1951", "1947", "1966"], correct: 2 },
+      { text: "Q3. Which state enjoys the distinction of be the first linguistic state of India?", options: ["Tamil Nadu", "Andhra Pradesh", "Punjab", "West Bengal"], correct: 3 },
+      { text: "Q4. The structure of administration in various union territories", options: ["is determined by the President", "has been prescribed in the Constitution", "is determined by the Union Home Minister", "is determined by the Parliament"], correct: 2 },
+      { text: "Q5. The administrators of Union Territories are designated as", options: ["Chief Commissioners", "Administrators", "Lieutenant Governor", "all these"], correct: 3 },
+      { text: "Q6. What is the maximum percentage of jobs that can be reserved by a state for backward class people in the government jobs?", options: ["75%", "50%", "22.50%", "27%"], correct: 3 },
+      { text: "Q7. The President can dismiss a member of the Council of Ministers", options: ["with the consent of the Speaker", "at his discretion", "none of these", "on the recommendation of the Prime Minister"], correct: 2 },
+      { text: "Q8. The President of India is bound to follow the advice given by the", options: ["Chief Justice of India", "Union Council of Ministers", "Attorney General of India", "Prime Minister of India"], correct: 2 },
+      { text: "Q9. The ministers hold office during the pleasure of the President which in fact means during the pleasure of", options: ["None of these", "the parliament", "the Lok Sabha", "the Prime Minister"], correct: 0 },
+      { text: "Q10. A member of a Parliament or a state legislature can be elected as President but", options: ["he has to relinquish his seat as soon as he is elected", "he has to resign his seat before contesting the election", "a member of Parliament can contest but a member of state legislature cannot contest", "he has to relinquish his seat within six months of his election"], correct: 2 },
+      { text: "Q11. The Presidential address is prepared by", options: ["the Special Secretary of the President", "the Minister for Parliamentary Affairs", "the Prime Minister and his Cabinet", "a Cabinet Minister of the President's choice"], correct: 3 },
+      { text: "Q12. To which of the following bills must the President accord his sanction without sending it back for reconsideration?", options: ["Money Bills", "Ordinary Bills", "bills seeking amendment to the Constitution", "bills passed by both the houses of Parliament"], correct: 3 },
+      { text: "Q13. After a bill is passed by the Parliament it is sent to the President for his assent, who can return it for reconsideration to the Lok Sabha. But if the bill is re-passed by the Parliament and sent to the President for his assent he", options: ["has to sign it", "can submit the same to the people for referendum", "can get it nullified through the Supreme Court", "can send the bill to the Parliament for reconsideration for the second time"], correct: 2 },
+      { text: "Q14. The defeat of government in Rajya Sabha leads to", options: ["its dismissal by the President", "None of these", "resignation of the Prime Minister", "advice by the President to the Prime Minister to relinquish office"], correct: 3 },
+      { text: "Q15. The minimum age at which a person can be appointed Prime Minister of India is", options: ["35 years", "30 years", "25 years", "21 years"], correct: 0 },
+      { text: "Q16. In the event of the resignation or death of the Prime Minister", options: ["the Council of Ministers stands automatically dissolved", "the President can take any of the above actions wrong", "the senior most member of the Council of Ministers automatically becomes the Prime Minister", "The Lok Sabha stands automatically dissolved and fresh elections must be held within six months"], correct: 1 },
+      { text: "Q17. Who can dissolve the Lok Sabha before the expiry of its normal term of five years?", options: ["the President", "the President on the recommendation of the Prime Minister", "the Prime Minister", "the President on the recommendation of the Speaker"], correct: 3 },
+      { text: "Q18. The President can call a joint session of the two houses of Parliament", options: ["if the amendment proposed to the bill by one house is not acceptable to the other house", "under all these conditions", "if the house does not take any action for six months on a bill remitted by other house", "if a bill passed by one house is rejected by the other"], correct: 2 },
+      { text: "Q19. Who presides over the joint sessions of the Parliament?", options: ["the Speaker", "the Vice-President", "the President", "the Speaker and Vice-President by rotation"], correct: 3 },
+      { text: "Q20. The Speaker of the Lok Sabha makes use of his casting vote only", options: ["in case of emergency", "in case of constitutional amendments", "to save the existing government", "in case of a tie"], correct: 0 },
+      { text: "Q21. Lok Sabha passes vote on account to", options: ["assert its supremacy over finances", "to meet expenditure on secret services", "meet the expenditure during the period between the introduction of Budget and its passage", "to enable the government to spend on unexpected demands"], correct: 0 },
+      { text: "Q22. The maximum gap between the two sessions of Parliament", options: ["nine months", "six months", "three months", "four months"], correct: 0 },
+      { text: "Q23. Who convenes the joint sessions of the Lok Sabha and Rajya Sabha?", options: ["the Chairman of the Rajya Sabha", "the President", "the Speaker", "the Minister for Parliamentary Affairs"], correct: 3 },
+      { text: "Q24. A Money Bill passed by the Lok Sabha can be delayed by the Rajya Sabha for a maximum period of", options: ["one month", "14 days", "three months", "two months"], correct: 2 },
+      { text: "Q25. What happens if a Money Bill passed by the Lok Sabha is partially amended by the Rajya Sabha?", options: ["a joint sitting of the two houses is called to resolve the differences", "The Lok Sabha has to send back the bill for the reconsideration of the Rajya Sabha", "the bill lapses", "the Lok Sabha can proceed with the Bill without the amendments proposed by the Rajya Sabha"], correct: 1 },
+      { text: "Q26. A Money Bill can originate", options: ["only in the Rajya Sabha", "only in the Lok Sabha", "only in a joint sitting of the two houses", "in either house of Parliament"], correct: 2 },
+      { text: "Q27. Which one of the following sets of Bills is presented to the Parliament along with the Budget?", options: ["Finance Bill and Appropriation Bill", "Contingency Bill and Appropriation Bill", "Finance Bill and Contingency Bill", "Direct Taxes and Indirect Taxes Bill"], correct: 3 },
+      { text: "Q28. The Council of Ministers has to tender its resignation if a vote of no-confidence is passed against it", options: ["by the two houses at a joint sitting", "by the Lok Sabha", "by the two houses of Parliament by two thirds majority", "by the Rajya Sabha"], correct: 2 },
+      { text: "Q29. Who decides whether a bill is a Money Bill or not?", options: ["Speaker of Lok Sabha", "President", "select Parliamentary Committee", "Prime Minister"], correct: 2 },
+      { text: "Q30. The Parliament of India cannot be considered a sovereign body because", options: ["of all these factors", "of the presence of certain Fundamental Rights of citizens in the constitution", "its authority is confined to jurisdiction earmarked by the Constitution", "laws passed by the Parliament can be declared unconstitutional by the Supreme Court"], correct: 0 },
+      { text: "Q31. In case of differences between the two houses of Parliament over a bill, a joint session of the two houses is held where decision is taken by majority vote. In case there is a tie (votes in favour and against a bill are equal) how is the same resolved?", options: ["the bill is again submitted to vote of the two houses at a joint sitting after a gap of four weeks", "The bill is shelved for the session and taken up for consideration at the next session afresh", "the Speaker can make use of his casting vote", "the Chairman of the Rajya Sabha can make use of his casting vote"], correct: 1 },
+      { text: "Q32. The Prime Minister is the link between", options: ["All these", "the President of India and Union Council of Ministers", "the President of India and both the Houses of Parliament", "the Legislature and the Executive"], correct: 0 },
+      { text: "Q33. The size of the Council of Ministers at the centre decided by the strength of the", options: ["No such restriction", "Rajya Sabha", "parliament", "Lok Sabha"], correct: 0 },
+      { text: "Q34. The size of the Ministry in a state is decided by the", options: ["Governor", "Members of the Legislative Assembly", "None of these", "Chief Minister"], correct: 2 },
+      { text: "Q35. The seat of a member of the house declared vacant if he or she is", options: ["if accused of an offence for which the life or death punishment may be awarded", "if indulges in anti-party activity", "None of these", "absent to the session continuously for sixty days without prior notice and permission"], correct: 2 },
+      { text: "Q36. Which of the following is not explicitly stated in the Constitution of India but followed as a convention?", options: ["All the parts of India are to be represented in the Council of Ministers", "The Finance Minister is to be a member of the Lower House", "The Prime Minister has to resign if he loses majority in the Lower House", "The Speaker of the Lok Sabha officiate as President of India in the absence of both the President and Vice – Presidents of India"], correct: 3 },
+      { text: "Q37. If the Prime Minister of India belonged to the Uppers House of Parliament", options: ["he can make statements only in the Upper House", "he has to become a member of the Lower House within six months after being sworn in as the Prime Minister", "he will not be able to speak on the budget in the Lower House", "he will not be able to vote in his favour in the event of no confidence motion"], correct: 1 },
+      { text: "Q38. What is the duration of Zero Hour in the Lok Sabha", options: ["none of these", "30 minutes", "15 minutes", "One hour"], correct: 0 },
+      { text: "Q39. According to the Preamble, our Constitution envisages", options: ["Social justice", "Political Justice", "All these", "Economic justice"], correct: 1 },
+      { text: "Q40. The Union Budget is presented to the Parliament normally on", options: ["the last day of February", "15th March", "the last day of March", "1st April"], correct: 3 },
+      { text: "Q41. The maximum permissible interval between two sessions of Parliament as prescribed in our Constitution is", options: ["06 months", "One year", "09 months", "03 months"], correct: 2 },
+      { text: "Q42. The Constitution of India does not mention the post of", options: ["Deputy Speaker of Lok Sabha", "Deputy Chairperson of Rajya Sabha", "All these", "Deputy Prime Minister of India"], correct: 2 },
+      { text: "Q43. India is a Republic, because", options: ["the head of the State is elected for a fixed tenure", "it has an elected parliament", "it is a member of commonwealth", "it has a written Constitution"], correct: 3 },
+      { text: "Q44. Indian Constitution provides for a", options: ["Bicameral system", "Unitary System", "Presidential System", "Unicameral system"], correct: 1 },
+      { text: "Q45. An interpretation of the Indian Constitution is based on the spirit of the", options: ["Fundamental Rights", "Fundamental Duties", "Preamble", "Directive Principles of State Policies"], correct: 1 },
+      { text: "Q46. The size of the Council of Ministers is decided by", options: ["Parliament", "President of India", "Strength of Lok Sabha", "Election Commission"], correct: 1 },
+      { text: "Q47. The words 'socialist secular' and 'and integrity' were added to the Preamble of Indian Constitution by the ______ Amendment", options: ["42nd", "25th", "44th", "none of these"], correct: 3 },
+      { text: "Q48. Indian Constitution has emphasized on securing social, economic and political justice to the citizens of the country. These objectives aim at establishing India as a", options: ["Sovereign State", "Secular State", "Developed State", "Welfare State"], correct: 2 },
+      { text: "Q49. Who describes the Prime Minister of India as 'Primus Inter Pares' (first among equals)?", options: ["Lord Morley", "K. M. Munshi", "Harold Laski", "Sir William Vernon"], correct: 1 },
+      { text: "Q50. The President will decide the question as to disqualification of the Members of Parliament in consultation with the", options: ["Speaker", "Prime Minister", "Election Commission", "Chief Justice of Inida"], correct: 3 },
+      { text: "Q51. Which article provides that there shall be the Prime Minister of India?", options: ["Art. 74", "Art. 124", "Art. 52", "Art. 153"], correct: 3 },
+      { text: "Q52. Who announces the Government policies on the floor of the House?", options: ["President", "Prime Minister", "Speaker of the Lok Sabha", "Finance Minister"], correct: 3 },
+      { text: "Q53. Who presides over the meetings of the Union Council of Ministers?", options: ["Vice President", "Prime Minister", "President", "Speaker of Lok Sabha"], correct: 0 },
+      { text: "Q54. Council of Ministers shall hold the office during the pleasure of", options: ["Prime Minister", "Members of the House", "President", "Speaker"], correct: 0 },
+      { text: "Q55. Budget in India Constitution is classified into", options: ["Two types", "No such classification", "Three types", "Four types"], correct: 1 },
+      { text: "Q56. Who among the following is referred as one of the officers of the parliament", options: ["None of these", "Deputy Speaker", "Council of Minister", "Prime Minister"], correct: 0 },
+      { text: "Q57. Joint session is called in case of dead lock between the two Houses of the Parliament with regard to", options: ["Ordinary Bill", "Financial Bill", "Money Bill", "Both Ordinary and Financial Bill"], correct: 0 },
+      { text: "Q58. According to the 91st Constitutional Amendment of 2003, the total strength of the Council of Ministers should not exceed ------------ of the total strength of the Lok Sabha.", options: ["25%", "10%", "15%", "22.50%"], correct: 3 },
+      { text: "Q59. The President of India can nominate to the Rajya Sabha", options: ["20 members", "12 members", "08 members", "None"], correct: 3 },
+      { text: "Q60. The number of Ministers in the Central Government is fixed by the", options: ["Prime Minister", "Speaker", "President", "Parliament"], correct: 1 },
+      { text: "Q61. The salaries and allowances of the members of the Council of Ministers", options: ["are determined by the President in consultation with the Prime Minister", "have been stipulated in the Constitution", "are determined by the Parliament from time to time", "are fixed by the President in consultation with the Speaker"], correct: 3 },
+      { text: "Q62. The power to control the expenditure of the Government of India rests exclusively with", options: ["the Comptroller and Auditor General", "the Parliament", "the Union Finance Minister", "the President"], correct: 2 },
+      { text: "Q63. Who will appoint the Chief Minister of a State?", options: ["President of India", "Governor of that State", "Chief Justice of High Court of that State", "Prime Minister of India"], correct: 2 },
+      { text: "Q64. The Chief Minister, who is the head of the government in a state, is", options: ["appointed by the governor on the advice of Chief Justice of the High Court", "appointed by the President", "appointed by the governor of that state", "elected by the state legislature"], correct: 0 },
+      { text: "Q65. Who of the following is regarded the head of the state council of ministers?", options: ["the Chief Minister", "none of these", "the Governor", "the Speaker"], correct: 1 },
+      { text: "Q66. A member of the council of ministers can hold office without being a member of the state legislature for a maximum period of", options: ["three months", "one year", "two years", "six months"], correct: 2 },
+      { text: "Q67. Who among the following enjoys the distinction of being the first woman Dalit Chief Minister of a state?", options: ["PadmajaNaidu", "Nandani Satpati", "Sarojani Naidu", "Mayawati"], correct: 2 },
+      { text: "Q68. What is the main function of the Lok Sabha?", options: ["All of these", "to function as a court", "to levy taxes", "to legislate"], correct: 3 },
+      { text: "Q69. Which part of the constitution deals with citizenship?", options: ["Part I", "Part IV", "Part II", "Part III"], correct: 0 },
+      { text: "Q70. The Constitution of India was adopted on", options: ["15 August 1948", "26 January 1950", "26 November 1949", "1 January 1949"], correct: 1 },
+      { text: "Q71. How many schedules are there in the Indian Constitution?", options: ["12", "10", "14", "8"], correct: 3 },
+      { text: "Q72. The title of the President of India is?", options: ["The President of India", "All the above", "The President of the Indian Union", "The Head of State"], correct: 2 },
+      { text: "Q73. The President of India can take decisions on?", options: ["all matters related to external affairs", "All of these", "matters relating to national security", "matters relating to defense"], correct: 2 },
+      { text: "Q74. The Vice-President of India is elected by?", options: ["Members of state legislatures", "people of India", "None of the above", "Members of both houses of Parliament"], correct: 1 },
+      { text: "Q75. The Chief Justice of India is appointed by?", options: ["None of the above", "President of India", "Prime Minister", "members of Parliament"], correct: 1 },
+      { text: "Q76. The Constitution of India is?", options: ["Written constitution of equal length to others", "Unwritten constitution", "The longest written constitution", "The shor test written constitution"], correct: 3 },
+      { text: "Q77. Which is the supreme law of the land in India?", options: ["The Parliament laws", "The Judiciary decisions", "The Executive Orders", "The Constitution"], correct: 3 },
+      { text: "Q78. The fundamental duties are enshrined in?", options: ["Part IV-A", "Part V-A", "Part III", "Part III-A"], correct: 3 },
+      { text: "Q79. The Directive Principles of State Policy are?", options: ["justiciable", "partially justiciable", "not justiciable", "None of the above"], correct: 0 },
+      { text: "Q80. The President of India can declare a national emergency under?", options: ["Article 360", "Article 352", "All of the above", "Article 356"], correct: 1 },
+      { text: "Q81. Which article of the Constitution deals with the abolition of untouchability?", options: ["Article 25", "Article 17", "Article 29", "Article 15"], correct: 1 },
+      { text: "Q82. The right to property is?", options: ["A Fundamental Right", "A Legal Right", "A Constitutional Right", "None of the above"], correct: 0 },
+      { text: "Q83. The Indian Constitution provides for?", options: ["Universal Adult Suffrage", "All of the above", "Reserved seats for women", "Reserved seats for minorities"], correct: 0 },
+      { text: "Q84. The power to amend the Constitution is vested in?", options: ["The President", "The Supreme Court", "The people of India", "The Parliament"], correct: 2 },
+      { text: "Q85. The constitution can be amended by?", options: ["Unanimity in Parliament", "Three-fourths majority in Parliament", "Simple majority in Parliament", "Two-thirds majority in Parliament"], correct: 2 },
+      { text: "Q86. Which amendment granted voting rights to women in India?", options: ["20th Amendment", "14th Amendment", "19th Amendment", "Constitution itself"], correct: 2 },
+      { text: "Q87. The Lok Sabha has a maximum strength of?", options: ["545", "500", "552", "600"], correct: 1 },
+      { text: "Q88. The Rajya Sabha has a maximum strength of?", options: ["250", "350", "300", "200"], correct: 3 },
+      { text: "Q89. The tenure of Lok Sabha members is?", options: ["3 years", "6 years", "4 years", "5 years"], correct: 2 },
+      { text: "Q90. The tenure of Rajya Sabha members is?", options: ["6 years", "4 years", "3 years", "5 years"], correct: 1 },
+      { text: "Q91. The state government is headed by?", options: ["Chief Judge", "Chief Minister", "Chief Commissioner", "Chief Secretary"], correct: 1 },
+      { text: "Q92. The state legislature can have?", options: ["Three houses", "Both (a) and (b)", "Two houses", "Only one house"], correct: 3 },
+      { text: "Q93. The power to declare war and peace rests with?", options: ["Union Cabinet", "Prime Minister", "President", "Parliament"], correct: 2 },
+      { text: "Q94. The Supreme Court has how many judges including the Chief Justice?", options: ["25", "31", "35", "30"], correct: 0 },
+      { text: "Q95. The constitutional amendment which gave constitutional status to village panchayats is the?", options: ["71st Amendment", "74th Amendment", "73rd Amendment", "72nd Amendment"], correct: 0 },
+      { text: "Q96. Choosing eco-friendly transportation supports?", options: ["Cultural heritage", "Global inequality", "Political reforms", "Sustainability"], correct: 1 },
+      { text: "Q97. The constitution grants citizenship based on?", options: ["Both descent and place of birth", "Government discretion", "Place of birth only", "Descent only"], correct: 3 },
+      { text: "Q98. How many languages are listed in the 8th Schedule of the Constitution?", options: ["18", "25", "22", "15"], correct: 3 },
+      { text: "Q99. The constitutional position of the Prime Minister is the?", options: ["Judicial officer", "Legislative head", "Executive head", "Both (a) and (b)"], correct: 2 },
+      { text: "Q100. Which article abolishes the practice of untouchability?", options: ["Article 16", "Article 17", "Article 18", "Article 15"], correct: 3 }
+    ],
+    note: "the answers are not cross-checked. proceed with caution!"
   };
 }
 
@@ -8485,6 +8715,20 @@ init();
 const scr_quiz = getSCRQuiz();
 if (!allQuizzes.find(q => q.id === scr_quiz.id)) {
   allQuizzes.push(scr_quiz);
+  renderFilters();
+  renderQuizzes();
+}
+// Register COI quiz after init completes
+const coi_quiz = getCOIQuiz();
+if (!allQuizzes.find(q => q.id === coi_quiz.id)) {
+  allQuizzes.push(coi_quiz);
+  renderFilters();
+  renderQuizzes();
+}
+// Register COI Unit 2 quiz after init completes
+const coi_u2_quiz = getCOIQuiz_Unit2();
+if (!allQuizzes.find(q => q.id === coi_u2_quiz.id)) {
+  allQuizzes.push(coi_u2_quiz);
   renderFilters();
   renderQuizzes();
 }

@@ -1355,12 +1355,11 @@
       .discord-bubble span { display: none; }
       .discord-bubble { padding: 10px; }
       /* navbar adjustments for small screens */
-      .navbar { justify-content: center; flex-wrap: nowrap; }
-      .navbar-left { justify-content: center; gap: 8px; }
+      .navbar { justify-content: space-between; }
+      .navbar-left { justify-content: flex-start; gap: 8px; flex-wrap: wrap; }
       .navbar-left > * { flex-shrink: 0; }
-      .navbar .visit-counter, .navbar .cycle-toggle { order: 2; }
-      .navbar h1 { order: 1; text-align: center; }
-      .theme-toggle-btn { order: 3; margin-top: 8px; }
+      /* keep theme toggle on right and prevent wrapping */
+      .theme-toggle-btn { flex-shrink: 0; margin-top: 0; }
 
       /* reduce unused space around quiz panel */
       .content-area { padding: 20px; }

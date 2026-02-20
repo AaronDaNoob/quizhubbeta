@@ -96,6 +96,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-left: auto; /* push to rightmost edge */
     }
     
     .theme-toggle-btn:hover {
@@ -1355,11 +1356,11 @@
       .discord-bubble span { display: none; }
       .discord-bubble { padding: 10px; }
       /* navbar adjustments for small screens */
-      .navbar { justify-content: space-between; }
+      .navbar { justify-content: space-between; position: relative; }
       .navbar-left { justify-content: flex-start; gap: 8px; flex-wrap: wrap; }
       .navbar-left > * { flex-shrink: 0; }
       /* keep theme toggle on right and prevent wrapping */
-      .theme-toggle-btn { flex-shrink: 0; margin-top: 0; }
+      .theme-toggle-btn { flex-shrink: 0; margin-top: 0; margin-left: auto; }
 
       /* reduce unused space around quiz panel */
       .content-area { padding: 20px; }
@@ -1577,14 +1578,19 @@ function updateCycleUI() {
   btn.classList.remove('chem', 'phy');
   if (!selectedCycle) {
     btn.textContent = 'Choose Cycle';
+    btn.setAttribute('title','Choose Cycle');
     btn.style.background = 'transparent';
     btn.style.color = '';
     return;
   }
-  btn.textContent = selectedCycle === 'chemistry' ? 'Chemistry Cycle' : 'Physics Cycle';
+  // show single letter on button, but preserve full title
   if (selectedCycle === 'chemistry') {
+    btn.textContent = 'C';
+    btn.setAttribute('title','Chemistry Cycle');
     btn.classList.add('chem');
   } else {
+    btn.textContent = 'P';
+    btn.setAttribute('title','Physics Cycle');
     btn.classList.add('phy');
   }
 }

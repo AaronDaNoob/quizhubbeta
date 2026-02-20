@@ -33,6 +33,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
     
     body.light-mode .navbar {
@@ -47,6 +48,7 @@
       display: flex;
       align-items: center;
       gap: 16px;
+      flex-wrap: wrap;
     }
     
     .sidebar-toggle-btn {
@@ -80,6 +82,7 @@
       margin: 0; 
       font-weight: 700;
       letter-spacing: -0.5px;
+      flex-shrink: 1;
     }
     
     .theme-toggle-btn {
@@ -579,8 +582,12 @@
       gap: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       transition: transform 150ms ease, box-shadow 150ms ease;
+      color: white;
     }
     #cycleToggleBtn.cycle-toggle:hover { transform: translateY(-2px); }
+    /* match modal button gradients */
+    #cycleToggleBtn.cycle-toggle.chem { background: linear-gradient(135deg,#FF7B7B,#FF2D2D); }
+    #cycleToggleBtn.cycle-toggle.phy { background: linear-gradient(135deg,#667eea,#008cff); }
 
     body.light-mode .quiz-tag {
       background: rgba(102, 126, 234, 0.32);
@@ -594,6 +601,16 @@
       color: #ffffff;
       border: 1px solid rgba(255,255,255,0.06);
       box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    }
+    
+    /* override generic quiz-tag styles for cycle badges */
+    .quiz-tag.cycle-badge.chemistry {
+      background: linear-gradient(135deg,#FF7B7B,#FF2D2D);
+      color: #fff;
+    }
+    .quiz-tag.cycle-badge.physics {
+      background: linear-gradient(135deg,#667eea,#008cff);
+      color: #fff;
     }
     
     .quiz-meta { 
@@ -1063,6 +1080,23 @@
       font-weight: 700;
     }
     
+    /* controls for selecting quiz/attempt */
+    .review-controls {
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .selector-label {
+      font-size: 14px;
+    }
+    .selector-label select {
+      margin-left: 4px;
+      padding: 4px 6px;
+      font-size: 14px;
+    }
+    
     .review-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1320,6 +1354,19 @@
     @media (max-width: 480px) {
       .discord-bubble span { display: none; }
       .discord-bubble { padding: 10px; }
+      /* navbar adjustments for small screens */
+      .navbar { justify-content: center; }
+      .navbar-left { justify-content: center; gap: 8px; }
+      .navbar-left > * { flex-shrink: 0; }
+      .navbar .visit-counter, .navbar .cycle-toggle { order: 2; }
+      .navbar h1 { order: 1; text-align: center; }
+      .theme-toggle-btn { order: 3; margin-top: 8px; }
+
+      /* reduce unused space around quiz panel */
+      .content-area { padding: 20px; }
+      .question-panel { padding: 10px; }
+      .options-container { gap: 8px; }
+      .option { padding: 10px; }
     }
   </style>
 </head>
@@ -1527,6 +1574,8 @@ function toggleCycle() {
 function updateCycleUI() {
   const btn = document.getElementById('cycleToggleBtn');
   if (!btn) return;
+  // clear previous cycle classes
+  btn.classList.remove('chem', 'phy');
   if (!selectedCycle) {
     btn.textContent = 'Choose Cycle';
     btn.style.background = 'transparent';
@@ -1535,13 +1584,12 @@ function updateCycleUI() {
   }
   btn.textContent = selectedCycle === 'chemistry' ? 'Chemistry Cycle' : 'Physics Cycle';
   if (selectedCycle === 'chemistry') {
-    btn.style.background = 'linear-gradient(135deg,#FF7B7B,#FF2D2D)';
-    btn.style.color = 'white';
+    btn.classList.add('chem');
   } else {
-    btn.style.background = 'linear-gradient(135deg,#667eea,#008cff)';
-    btn.style.color = 'white';
+    btn.classList.add('phy');
   }
 }
+
 
 function showCycleChooser() {
   const modal = document.getElementById('cycleModal');
@@ -7899,7 +7947,7 @@ function getSCRQuiz() {
       { text: "Q113. Rural marketing is nowadays understood through the axes of 4A's which are", options: ["Availability, Affordability, Acceptability, and Awareness", "Availability, Affordability, Acceptability, and Ability", "Availability, Affordability, Ability, and Awareness", "Availability, Ability, Acceptability, and Awareness"], correct: 0 },
       { text: "Q114. Which of the following is/are the challenges of Rural Marketing?", options: ["Dispersed markets", "Lack of communication and transport facilities", "Prevalence of spurious brands and seasonal demand", "All of these"], correct: 3 }
     ],
-    note: "the answers have been crosschecked and verified!! enjoy ;))"
+    note: "the answers have been crosschecked and verified! enjoy;)"
   };
 }
 
@@ -8013,7 +8061,7 @@ function getCOIQuiz() {
       { text: "Q99. The maximum gap between two sessions of Parliament can be", options: ["four months", "one year", "six months", "nine months"], correct: 2 },
       { text: "Q100. The Chief Justice and other judges of the High Court are appointed by", options: ["the Governor", "the Prime Minister", "the President of India", "the Chief Justice of India"], correct: 2 }
     ],
-    note: "the answers have been crosschecked and verified!! enjoy ;))"
+    note: "the answers have been crosschecked and verified! enjoy;)"
   };
 }
 
@@ -8126,7 +8174,7 @@ function getCOIQuiz_Unit2() {
       { text: "Q99. The constitutional position of the Prime Minister is the?", options: ["Judicial officer", "Legislative head", "Executive head", "Both (a) and (b)"], correct: 2 },
       { text: "Q100. Which article abolishes the practice of untouchability?", options: ["Article 16", "Article 17", "Article 18", "Article 15"], correct: 3 }
     ],
-    note: "this is mostly not there for the test tomorrow. I aint all tht too sure about it tho and also... the answers are not cross-checked. so pls proceed with caution!"
+    note: "prolly not there for tomo's exam and also.. the answers are not cross-checked. proceed with caution!"
   };
 }
 
@@ -8415,7 +8463,8 @@ function switchTab(tab) {
   } else if (tab === 'performance') {
     showPerformance();
   } else if (tab === 'review') {
-    (currentQuiz && quizAttempts[currentQuiz.id]?.length > 0) ? showReview() : showNoData('No quiz attempts yet. Take a quiz first!');
+    // show review whenever there is at least one attempt saved; otherwise prompt.
+    Object.keys(quizAttempts).length > 0 ? showReview() : showNoData('No quiz attempts yet. Take a quiz first!');
   }
 }
 
@@ -8573,14 +8622,52 @@ function showCompletion() {
   `;
 }
 
-function showReview() {
-  if (!currentQuiz || !quizAttempts[currentQuiz.id]?.length) { showNoData('No attempts yet'); return; }
-  const att = quizAttempts[currentQuiz.id].slice(-1)[0];
-  
+// showReview can optionally accept a quizId and an attemptIndex. If nothing is
+// passed we default to the currently selected quiz (if any) and the last attempt.
+function showReview(quizId, attemptIndex) {
+  const keys = Object.keys(quizAttempts);
+  if (keys.length === 0) {
+    showNoData('No attempts yet');
+    return;
+  }
+
+  // determine which quiz we are reviewing
+  let selectedId = quizId || (currentQuiz && currentQuiz.id) || keys[0];
+  if (!quizAttempts[selectedId] || quizAttempts[selectedId].length === 0) {
+    // fallback to first available quiz with attempts
+    selectedId = keys.find(k => quizAttempts[k]?.length) || keys[0];
+  }
+  const attempts = quizAttempts[selectedId];
+  const idx = typeof attemptIndex !== 'undefined' ? Number(attemptIndex) : attempts.length - 1;
+  const att = attempts[idx];
+  const quizObj = allQuizzes.find(q => q.id === selectedId) || { name: selectedId, questions: [] };
+
+  // build bubble tags if there are multiple quizzes/attempts
+  const quizSelector = keys.length > 1 ?
+    `<div class="filter-tags review-quiz-tags">
+        ${keys.map(k => {
+          const name = (allQuizzes.find(q=>q.id===k)||{name:k}).name;
+          return `<button class="filter-tag${k===selectedId?' active':''}" onclick="showReview('${k}',0)">${name}</button>`;
+        }).join('')}
+      </div>`
+    : '';
+
+  const attemptSelector = attempts.length > 1 ?
+    `<div class="filter-tags review-quiz-tags">
+        ${attempts.map((a,i) => {
+          const ts = a.timestamp ? new Date(a.timestamp).toLocaleString() : `#${i+1}`;
+          return `<button class="filter-tag${i===idx?' active':''}" onclick="showReview('${selectedId}',${i})">${i+1} (${ts})</button>`;
+        }).join('')}
+      </div>`
+    : '';
+
   document.getElementById('contentArea').innerHTML = `
     <div class="review-section">
       <div class="review-header">
-        <h2>Review: ${currentQuiz.name}</h2>
+        <h2>Review: ${quizObj.name}</h2>
+        <div class="review-controls">
+          ${quizSelector}${attemptSelector}
+        </div>
         <div class="review-stats">
           <div class="stat-box"><div class="stat-label">Correct</div><div class="stat-value" style="color:#10b981">${att.correct}</div></div>
           <div class="stat-box"><div class="stat-label">Incorrect</div><div class="stat-value" style="color:#ff6b6b">${att.total - att.correct}</div></div>
@@ -8588,7 +8675,7 @@ function showReview() {
         </div>
       </div>
       <div class="review-items">
-        ${currentQuiz.questions.map((q, i) => {
+        ${quizObj.questions.map((q, i) => {
           // Support both array-form and object-form answers for backwards compatibility
           const rawAnswers = att.answers;
           let ua = -1;
@@ -8616,11 +8703,20 @@ function showReview() {
       <div class="action-buttons" style="margin-top:24px"><button class="btn btn-secondary" onclick="backToQuizzes()">Back to Quizzes</button></div>
     </div>
   `;
+  // make sure the dropdown references exist in DOM for attempt selector
   updateHeader();
 }
 
 function showPerformance() {
-  const subjects = [...new Set(allQuizzes.map(q => q.subject))];
+  if (!selectedCycle) {
+    showNoData('Please choose a cycle first.');
+    return;
+  }
+  // Only consider quizzes belonging to the selected cycle so that chemistry users
+  // don't see physics quizzes (and vice‑versa) on the dashboard.
+  const subjects = [...new Set(allQuizzes
+    .filter(q => q.cycle === selectedCycle)
+    .map(q => q.subject))];
   if (Object.keys(quizAttempts).length === 0) {
     document.getElementById('contentArea').innerHTML = '<div class="no-attempts">No quiz attempts yet.</div>';
     updateHeader();
@@ -8629,10 +8725,10 @@ function showPerformance() {
   
   document.getElementById('contentArea').innerHTML = `
     <div class="performance-section">
-      <div class="performance-header"><h2>Performance Dashboard</h2><p>Your performance across all subjects</p></div>
+      <div class="performance-header"><h2>Performance Dashboard (${selectedCycle.charAt(0).toUpperCase() + selectedCycle.slice(1)} Cycle)</h2><p>Your performance across all subjects</p></div>
       <div class="performance-grid">
         ${subjects.map(subj => {
-          const sQuizzes = allQuizzes.filter(q => q.subject === subj);
+          const sQuizzes = allQuizzes.filter(q => q.subject === subj && q.cycle === selectedCycle);
           let tAtt = 0, tCorr = 0, tQ = 0, totalTime = 0;
           sQuizzes.forEach(qz => {
             if (quizAttempts[qz.id]?.length) {
@@ -8790,11 +8886,3 @@ if (!allQuizzes.find(q => q.id === coi_u2_quiz.id)) {
   <script defer src="/_vercel/speed-insights/script.js"></script>
   </body>
   </html>
-
-
-
-
-
-
-
-

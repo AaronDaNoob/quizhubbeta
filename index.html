@@ -590,6 +590,14 @@
     #cycleToggleBtn.cycle-toggle.chem { background: linear-gradient(135deg,#FF7B7B,#FF2D2D); }
     #cycleToggleBtn.cycle-toggle.phy { background: linear-gradient(135deg,#667eea,#008cff); }
 
+    /* show full text on larger screens, compact text on mobile */
+    #cycleToggleBtn .full-label { display: inline; }
+    #cycleToggleBtn .short-label { display: none; }
+    @media (max-width: 768px) {
+      #cycleToggleBtn .full-label { display: none; }
+      #cycleToggleBtn .short-label { display: inline; }
+    }
+
     body.light-mode .quiz-tag {
       background: rgba(102, 126, 234, 0.32);
       color: #ffffff;
@@ -1388,7 +1396,10 @@
         </svg>
         Visits: 11.2k
       </span>
-      <button id="cycleToggleBtn" class="cycle-toggle" onclick="showCycleChooser()" title="Choose cycle">Chemistry Cycle</button>
+      <button id="cycleToggleBtn" class="cycle-toggle" onclick="showCycleChooser()" title="Choose cycle">
+        <span class="full-label">Choose Cycle</span>
+        <span class="short-label" style="display:none;">?</span>
+      </button>
     </div>
     <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle dark/light mode">
       <svg class="theme-icon sun-icon" viewBox="0 0 24 24">
@@ -1577,19 +1588,26 @@ function updateCycleUI() {
   // clear previous cycle classes
   btn.classList.remove('chem', 'phy');
   if (!selectedCycle) {
-    btn.textContent = 'Choose Cycle';
+    const full = btn.querySelector('.full-label');
+    const short = btn.querySelector('.short-label');
+    if (full) full.textContent = 'Choose Cycle';
+    if (short) short.textContent = '?';
     btn.setAttribute('title','Choose Cycle');
     btn.style.background = 'transparent';
     btn.style.color = '';
     return;
   }
-  // show single letter on button, but preserve full title
+  // update both label variants on button
+  const full = btn.querySelector('.full-label');
+  const short = btn.querySelector('.short-label');
   if (selectedCycle === 'chemistry') {
-    btn.textContent = 'CHEM';
+    if (full) full.textContent = 'Chemistry Cycle';
+    if (short) short.textContent = 'CHEM';
     btn.setAttribute('title','Chemistry Cycle');
     btn.classList.add('chem');
   } else {
-    btn.textContent = 'PHY';
+    if (full) full.textContent = 'Physics Cycle';
+    if (short) short.textContent = 'PHY';
     btn.setAttribute('title','Physics Cycle');
     btn.classList.add('phy');
   }
@@ -7952,7 +7970,7 @@ function getSCRQuiz() {
       { text: "Q113. Rural marketing is nowadays understood through the axes of 4A's which are", options: ["Availability, Affordability, Acceptability, and Awareness", "Availability, Affordability, Acceptability, and Ability", "Availability, Affordability, Ability, and Awareness", "Availability, Ability, Acceptability, and Awareness"], correct: 0 },
       { text: "Q114. Which of the following is/are the challenges of Rural Marketing?", options: ["Dispersed markets", "Lack of communication and transport facilities", "Prevalence of spurious brands and seasonal demand", "All of these"], correct: 3 }
     ],
-    note: "the answers have been crosschecked and verified! enjoy ;)"
+    note: "the answers have been crosschecked and verified! enjoy ;))"
   };
 }
 
@@ -8066,7 +8084,7 @@ function getCOIQuiz() {
       { text: "Q99. The maximum gap between two sessions of Parliament can be", options: ["four months", "one year", "six months", "nine months"], correct: 2 },
       { text: "Q100. The Chief Justice and other judges of the High Court are appointed by", options: ["the Governor", "the Prime Minister", "the President of India", "the Chief Justice of India"], correct: 2 }
     ],
-    note: "the answers have been crosschecked and verified! enjoy ;)"
+    note: "the answers have been crosschecked and verified! enjoy ;))"
   };
 }
 
@@ -8179,7 +8197,7 @@ function getCOIQuiz_Unit2() {
       { text: "Q99. The constitutional position of the Prime Minister is the?", options: ["Judicial officer", "Legislative head", "Executive head", "Both (a) and (b)"], correct: 2 },
       { text: "Q100. Which article abolishes the practice of untouchability?", options: ["Article 16", "Article 17", "Article 18", "Article 15"], correct: 3 }
     ],
-    note: "the answers have not been crosschecked and verified! proceed with caution!"
+    note: "the answers are not cross-checked. proceed with caution!"
   };
 }
 

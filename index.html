@@ -188,8 +188,14 @@
     
     .container { 
       display: flex; 
-      height: 100vh; /* we adjust this dynamically but avoid adding extra top padding */
+      /* remove fixed height so container grows with page content */
+      min-height: 100vh; /* still fill viewport at minimum */
       position: relative; /* for absolute sidebar overlay */
+      transition: margin-left 350ms ease; /* animate pushing content */
+    }
+    /* when sidebar is open, give content a left margin equal to sidebar width */
+    .container.sidebar-open {
+      margin-left: 300px;
     }
     
     .sidebar { 
@@ -199,7 +205,7 @@
       left: 0;
       width: 300px;
       border-right: 1px solid;
-      overflow-y: auto;
+      /* no internal scroll; sidebar grows with page height */
       overflow-x: hidden;
       padding: 20px;
       transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -667,10 +673,11 @@
     }
     
     .main-content { 
-      flex: 1;
+      /* no flex:1, let height grow naturally with content */
       display: flex;
       flex-direction: column;
-      overflow: hidden;
+      width: 100%;
+      /* drop overflow: hidden so the page scrolls instead of this box */
       transition: all 300ms ease;
     }
     
@@ -789,8 +796,7 @@
     }
     
     .content-area {
-      flex: 1;
-      overflow-y: auto;
+      /* flex removed; height will expand with its children */
       padding: 40px;
       display: flex;
       align-items: flex-start;
@@ -1522,36 +1528,38 @@ let sidebarCollapsed = false; // track collapsed state (sidebar overlays content
 
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
+  const cont = document.querySelector('.container');
   sidebarCollapsed = !sidebarCollapsed;
   sidebar.classList.toggle('collapsed', sidebarCollapsed);
+  if (cont) cont.classList.toggle('sidebar-open', !sidebarCollapsed);
   localStorage.setItem('sidebarCollapsed', sidebarCollapsed);
 }
 
+
 function loadSidebarState() {
   const saved = localStorage.getItem('sidebarCollapsed');
+  const cont = document.querySelector('.container');
   if (saved === 'true') {
     sidebarCollapsed = true;
     document.getElementById('sidebar').classList.add('collapsed');
   }
+  if (cont) cont.classList.toggle('sidebar-open', !sidebarCollapsed);
 }
 
 // adjust sidebar position (and optionally container height) to sit below navbar
 function adjustSidebarOffset() {
   const nav = document.querySelector('.navbar');
   const sb = document.getElementById('sidebar');
-  const cont = document.querySelector('.container');
+  // const cont = document.querySelector('.container');
   if (nav && sb) {
     const h = nav.getBoundingClientRect().height;
     sb.style.top = h + 'px';
-    // if you want the sidebar to stop at the bottom of the viewport rather than extending
-    // beneath the navbar, uncomment the following line:
-    // sb.style.height = `calc(100% - ${h}px)`;
+    // the sidebar is absolutely positioned inside the container with top/bottom 0,
+    // so it will automatically stretch to the container's full height (which now
+    // grows with the page). no need to manually set sb.style.height here.
   }
-  if (nav && cont) {
-    // container height can be reduced so it doesn't extend under the nav, but we no
-    // longer add padding which was creating a black gap above the header/progress bar.
-    cont.style.height = `calc(100vh - ${nav.getBoundingClientRect().height}px)`;
-  }
+  // we removed the code that limited the container's height; letting it expand
+  // naturally allows the sidebar to run all the way to the end of the page.
 }
 window.addEventListener('load', adjustSidebarOffset);
 window.addEventListener('resize', adjustSidebarOffset);

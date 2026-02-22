@@ -114,13 +114,13 @@
     }
     
     .visit-counter {
-      font-size: 18px; /* match cycle button text size */
+      font-size: 20px; /* larger text while keeping padding constant */
       opacity: 1;
       margin-left: 20px;
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 18px; /* same shape as cycle button */
+      padding: 10px 18px; /* box size unchanged */
       border-radius: 13px;
       color: white;
       line-height: 1;
@@ -158,6 +158,15 @@
       .navbar {
         padding: 8px 12px;
       }
+    }
+
+    /* extra small phones: shrink top-bar text and prevent wrapping */
+    @media (max-width: 480px) {
+      .navbar-left { flex-wrap: nowrap; overflow-x: auto; }
+      .navbar h1 { font-size: 18px; }
+      .visit-counter { font-size: 14px; }
+      #cycleToggleBtn.cycle-toggle { font-size: 14px; padding: 8px 14px; }
+    }
       .visit-counter {
         font-size: 10px;
         margin-left: 0;

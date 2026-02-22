@@ -62,6 +62,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      z-index: 1002; /* ensure it stays above sidebar */
     }
     
     .sidebar-toggle-btn:hover {
@@ -78,7 +80,7 @@
     }
     
     .navbar h1 { 
-      font-size: 32px; 
+      font-size: 36px; /* larger title */
       margin: 0; 
       font-weight: 700;
       letter-spacing: -0.5px;
@@ -114,7 +116,7 @@
     }
     
     .visit-counter {
-      font-size: 20px; /* larger text while keeping padding constant */
+      font-size: 24px; /* reduced size for desktop */
       opacity: 1;
       margin-left: 20px;
       display: flex;
@@ -124,6 +126,10 @@
       border-radius: 13px;
       color: white;
       line-height: 1;
+    }
+    .visit-counter svg {
+      width: 1em;
+      height: 1em;
     }
     
     body.light-mode .visit-counter {
@@ -164,13 +170,9 @@
     @media (max-width: 480px) {
       .navbar-left { flex-wrap: nowrap; overflow-x: auto; }
       .navbar h1 { font-size: 18px; }
-      .visit-counter { font-size: 14px; }
-      #cycleToggleBtn.cycle-toggle { font-size: 14px; padding: 8px 14px; }
+      .visit-counter { font-size: 12px; padding: 6px 10px; }
+      #cycleToggleBtn.cycle-toggle { font-size: 12px; padding: 6px 10px; }
     }
-      .visit-counter {
-        font-size: 10px;
-        margin-left: 0;
-      }
       .question-panel {
         padding: 15px;
       }
@@ -186,13 +188,14 @@
     
     .container { 
       display: flex; 
-      height: calc(100vh - 55px); 
+      height: 100vh; 
       position: relative; /* for absolute sidebar overlay */
+      padding-top: 0; /* will be set dynamically */
     }
     
     .sidebar { 
       position: absolute;
-      top: 0;
+      top: 0; /* will be updated via JavaScript */
       bottom: 0;
       left: 0;
       width: 300px;
@@ -202,7 +205,7 @@
       padding: 20px;
       transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
       transform: translateX(0);
-      z-index: 1000; /* sit above content */
+      z-index: 1000; /* sit above content but below toggle */
     }
     
     .sidebar.collapsed {
@@ -585,9 +588,9 @@
     /* Navbar cycle toggle styling */
     #cycleToggleBtn.cycle-toggle {
       margin-left: 8px;
-      padding: 10px 18px; /* same shape as visit counter */
+      padding: 8px 14px; /* slightly smaller shape */
       border-radius: 13px;
-      font-size: 18px; /* match visit counter text size */
+      font-size: 18px; /* smaller button text */
       font-weight: 800;
       cursor: pointer;
       border: none;
@@ -1518,6 +1521,21 @@ function loadSidebarState() {
     document.getElementById('sidebar').classList.add('collapsed');
   }
 }
+
+// adjust sidebar & container padding to sit below navbar
+function adjustSidebarOffset() {
+  const nav = document.querySelector('.navbar');
+  const sb = document.getElementById('sidebar');
+  const cont = document.querySelector('.container');
+  if (nav && sb && cont) {
+    const h = nav.getBoundingClientRect().height;
+    sb.style.top = h + 'px';
+    cont.style.paddingTop = h + 'px';
+    cont.style.height = `calc(100vh - ${h}px)`;
+  }
+}
+window.addEventListener('load', adjustSidebarOffset);
+window.addEventListener('resize', adjustSidebarOffset);
 
 // detect horizontal swipes to toggle sidebar on touch devices
 (function() {

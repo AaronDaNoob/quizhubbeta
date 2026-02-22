@@ -114,15 +114,16 @@
     }
     
     .visit-counter {
-      font-size: 16px;
+      font-size: 18px; /* match cycle button text size */
       opacity: 1;
-      margin-left: 16px;
+      margin-left: 20px;
       display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 6px 10px;
-      border-radius: 12px;
+      gap: 8px;
+      padding: 10px 18px; /* same shape as cycle button */
+      border-radius: 13px;
       color: white;
+      line-height: 1;
     }
     
     body.light-mode .visit-counter {
@@ -575,9 +576,9 @@
     /* Navbar cycle toggle styling */
     #cycleToggleBtn.cycle-toggle {
       margin-left: 8px;
-      padding: 8px 14px;
-      border-radius: 12px;
-      font-size: 14px;
+      padding: 10px 18px; /* same shape as visit counter */
+      border-radius: 13px;
+      font-size: 18px; /* match visit counter text size */
       font-weight: 800;
       cursor: pointer;
       border: none;

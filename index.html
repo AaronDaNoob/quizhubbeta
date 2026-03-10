@@ -166,12 +166,18 @@
       }
     }
 
+    /* tablets and smaller desktops: shrink cycle button and visit counter */
+    @media (max-width: 768px) {
+      .visit-counter { font-size: 18px; padding: 8px 14px; }
+      #cycleToggleBtn.cycle-toggle { font-size: 18px; padding: 7px 12px; }
+    }
+
     /* extra small phones: shrink top-bar text and prevent wrapping */
     @media (max-width: 480px) {
       .navbar-left { flex-wrap: nowrap; overflow-x: auto; }
       .navbar h1 { font-size: 18px; }
-      .visit-counter { font-size: 12px; padding: 6px 10px; }
-      #cycleToggleBtn.cycle-toggle { font-size: 12px; padding: 6px 10px; }
+      .visit-counter { font-size: 14px; padding: 6px 10px; }
+      #cycleToggleBtn.cycle-toggle { font-size: 14px; padding: 6px 10px; }
     }
       .question-panel {
         padding: 15px;

@@ -1432,7 +1432,7 @@
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
           <circle cx="12" cy="7" r="4"></circle>
         </svg>
-        Visits: 11.2k
+        Visits: 11.3k
       </span>
       <button id="cycleToggleBtn" class="cycle-toggle" onclick="showCycleChooser()" title="Choose cycle">
         <span class="full-label">Choose Cycle</span>
@@ -8442,7 +8442,7 @@ function init() {
 function renderFilters() {
   // Build subject list only from quizzes that belong to the selected cycle
   const subjects = [...new Set(allQuizzes.filter(q => q.cycle === selectedCycle).map(q => q.subject))];
-  const units = [...new Set(allQuizzes.map(q => q.unit))];
+  const units = [...new Set(allQuizzes.flatMap(q => Array.isArray(q.unit) ? q.unit : [q.unit]))].sort((a, b) => a - b);
   
   document.getElementById('subjectFilters').innerHTML = subjects.map(s => 
     `<button class="filter-tag" onclick="toggleFilter('subject', '${s}')" data-subject="${s}">${s}</button>`
@@ -8527,7 +8527,7 @@ function renderQuizzes() {
       <div class="quiz-name">${q.name}</div>
       <div class="quiz-tags">
         ${`<span class="quiz-tag" style="background-color: ${getSubjectColor(q.subject)}; color: white;">${q.subject}</span>`}
-        <span class="quiz-tag">Unit ${q.unit}</span>
+        <span class="quiz-tag">${Array.isArray(q.unit) ? 'Units ' + q.unit.join(', ') : 'Unit ' + q.unit}</span>
         <span class="quiz-tag">${q.questions.length} Qs</span>
         <!-- Single cycle badge: either chemistry or physics (all current quizzes default to chemistry) -->
         ${q.cycle === 'chemistry'

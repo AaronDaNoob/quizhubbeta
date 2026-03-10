@@ -595,7 +595,7 @@
       margin-left: 8px;
       padding: 8px 14px; /* slightly smaller shape */
       border-radius: 13px;
-      font-size: 18px; /* smaller button text */
+      font-size: 24px; /* larger button text for desktop */
       font-weight: 800;
       cursor: pointer;
       border: none;
@@ -1432,7 +1432,7 @@
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
           <circle cx="12" cy="7" r="4"></circle>
         </svg>
-        Visits: 11.3k
+        Visits: 11.2k
       </span>
       <button id="cycleToggleBtn" class="cycle-toggle" onclick="showCycleChooser()" title="Choose cycle">
         <span class="full-label">Choose Cycle</span>
@@ -1693,12 +1693,12 @@ function updateCycleUI() {
   const short = btn.querySelector('.short-label');
   if (selectedCycle === 'chemistry') {
     if (full) full.textContent = 'Chemistry Cycle';
-    if (short) short.textContent = 'CHEM';
+    if (short) short.textContent = 'Chem';
     btn.setAttribute('title','Chemistry Cycle');
     btn.classList.add('chem');
   } else {
     if (full) full.textContent = 'Physics Cycle';
-    if (short) short.textContent = 'PHY';
+    if (short) short.textContent = 'Phy';
     btn.setAttribute('title','Physics Cycle');
     btn.classList.add('phy');
   }

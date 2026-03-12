@@ -33,7 +33,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       gap: 8px;
       min-height: 64px;
     }
@@ -50,23 +50,7 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      flex-wrap: nowrap;
-      flex: 1;
-      min-width: 0;
-    }
-    
-    @media (max-width: 768px) {
-      .navbar-left {
-        gap: 8px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .navbar-left {
-        gap: 4px;
-        flex: 1;
-        min-width: 0;
-      }
+      flex-wrap: wrap;
     }
     
     .sidebar-toggle-btn {
@@ -81,30 +65,20 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      z-index: 1002;
-      flex-shrink: 0;
+      z-index: 1002; /* ensure it stays above sidebar */
     }
     
-    @media (max-width: 768px) {
-      .sidebar-toggle-btn {
-        width: 36px;
-        height: 36px;
-      }
-      .sidebar-toggle-btn svg {
-        width: 18px;
-        height: 18px;
-      }
+    .sidebar-toggle-btn:hover {
+      background: rgba(255,255,255,0.3);
+      transform: scale(1.05);
     }
     
-    @media (max-width: 480px) {
-      .sidebar-toggle-btn {
-        width: 32px;
-        height: 32px;
-      }
-      .sidebar-toggle-btn svg {
-        width: 16px;
-        height: 16px;
-      }
+    .sidebar-toggle-btn svg {
+      width: 22px;
+      height: 22px;
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
     }
     
     .navbar h1 { 
@@ -114,9 +88,6 @@
       letter-spacing: -0.5px;
       flex-shrink: 1;
       white-space: nowrap;
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
     
     .theme-toggle-btn {
@@ -130,22 +101,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-left: auto;
-      flex-shrink: 0;
-    }
-    
-    @media (max-width: 768px) {
-      .theme-toggle-btn {
-        width: 36px;
-        height: 36px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .theme-toggle-btn {
-        width: 32px;
-        height: 32px;
-      }
+      margin-left: auto; /* push to rightmost edge */
     }
     
     .theme-toggle-btn:hover {
@@ -163,44 +119,16 @@
     }
     
     .visit-counter {
-      font-size: 28px;
+      font-size: 28px; /* increased size for better visibility */
       opacity: 1;
       margin-left: 20px;
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 22px;
+      padding: 12px 22px; /* increased padding */
       border-radius: 16px;
       color: white;
       line-height: 1;
-      flex-shrink: 0;
-      white-space: nowrap;
-    }
-    
-    @media (max-width: 768px) {
-      .visit-counter {
-        font-size: 16px;
-        margin-left: 8px;
-        padding: 8px 12px;
-        gap: 4px;
-      }
-      .visit-counter svg {
-        width: 16px;
-        height: 16px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .visit-counter {
-        font-size: 12px;
-        margin-left: 4px;
-        padding: 6px 8px;
-        gap: 3px;
-      }
-      .visit-counter svg {
-        width: 14px;
-        height: 14px;
-      }
     }
     .visit-counter svg {
       width: 1em;
@@ -239,7 +167,6 @@
       .navbar {
         padding: 10px 12px;
         min-height: 56px;
-        flex-wrap: nowrap;
       }
       .visit-counter {
         font-size: 16px !important;
@@ -254,67 +181,52 @@
 
     /* extra small phones: shrink top-bar text and prevent wrapping */
     @media (max-width: 480px) {
-      .navbar { 
-        padding: 8px 10px;
-        min-height: 52px;
-        flex-wrap: nowrap;
-        gap: 4px;
-      }
       .navbar-left { 
-        flex-wrap: nowrap;
-        gap: 3px;
+        flex-wrap: wrap; 
+        gap: 4px;
         flex: 1;
-        min-width: 0;
-        overflow: hidden;
       }
       .navbar h1 { 
         font-size: 18px;
-        flex: 1;
-        min-width: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin-right: 0;
+        flex: 0 0 auto;
+        margin-right: auto;
       }
       .sidebar-toggle-btn {
-        width: 32px;
-        height: 32px;
+        width: 36px;
+        height: 36px;
         flex-shrink: 0;
-        padding: 0;
       }
       .sidebar-toggle-btn svg {
+        width: 18px;
+        height: 18px;
+      }
+      .visit-counter { 
+        font-size: 13px !important; 
+        padding: 6px 10px !important;
+        gap: 3px;
+        margin-left: 4px;
+      }
+      .visit-counter svg {
         width: 16px;
         height: 16px;
       }
-      .visit-counter { 
-        font-size: 11px !important; 
-        padding: 4px 6px !important;
-        gap: 2px;
-        margin-left: 2px;
-        flex-shrink: 0;
-      }
-      .visit-counter svg {
-        width: 12px;
-        height: 12px;
-      }
       #cycleToggleBtn.cycle-toggle { 
-        font-size: 10px; 
-        padding: 3px 5px;
-        border-radius: 6px;
+        font-size: 11px; 
+        padding: 4px 6px;
+        border-radius: 8px;
         flex-shrink: 0;
-        margin-left: 1px;
-        gap: 2px;
-        max-width: 42px;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        margin-left: 2px;
+        gap: 3px;
+        max-width: 45px;
       }
       .theme-toggle-btn {
-        width: 32px;
-        height: 32px;
+        width: 36px;
+        height: 36px;
         flex-shrink: 0;
       }
       .theme-icon {
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
       }
     }
       .question-panel {
@@ -754,9 +666,9 @@
     /* Navbar cycle toggle styling */
     #cycleToggleBtn.cycle-toggle {
       margin-left: 8px;
-      padding: 8px 14px;
+      padding: 8px 14px; /* slightly smaller shape */
       border-radius: 13px;
-      font-size: 24px;
+      font-size: 24px; /* larger button text for desktop */
       font-weight: 800;
       cursor: pointer;
       border: none;
@@ -766,25 +678,6 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       transition: transform 150ms ease, box-shadow 150ms ease;
       color: white;
-      flex-shrink: 0;
-      white-space: nowrap;
-    }
-    
-    @media (max-width: 768px) {
-      #cycleToggleBtn.cycle-toggle {
-        font-size: 13px;
-        padding: 6px 10px;
-        gap: 4px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      #cycleToggleBtn.cycle-toggle {
-        font-size: 11px;
-        padding: 4px 6px;
-        gap: 3px;
-        max-width: 48px;
-      }
     }
     #cycleToggleBtn.cycle-toggle:hover { transform: translateY(-2px); }
     /* match modal button gradients */

@@ -28,13 +28,14 @@
     
     .navbar { 
       color: white;
-      padding: 10px 16px; /* reduced padding */
+      padding: 14px 16px; /* increased padding for height */
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 8px;
+      min-height: 64px;
     }
     
     body.light-mode .navbar {
@@ -81,7 +82,7 @@
     }
     
     .navbar h1 { 
-      font-size: 24px; /* reduced from 36px */
+      font-size: 32px; /* increased for better visibility */
       margin: 0; 
       font-weight: 700;
       letter-spacing: -0.5px;
@@ -118,14 +119,14 @@
     }
     
     .visit-counter {
-      font-size: 24px; /* reduced size for desktop */
+      font-size: 28px; /* increased size for better visibility */
       opacity: 1;
       margin-left: 20px;
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 18px; /* box size unchanged */
-      border-radius: 13px;
+      padding: 12px 22px; /* increased padding */
+      border-radius: 16px;
       color: white;
       line-height: 1;
     }
@@ -158,17 +159,18 @@
         padding: 12px 12px;
       }
       .navbar h1 {
-        font-size: 18px;
+        font-size: 22px;
       }
       .navbar-left {
         gap: 4px;
       }
       .navbar {
-        padding: 8px 12px;
+        padding: 10px 12px;
+        min-height: 56px;
       }
       .visit-counter {
-        font-size: 14px !important;
-        padding: 6px 10px !important;
+        font-size: 18px !important;
+        padding: 8px 14px !important;
       }
       #cycleToggleBtn.cycle-toggle {
         font-size: 14px;
@@ -184,7 +186,7 @@
         flex: 1;
       }
       .navbar h1 { 
-        font-size: 16px;
+        font-size: 20px;
         flex: 0 0 auto;
       }
       .sidebar-toggle-btn {
@@ -196,8 +198,8 @@
         height: 18px;
       }
       .visit-counter { 
-        font-size: 11px !important; 
-        padding: 4px 8px !important;
+        font-size: 14px !important; 
+        padding: 6px 10px !important;
         gap: 4px;
       }
       .visit-counter svg {
@@ -1533,12 +1535,12 @@
     /* Discord bubble */
     .discord-bubble {
       position: fixed;
-      bottom: 22px;
-      right: 22px;
+      bottom: 24px;
+      right: 24px;
       background: #5865F2;
       color: white;
-      padding: 10px 14px;
-      border-radius: 10px;
+      padding: 12px 18px;
+      border-radius: 12px;
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -1548,7 +1550,7 @@
       z-index: 9999;
       transition: transform 150ms ease, box-shadow 150ms ease, opacity 150ms ease;
       opacity: 0.98;
-      font-size: 14px;
+      font-size: 15px;
     }
     body.light-mode .discord-bubble {
       background: #4750C4; /* darker shade for light mode */
@@ -1573,11 +1575,11 @@
       .discord-bubble {
         bottom: 16px;
         right: 16px;
-        padding: 8px;
+        padding: 10px;
         font-size: 0;
         border-radius: 50%;
-        width: 44px;
-        height: 44px;
+        width: 48px;
+        height: 48px;
         display: flex;
         align-items: center;
         justify-content: center;

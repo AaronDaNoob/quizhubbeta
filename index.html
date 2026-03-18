@@ -188,8 +188,8 @@
         text-overflow: ellipsis;
       }
       .visit-counter svg {
-        width: 14px;
-        height: 14px;
+        width: 18px;
+        height: 18px;
       }
       #cycleToggleBtn.cycle-toggle {
         font-size: 13px;
@@ -243,12 +243,11 @@
         white-space: nowrap;
       }
       .visit-counter svg {
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
       }
       #cycleToggleBtn.cycle-toggle {
-        font-size: 11px;
-        padding: 4px 6px;
+        font-size: 11px;        padding: 4px 6px;
         border-radius: 8px;
         flex-shrink: 0;
         margin-left: 2px;
@@ -1686,7 +1685,7 @@
       </span>
       <button id="cycleToggleBtn" class="cycle-toggle" onclick="showCycleChooser()" title="Choose cycle">
         <span class="full-label">Choose Cycle</span>
-        <span class="short-label" style="display:none;">?</span>
+        <span class="short-label" style="display:none;">CHEM</span>
       </button>
     </div>
     <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle dark/light mode">
@@ -1972,12 +1971,12 @@ function updateCycleUI() {
   const short = btn.querySelector('.short-label');
   if (selectedCycle === 'chemistry') {
     if (full) full.textContent = 'Chemistry Cycle';
-    if (short) short.textContent = 'Chem';
+    if (short) short.textContent = 'CHEM';
     btn.setAttribute('title','Chemistry Cycle');
     btn.classList.add('chem');
   } else {
     if (full) full.textContent = 'Physics Cycle';
-    if (short) short.textContent = 'Phy';
+    if (short) short.textContent = 'PHY';
     btn.setAttribute('title','Physics Cycle');
     btn.classList.add('phy');
   }

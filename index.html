@@ -161,15 +161,33 @@
       .navbar h1 {
         font-size: 22px;
       }
-      .navbar-left { gap: 4px; flex: 1; min-width: 0; overflow: hidden; }
+      .navbar-left {
+        gap: 8px;
+        flex: 1;
+        flex-wrap: wrap;
+        min-width: 0;
+        align-items: center;
+      }
       .navbar {
         padding: 10px 12px;
         min-height: 56px;
       }
-      .visit-counter { display: none; }
+      .visit-counter {
+        display: inline-flex;
+        font-size: 12px !important;
+        padding: 6px 8px !important;
+        margin-left: auto;
+        order: 2;
+        gap: 6px;
+      }
+      .visit-counter svg {
+        width: 14px;
+        height: 14px;
+      }
       #cycleToggleBtn.cycle-toggle {
         font-size: 13px;
         padding: 6px 10px;
+        order: 3;
       }
     }
 

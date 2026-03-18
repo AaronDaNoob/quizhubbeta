@@ -181,11 +181,8 @@
 
     /* extra small phones: shrink top-bar text and prevent wrapping */
     @media (max-width: 480px) {
-      .navbar-left { 
-        flex-wrap: wrap; 
-        gap: 4px;
-        flex: 1;
-      }
+      .navbar-left { gap: 4px; flex: 1; min-width: 0; overflow: hidden; }
+
       .navbar h1 { 
         font-size: 18px;
         flex: 0 0 auto;
@@ -200,12 +197,7 @@
         width: 18px;
         height: 18px;
       }
-      .visit-counter { 
-        font-size: 13px !important; 
-        padding: 4px 8px !important;
-        gap: 1px;
-        margin-left: 2px;
-      }
+      .visit-counter { font-size: 14px !important; padding: 6px 8px !important; margin-left: 2px; gap: 4px; }
       .visit-counter svg {
         width: 16px;
         height: 16px;

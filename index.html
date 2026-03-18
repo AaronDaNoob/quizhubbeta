@@ -118,14 +118,14 @@
       transition: all 200ms;
     }
     
-     .visit-counter {
-      font-size: 28px; 
+    .visit-counter {
+      font-size: 28px; /* increased size for better visibility */
       opacity: 1;
       margin-left: 20px;
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 22px; 
+      padding: 12px 22px; /* increased padding */
       border-radius: 16px;
       color: white;
       line-height: 1;
@@ -162,7 +162,6 @@
         font-size: 22px;
       }
       .navbar-left { gap: 4px; flex: 1; min-width: 0; overflow: hidden; }
-
       .navbar {
         padding: 10px 12px;
         min-height: 56px;
@@ -176,8 +175,11 @@
 
     /* extra small phones: shrink top-bar text and prevent wrapping */
     @media (max-width: 480px) {
-      .navbar-left { gap: 4px; flex: 1; min-width: 0; overflow: hidden; }
-
+      .navbar-left { 
+        flex-wrap: wrap; 
+        gap: 4px;
+        flex: 1;
+      }
       .navbar h1 { 
         font-size: 18px;
         flex: 0 0 auto;
@@ -192,18 +194,23 @@
         width: 18px;
         height: 18px;
       }
-      .visit-counter { font-size: 14px !important; padding: 6px 8px !important; margin-left: 1px; gap: 2px; }
+      .visit-counter { 
+        font-size: 13px !important; 
+        padding: 6px 10px !important;
+        gap: 3px;
+        margin-left: 4px;
+      }
       .visit-counter svg {
         width: 16px;
         height: 16px;
       }
       #cycleToggleBtn.cycle-toggle { 
-        font-size: 9px; 
-        padding: 2px 4px;
+        font-size: 11px; 
+        padding: 4px 6px;
         border-radius: 8px;
         flex-shrink: 0;
-        margin-left: 1px;
-        gap: 2px;
+        margin-left: 2px;
+        gap: 3px;
         max-width: 45px;
       }
       .theme-toggle-btn {
@@ -9196,4 +9203,3 @@ if (!allQuizzes.find(q => q.id === coi_u2_quiz.id)) {
   <script defer src="/_vercel/speed-insights/script.js"></script>
   </body>
   </html>
-

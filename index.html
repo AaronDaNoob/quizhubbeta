@@ -118,7 +118,7 @@
       transition: all 200ms;
     }
     
-    /*.visit-counter {
+     .visit-counter {
       font-size: 28px; 
       opacity: 1;
       margin-left: 20px;
@@ -134,7 +134,7 @@
       width: 1em;
       height: 1em;
     }
-    */
+    
     body.light-mode .visit-counter {
       background: rgba(255,255,255,0.2);
     }
@@ -161,18 +161,13 @@
       .navbar h1 {
         font-size: 22px;
       }
-      .navbar-left {
-        gap: 4px;
-      }
+      .navbar-left { gap: 4px; flex: 1; min-width: 0; overflow: hidden; }
+
       .navbar {
         padding: 10px 12px;
         min-height: 56px;
       }
-      .visit-counter {
-        font-size: 16px !important;
-        padding: 8px 12px !important;
-        margin-left: 8px;
-      }
+      .visit-counter { font-size: 14px !important; padding: 6px 8px !important; margin-left: 2px; gap: 4px; }
       #cycleToggleBtn.cycle-toggle {
         font-size: 13px;
         padding: 6px 10px;
@@ -197,11 +192,11 @@
         width: 18px;
         height: 18px;
       }
-      /*.visit-counter { font-size: 14px !important; padding: 6px 8px !important; margin-left: 1px; gap: 2px; }
+      .visit-counter { font-size: 14px !important; padding: 6px 8px !important; margin-left: 1px; gap: 2px; }
       .visit-counter svg {
         width: 16px;
         height: 16px;
-      }*/
+      }
       #cycleToggleBtn.cycle-toggle { 
         font-size: 9px; 
         padding: 2px 4px;

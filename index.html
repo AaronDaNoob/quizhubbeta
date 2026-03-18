@@ -197,12 +197,6 @@
         min-width: 80px;
         white-space: nowrap;
       }
-      #cycleToggleBtn.cycle-toggle .full-label {
-        display: inline;
-      }
-      #cycleToggleBtn.cycle-toggle .short-label {
-        display: none;
-      }
       .theme-toggle-btn {
         margin-left: auto;
       }
@@ -752,12 +746,12 @@
     #cycleToggleBtn.cycle-toggle.phy { background: linear-gradient(135deg,#667eea,#008cff); }
 
     /* show compact cycle label on mobile and tablets */
-    #cycleToggleBtn .full-label { display: none; } /* hide full label for all phones */
-    #cycleToggleBtn .short-label { display: inline; }
+    #cycleToggleBtn .full-label { display: none !important; }
+    #cycleToggleBtn .short-label { display: inline !important; }
     @media (min-width: 1025px) {
-      /* desktop can still optionally show full label if needed */
-      #cycleToggleBtn .full-label { display: inline; }
-      #cycleToggleBtn .short-label { display: none; }
+      /* desktop shows full text label */
+      #cycleToggleBtn .full-label { display: inline !important; }
+      #cycleToggleBtn .short-label { display: none !important; }
     }
 
     body.light-mode .quiz-tag {
@@ -1686,7 +1680,7 @@
       </span>
       <button id="cycleToggleBtn" class="cycle-toggle" onclick="showCycleChooser()" title="Choose cycle">
         <span class="full-label">Choose Cycle</span>
-        <span class="short-label" style="display:none;">CHEM</span>
+        <span class="short-label">CHEM</span>
       </button>
     </div>
     <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle dark/light mode">

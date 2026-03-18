@@ -160,6 +160,11 @@
       }
       .navbar h1 {
         font-size: 22px;
+        flex: 1 1 auto;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       .navbar-left {
         gap: 8px;
@@ -167,6 +172,7 @@
         flex-wrap: wrap;
         min-width: 0;
         align-items: center;
+        justify-content: flex-start;
       }
       .navbar {
         padding: 10px 12px;
@@ -176,9 +182,10 @@
         display: inline-flex;
         font-size: 12px !important;
         padding: 6px 8px !important;
-        margin-left: auto;
+        margin-left: 0;
         order: 2;
         gap: 6px;
+        flex-shrink: 0;
       }
       .visit-counter svg {
         width: 14px;
@@ -188,6 +195,12 @@
         font-size: 13px;
         padding: 6px 10px;
         order: 3;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .theme-toggle-btn {
+        order: 4;
+        flex-shrink: 0;
       }
     }
 

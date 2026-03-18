@@ -188,8 +188,8 @@
         text-overflow: ellipsis;
       }
       .visit-counter svg {
-        width: 18px;
-        height: 18px;
+        width: 24px;
+        height: 24px;
       }
       #cycleToggleBtn.cycle-toggle {
         font-size: 13px;
@@ -751,12 +751,13 @@
     #cycleToggleBtn.cycle-toggle.chem { background: linear-gradient(135deg,#FF7B7B,#FF2D2D); }
     #cycleToggleBtn.cycle-toggle.phy { background: linear-gradient(135deg,#667eea,#008cff); }
 
-    /* show full text on larger screens, compact text on mobile */
-    #cycleToggleBtn .full-label { display: inline; }
-    #cycleToggleBtn .short-label { display: none; }
-    @media (max-width: 768px) {
-      #cycleToggleBtn .full-label { display: none; }
-      #cycleToggleBtn .short-label { display: inline; }
+    /* show compact cycle label on mobile and tablets */
+    #cycleToggleBtn .full-label { display: none; } /* hide full label for all phones */
+    #cycleToggleBtn .short-label { display: inline; }
+    @media (min-width: 1025px) {
+      /* desktop can still optionally show full label if needed */
+      #cycleToggleBtn .full-label { display: inline; }
+      #cycleToggleBtn .short-label { display: none; }
     }
 
     body.light-mode .quiz-tag {

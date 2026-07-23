@@ -10,6 +10,12 @@
     body { 
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       transition: background-color 0.3s ease, color 0.3s ease;
+      --accent: #008cff;
+      --accent-dark: #006fd4;
+      --accent-rgb: 0, 140, 255;
+      --accent-soft: rgba(0, 140, 255, 0.16);
+      --accent-soft-strong: rgba(0, 140, 255, 0.60);
+      --accent-glow: rgba(0, 140, 255, 0.30);
     }
     
     body.light-mode {
@@ -25,6 +31,24 @@
       --bg: #2a2a2a;
       --fg: #f1f1f1;
     }
+
+    body.chemistry-cycle {
+      --accent: #FF2D2D;
+      --accent-dark: #D91B1B;
+      --accent-rgb: 255, 45, 45;
+      --accent-soft: rgba(255, 45, 45, 0.16);
+      --accent-soft-strong: rgba(255, 45, 45, 0.60);
+      --accent-glow: rgba(255, 45, 45, 0.30);
+    }
+
+    body.physics-cycle {
+      --accent: #008cff;
+      --accent-dark: #006fd4;
+      --accent-rgb: 0, 140, 255;
+      --accent-soft: rgba(0, 140, 255, 0.16);
+      --accent-soft-strong: rgba(0, 140, 255, 0.60);
+      --accent-glow: rgba(0, 140, 255, 0.30);
+    }
     
     .navbar { 
       color: white;
@@ -36,10 +60,12 @@
       flex-wrap: wrap;
       gap: 8px;
       min-height: 64px;
+      transition: background 0.3s ease, color 0.3s ease;
     }
     
     body.light-mode .navbar {
-      background: linear-gradient(135deg, #496afd 0%, #008cff 100%);
+      background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
+      transition: background 0.3s ease, color 0.3s ease;
     }
     
     body.dark-mode .navbar {
@@ -418,9 +444,9 @@
     }
     
     body.light-mode .tab-btn:hover {
-      border-color: #667eea;
-      color: #667eea;
-      background: #f0f4ff;
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
     }
     
     body.dark-mode .tab-btn:hover {
@@ -437,19 +463,19 @@
     }
     
     body.light-mode .tab-btn.active {
-      background: #667eea !important;
-      border-color: #667eea !important;
-      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3) !important;
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+      box-shadow: 0 2px 8px rgba(var(--accent-rgb), 0.3) !important;
     }
     
     body.dark-mode .tab-btn.active {
-      background: #667eea !important;
-      border-color: #667eea !important;
-      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3) !important;
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+      box-shadow: 0 2px 8px rgba(var(--accent-rgb), 0.3) !important;
     }
     
     .tab-btn.active:hover {
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5) !important;
+      box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.5) !important;
     }
     
     body.dark-mode .tab-btn.active:hover {
@@ -526,9 +552,9 @@
     }
     
     body.light-mode .filter-tag:hover {
-      border-color: #667eea;
-      color: #667eea;
-      background: #f0f4ff;
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
     }
     
     body.dark-mode .filter-tag:hover {
@@ -545,15 +571,15 @@
     }
     
     body.light-mode .filter-tag.active {
-      background: #667eea !important;
-      border-color: #667eea !important;
-      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3) !important;
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+      box-shadow: 0 2px 8px rgba(var(--accent-rgb), 0.3) !important;
     }
     
     body.dark-mode .filter-tag.active {
-      background: #667eea !important;
-      border-color: #667eea !important;
-      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3) !important;
+      background: var(--accent) !important;
+      border-color: var(--accent) !important;
+      box-shadow: 0 2px 8px rgba(var(--accent-rgb), 0.3) !important;
     }
     
     .filter-tag.active:hover {
@@ -635,16 +661,16 @@
     }
     
     .quiz-item:hover { 
-      border-color: #667eea;
+      border-color: var(--accent);
       transform: translateY(-2px);
-      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+      box-shadow: 0 2px 8px rgba(var(--accent-rgb), 0.2);
     }
     
     .quiz-item.active {
-      background: #667eea;
+      background: var(--accent);
       color: white;
-      border-color: #667eea;
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.3);
     }
     
     .quiz-item.hidden {
@@ -710,6 +736,7 @@
     .modal-card { background: var(--bg, #fff); color: var(--fg, #111); padding: 20px 22px; border-radius: 14px; min-width: 320px; max-width: 700px; box-shadow: 0 18px 60px rgba(0,0,0,0.6); text-align: center; transform: translateY(8px) scale(0.98); opacity: 0; transition: transform 260ms cubic-bezier(.2,.9,.2,1), opacity 260ms; }
     .modal-overlay.show .modal-card { transform: translateY(0) scale(1); opacity: 1; }
     .modal-title { font-weight: 800; margin-bottom: 12px; font-size: 16px; color: var(--fg); }
+    .modal-description { margin-bottom: 16px; }
     .modal-actions { display:flex; gap:12px; justify-content:center; margin-top:12px; }
     .modal-btn { padding:10px 14px; border-radius:10px; font-weight:800; border:none; cursor:pointer; color:#fff; min-width:150px; }
     .modal-btn.chem { background: #FF2D2D; box-shadow: 0 8px 20px rgba(255,45,45,0.18); }
@@ -765,7 +792,7 @@
 
     body.light-mode .quiz-tag {
       /* darker variant for better contrast in light mode */
-      background: rgba(102, 126, 234, 0.60);
+      background: var(--accent-soft-strong);
       color: #ffffff;
       border: 1px solid rgba(255,255,255,0.15);
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
@@ -791,6 +818,7 @@
     .quiz-meta { 
       font-size: 11px;
       opacity: 0.7;
+      margin-top: 8px;
     }
     
     .quiz-note {
@@ -798,15 +826,15 @@
       opacity: 1.0;
       margin-top: 8px;
       padding: 6px 10px;
-      background: rgba(102, 126, 234, 0.1);
-      border-left: 3px solid #008cff;
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
       border-radius: 4px;
       font-style: italic;
     }
     
     body.dark-mode .quiz-note {
       background: rgba(255,255,255,0.05);
-      border-left-color: #008cff;
+      border-left-color: var(--accent);
     }
     
     .no-results {
@@ -826,7 +854,7 @@
     }
     
     .header-section {
-      background: #008cff;
+      background: var(--accent);
       color: white;
       padding: 0 20px; /* no vertical padding when collapsed */
       display: flex;
@@ -945,6 +973,7 @@
       display: flex;
       align-items: flex-start;
       justify-content: center;
+      position: relative;
       transition: background-color 0.3s ease;
     }
     
@@ -1096,7 +1125,7 @@
     }
     
     body.light-mode .option:hover {
-      border-color: #667eea;
+      border-color: var(--accent);
     }
     
     body.dark-mode .option:hover {
@@ -1109,14 +1138,14 @@
     }
     
     body.light-mode .option.selected {
-      border-color: #667eea;
-      background: #e8eef9;
+      border-color: var(--accent);
+      background: var(--accent-soft);
       color: #2d3748;
     }
     
     body.dark-mode .option.selected {
-      border-color: #667eea;
-      background: #008cff;
+      border-color: var(--accent);
+      background: var(--accent);
       color: #fff;
     }
     
@@ -1216,11 +1245,11 @@
     }
     
     body.light-mode .btn-primary {
-      background: #008cff;
+      background: var(--accent);
     }
     
     body.dark-mode .btn-primary {
-      background: #008cff;
+      background: var(--accent);
     }
     
     .btn-primary:hover:not(:disabled) { 
@@ -1244,7 +1273,7 @@
     
     body.light-mode .btn-secondary {
       border-color: #d0d0d0;
-      color: #667eea;
+      color: var(--accent);
     }
     
     body.dark-mode .btn-secondary {
@@ -1259,6 +1288,7 @@
     .welcome-section {
       text-align: center;
       margin-top: 100px;
+      padding-bottom: 80px;
     }
     
     .welcome-section h2 {
@@ -1271,6 +1301,38 @@
       font-size: 16px;
       opacity: 0.7;
       margin-bottom: 8px;
+    }
+
+    .welcome-footnote {
+      position: fixed;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      width: min(920px, calc(100% - 24px));
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.4;
+      opacity: 0.78;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @media (min-width: 768px) {
+      .welcome-footnote {
+        bottom: 18px;
+        width: min(720px, calc(100% - 72px));
+        font-size: 14px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+        backdrop-filter: blur(6px);
+      }
+
+      body.dark-mode .welcome-footnote {
+        background: rgba(34, 34, 34, 0.72);
+        box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+      }
     }
     
     @media (max-width: 768px) {
@@ -1729,7 +1791,7 @@
         <div style="margin-top:24px;">
           <label for="randomizeToggle" style="display:flex;align-items:center;gap:12px;cursor:pointer;">
             <input id="randomizeToggle" type="checkbox" onchange="toggleRandomize()" style="width:20px;height:20px;">
-            <span class="randomize-label">Randomize Questions</span>
+            <span class="randomize-label">Shuffle Questions</span>
           </label>
         </div>
         
@@ -1761,9 +1823,10 @@
       
       <div class="content-area" id="contentArea">
         <div class="welcome-section">
-          <h2>Welcome to Quiz Hub</h2>
+          <h2>Welcome to Quiz Hub ;)</h2>
           <p>Select your cycle by clicking the cycle button on top</p>
           <p>Select a quiz from the sidebar to start</p>
+          <p class="welcome-footnote">If you come across any errors or need a quiz to be added, please let us know through our discord server!</p>
         </div>
       </div>
     </div>
@@ -1958,6 +2021,7 @@ function toggleCycle() {
 function updateCycleUI() {
   const btn = document.getElementById('cycleToggleBtn');
   if (!btn) return;
+  document.body.classList.remove('chemistry-cycle', 'physics-cycle');
   // clear previous cycle classes
   btn.classList.remove('chem', 'phy');
   if (!selectedCycle) {
@@ -1969,6 +2033,11 @@ function updateCycleUI() {
     btn.style.background = 'transparent';
     btn.style.color = '';
     return;
+  }
+  if (selectedCycle === 'chemistry') {
+    document.body.classList.add('chemistry-cycle');
+  } else {
+    document.body.classList.add('physics-cycle');
   }
   // update both label variants on button
   const full = btn.querySelector('.full-label');
@@ -8929,8 +8998,8 @@ function renderQuizzes() {
           ? `<span class="quiz-tag cycle-badge chemistry">Chemistry Cycle</span>`
           : `<span class="quiz-tag cycle-badge physics">Physics Cycle</span>`}
       </div>
-      <div class="quiz-meta">Tap to start</div>
       ${q.note ? `<div class="quiz-note">${q.note}</div>` : ''}
+      <div class="quiz-meta">Tap to start</div>
     </div>
   `).join('');
 }
@@ -9260,7 +9329,10 @@ function showPerformance() {
 }
 
 function showWelcome() {
-  document.getElementById('contentArea').innerHTML = `<div class="welcome-section"><h2>Welcome to Quiz Hub</h2><p>Select your cycle by clicking the cycle button on top</p><p>Select a quiz from the sidebar to start</p></div>`;
+  document.getElementById('contentArea').innerHTML = `<div class="welcome-section"><h2>Welcome to Quiz Hub ;)</h2>
+    <p>Select your cycle by clicking the cycle button on top</p>
+    <p>Select a quiz from the sidebar to start</p>
+    <p class="welcome-footnote">If you come across any errors or need a quiz to be added, please let us know through our discord server!</p></div>`;
 }
 
 function showNoData(msg) {
@@ -9381,12 +9453,16 @@ if (!allQuizzes.find(q => q.id === coi_u2_quiz.id)) {
 	}
   // ]]>
   </script>
-
+  
     <!-- Cycle chooser modal (injected) -->
     <div id="cycleModal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
       <div class="modal-card">
         <div class="modal-title">Choose a Cycle</div>
-        <div>Pick which cycle you'd like to view. This will filter available quizzes.</div>
+        <div class="modal-description">Pick which cycle you'd like to view. This will filter available quizzes.</div>
+
+        
+        
+
         <div class="modal-actions">
           <button class="modal-btn chem" onclick="chooseCycle('chemistry')">Chemistry Cycle</button>
           <button class="modal-btn phy" onclick="chooseCycle('physics')">Physics Cycle</button>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Hub Admin</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; background: #f5f7fb; color: #222; }
+    .wrap { max-width: 1100px; margin: 0 auto; }
+    .panel { background: white; border-radius: 10px; padding: 18px; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+    h1 { margin-top: 0; }
+    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+    button { border: none; border-radius: 8px; padding: 10px 14px; background: #2563eb; color: white; cursor: pointer; }
+    button.secondary { background: #6b7280; }
+    button.danger { background: #dc2626; }
+    textarea, input { width: 100%; box-sizing: border-box; padding: 9px 10px; margin-top: 6px; border: 1px solid #d1d5db; border-radius: 8px; }
+    .grid { display: grid; grid-template-columns: 320px 1fr; gap: 18px; }
+    .list { max-height: 75vh; overflow: auto; }
+    .quiz-item { border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+    .muted { color: #555; font-size: 13px; }
+    .editor label { display: block; margin-top: 12px; font-weight: 600; }
+    .question { border: 1px dashed #cbd5e1; border-radius: 8px; padding: 10px; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Quiz Hub Admin</h1>
+    <div class="toolbar">
+      <button id="loadBtn">Load Bank</button>
+      <button id="saveBtn" class="secondary">Save to quizzes.json</button>
+      <button id="newBtn">Add Quiz</button>
+      <button id="openAppBtn" class="secondary">Open App</button>
+    </div>
+
+    <div class="grid">
+      <div class="panel list" id="quizListPanel">
+        <h3>Quiz List</h3>
+        <div id="quizList"></div>
+      </div>
+
+      <div class="panel editor" id="editorPanel">
+        <h3>Edit Quiz</h3>
+        <div id="editor"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let quizzes = [];
+    let selectedIndex = 0;
+
+    async function loadBank() {
+      const res = await fetch('quizzes.json', { cache: 'no-store' });
+      const data = await res.json();
+      quizzes = Array.isArray(data) ? data : [];
+      renderList();
+      if (quizzes.length) editQuiz(0);
+    }
+
+    function renderList() {
+      const list = document.getElementById('quizList');
+      list.innerHTML = '';
+      quizzes.forEach((quiz, index) => {
+        const row = document.createElement('div');
+        row.className = 'quiz-item';
+        row.innerHTML = `<div><strong>${quiz.name || quiz.id || 'Untitled'}</strong><div class="muted">${quiz.subject || 'Unknown'} • ${quiz.unit || ''}</div></div>`;
+        const btn = document.createElement('button');
+        btn.textContent = 'Edit';
+        btn.onclick = () => editQuiz(index);
+        row.appendChild(btn);
+        list.appendChild(row);
+      });
+    }
+
+    function editQuiz(index) {
+      selectedIndex = index;
+      const quiz = quizzes[index] || { id: '', subject: '', unit: '', name: '', cycle: 'chemistry', tags: [], questions: [] };
+      const editor = document.getElementById('editor');
+      editor.innerHTML = `
+        <label>ID<input id="f_id" value="${quiz.id || ''}" /></label>
+        <label>Name<input id="f_name" value="${quiz.name || ''}" /></label>
+        <label>Subject<input id="f_subject" value="${quiz.subject || ''}" /></label>
+        <label>Unit<input id="f_unit" value="${quiz.unit || ''}" /></label>
+        <label>Cycle<input id="f_cycle" value="${quiz.cycle || 'chemistry'}" /></label>
+        <label>Tags<input id="f_tags" value="${(quiz.tags || []).join(', ')}" /></label>
+        <label>Questions JSON<textarea id="f_questions" rows="18">${JSON.stringify(quiz.questions || [], null, 2)}</textarea></label>
+        <div class="toolbar" style="margin-top:16px;">
+          <button id="saveQuizBtn">Save</button>
+          <button id="deleteQuizBtn" class="danger">Delete</button>
+        </div>
+      `;
+
+      document.getElementById('saveQuizBtn').onclick = () => {
+        const obj = {
+          id: document.getElementById('f_id').value,
+          name: document.getElementById('f_name').value,
+          subject: document.getElementById('f_subject').value,
+          unit: document.getElementById('f_unit').value,
+          cycle: document.getElementById('f_cycle').value,
+          tags: document.getElementById('f_tags').value.split(',').map(s => s.trim()).filter(Boolean),
+          questions: JSON.parse(document.getElementById('f_questions').value)
+        };
+        quizzes[selectedIndex] = obj;
+        renderList();
+      };
+
+      document.getElementById('deleteQuizBtn').onclick = () => {
+        if (confirm('Delete this quiz?')) {
+          quizzes.splice(selectedIndex, 1);
+          renderList();
+          editor.innerHTML = '<p class="muted">Quiz deleted.</p>';
+        }
+      };
+    }
+
+    document.getElementById('loadBtn').onclick = loadBank;
+    document.getElementById('saveBtn').onclick = () => {
+      const blob = new Blob([JSON.stringify(quizzes, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'quizzes.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    };
+    document.getElementById('newBtn').onclick = () => {
+      quizzes.push({ id: 'new-quiz', name: 'New Quiz', subject: 'Chemistry', unit: 1, cycle: 'chemistry', tags: [], questions: [] });
+      renderList();
+      editQuiz(quizzes.length - 1);
+    };
+    document.getElementById('openAppBtn').onclick = () => window.open('index.html', '_blank');
+
+    loadBank();
+  </script>
+</body>
+</html>

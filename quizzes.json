@@ -1,0 +1,40 @@
+[
+  {
+    "id": "chem-sample",
+    "subject": "Chemistry",
+    "unit": 1,
+    "name": "Sample Chemistry Quiz",
+    "cycle": "chemistry",
+    "tags": ["sample", "chemistry"],
+    "questions": [
+      {
+        "text": "Which of the following is the oxidation process?",
+        "options": ["Gain of electrons", "Loss of electrons", "Gain of hydrogen", "Loss of oxygen"],
+        "correct": 1,
+        "explanation": "Oxidation is loss of electrons."
+      },
+      {
+        "text": "The unit of electrode potential is",
+        "options": ["Ampere", "Volt", "Ohm", "Coulomb"],
+        "correct": 1,
+        "explanation": "Electrode potential is measured in volts."
+      }
+    ]
+  },
+  {
+    "id": "math-sample",
+    "subject": "Maths",
+    "unit": 2,
+    "name": "Sample Maths Quiz",
+    "cycle": "physics",
+    "tags": ["sample", "maths"],
+    "questions": [
+      {
+        "text": "The value of sin 90° is",
+        "options": ["0", "1", "-1", "0.5"],
+        "correct": 1,
+        "explanation": "sin 90° = 1."
+      }
+    ]
+  }
+]

@@ -9,6 +9,10 @@ This folder contains the project files restored for local development and Vercel
 - quiz-bank.js: loads quizzes from quizzes.json into the app
 - quizzes.json: external quiz data bank
 
+## Link
+https://quizhubbeta.vercel.app/
+
+
 ## Local run
 python -m http.server 8000
 

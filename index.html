@@ -32,23 +32,7 @@
       --fg: #f1f1f1;
     }
 
-    body.chemistry-cycle {
-      --accent: #FF2D2D;
-      --accent-dark: #D91B1B;
-      --accent-rgb: 255, 45, 45;
-      --accent-soft: rgba(255, 45, 45, 0.16);
-      --accent-soft-strong: rgba(255, 45, 45, 0.60);
-      --accent-glow: rgba(255, 45, 45, 0.30);
-    }
-
-    body.physics-cycle {
-      --accent: #008cff;
-      --accent-dark: #006fd4;
-      --accent-rgb: 0, 140, 255;
-      --accent-soft: rgba(0, 140, 255, 0.16);
-      --accent-soft-strong: rgba(0, 140, 255, 0.60);
-      --accent-glow: rgba(0, 140, 255, 0.30);
-    }
+    
     
     .navbar { 
       color: white;
@@ -217,16 +201,7 @@
         width: 24px;
         height: 24px;
       }
-      #cycleToggleBtn.cycle-toggle {
-        font-size: 13px;
-        padding: 8px 10px;
-        min-width: 86px;
-        max-width: 110px;
-        white-space: nowrap;
-        justify-content: center;
-        text-align: center;
-        box-shadow: 0 2px 9px rgba(0,0,0,0.17);
-      }
+      
       .theme-toggle-btn {
         margin-left: auto;
       }
@@ -273,14 +248,6 @@
         width: 20px;
         height: 20px;
       }
-      #cycleToggleBtn.cycle-toggle {
-        font-size: 11px;        padding: 4px 6px;
-        border-radius: 8px;
-        flex-shrink: 0;
-        margin-left: 0;
-        gap: 3px;
-        max-width: 45px;
-      }
       .theme-toggle-btn {
         width: 36px;
         height: 36px;
@@ -312,16 +279,7 @@
       .visit-counter span {
         display: none;
       }
-      #cycleToggleBtn.cycle-toggle {
-        min-width: 36px;
-        max-width: 36px;
-      }
-      #cycleToggleBtn.cycle-toggle .full-label {
-        display: none;
-      }
-      #cycleToggleBtn.cycle-toggle .short-label {
-        display: inline;
-      }
+      
     }
       .question-panel {
         padding: 15px;
@@ -702,94 +660,6 @@
       letter-spacing: 0.2px;
     }
 
-    /* Cycle badge: rounded-rect matching quiz style */
-    .cycle-badge {
-      padding: 8px 14px;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 13px;
-      display: inline-block;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.28);
-      margin-left: 6px;
-    }
-    .cycle-badge.chemistry {
-      background: #FF2D2D;
-      color: #fff;
-    }
-    .cycle-badge.physics {
-      background: #008cff;
-      color: #fff;
-    }
-
-    /* Ensure cycle badge sits on its own row in the quiz picker and is centered */
-    .quiz-tags .cycle-badge {
-      flex-basis: 100%;
-      display: inline-block;
-      margin: 10px auto 0;
-      text-align: center;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.32);
-    }
-
-    /* Cycle chooser modal */
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: none; align-items: center; justify-content: center; z-index: 99999; backdrop-filter: blur(4px); }
-    .modal-overlay.show { display: flex; }
-    .modal-card { background: var(--bg, #fff); color: var(--fg, #111); padding: 20px 22px; border-radius: 14px; min-width: 320px; max-width: 700px; box-shadow: 0 18px 60px rgba(0,0,0,0.6); text-align: center; transform: translateY(8px) scale(0.98); opacity: 0; transition: transform 260ms cubic-bezier(.2,.9,.2,1), opacity 260ms; }
-    .modal-overlay.show .modal-card { transform: translateY(0) scale(1); opacity: 1; }
-    .modal-title { font-weight: 800; margin-bottom: 12px; font-size: 16px; color: var(--fg); }
-    .modal-description { margin-bottom: 16px; }
-    .modal-actions { display:flex; gap:12px; justify-content:center; margin-top:12px; }
-    .modal-btn { padding:10px 14px; border-radius:10px; font-weight:800; border:none; cursor:pointer; color:#fff; min-width:150px; }
-    .modal-btn.chem { background: #FF2D2D; box-shadow: 0 8px 20px rgba(255,45,45,0.18); }
-    .modal-btn.phy { background: #008cff; box-shadow: 0 8px 20px rgba(0,140,255,0.14); }
-    .modal-close { position:absolute; top:14px; right:18px; background:transparent;border:none;font-weight:800;color:#666;cursor:pointer; }
-
-    /* Responsive sizing: keep mobile compact, enlarge for tablets and laptops */
-    @media (min-width: 768px) {
-      .modal-card { min-width: 420px; max-width: 820px; padding: 28px 30px; border-radius: 16px; }
-      .modal-title { font-size: 18px; }
-      .modal-btn { padding: 12px 18px; min-width: 180px; font-size: 15px; }
-      .modal-card { box-shadow: 0 22px 80px rgba(0,0,0,0.55); }
-    }
-
-    @media (min-width: 1024px) {
-      .modal-card { min-width: 560px; max-width: 900px; padding: 32px 36px; border-radius: 18px; }
-      .modal-title { font-size: 20px; }
-      .modal-btn { padding: 14px 20px; min-width: 200px; font-size: 16px; }
-      .modal-card { box-shadow: 0 28px 120px rgba(0,0,0,0.6); }
-    }
-
-    /* Navbar cycle toggle styling */
-    #cycleToggleBtn.cycle-toggle {
-      margin-left: 8px;
-      padding: 8px 14px; /* slightly smaller shape */
-      border-radius: 13px;
-      font-size: 24px; /* larger button text for desktop */
-      font-weight: 800;
-      cursor: pointer;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.14);
-      transition: transform 150ms ease, box-shadow 150ms ease;
-      color: white;
-    }
-    #cycleToggleBtn.cycle-toggle:hover { transform: translateY(-2px); }
-    /* match modal button gradients */
-    #cycleToggleBtn.cycle-toggle.chem { background: #FF2D2D; }
-    #cycleToggleBtn.cycle-toggle.phy { background: #008cff; }
-
-    /* show compact cycle label on mobile and tablets */
-    #cycleToggleBtn .full-label { display: none !important; }
-    #cycleToggleBtn .short-label { display: inline !important; }
-    @media (min-width: 1025px) {
-      /* desktop shows full text label */
-      #cycleToggleBtn .full-label { display: inline !important; }
-      #cycleToggleBtn .short-label { display: none !important; }
-    }
-
     body.light-mode .quiz-tag {
       /* darker variant for better contrast in light mode */
       background: var(--accent-soft-strong);
@@ -803,16 +673,6 @@
       color: #ffffff;
       border: 1px solid rgba(255,255,255,0.06);
       box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-    }
-    
-    /* override generic quiz-tag styles for cycle badges */
-    .quiz-tag.cycle-badge.chemistry {
-      background: #FF2D2D;
-      color: #fff;
-    }
-    .quiz-tag.cycle-badge.physics {
-      background: #008cff;
-      color: #fff;
     }
     
     .quiz-meta { 
@@ -1749,10 +1609,6 @@
         </svg>
         Visits: 11.2k
       </span>
-      <button id="cycleToggleBtn" class="cycle-toggle" onclick="showCycleChooser()" title="Choose cycle">
-        <span class="full-label">Choose Cycle</span>
-        <span class="short-label">CHEM</span>
-      </button>
     </div>
     <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle dark/light mode">
       <svg class="theme-icon sun-icon" viewBox="0 0 24 24">
@@ -1795,6 +1651,13 @@
           </label>
         </div>
         
+        <div style="margin-top:12px;">
+          <label for="randomizeOptionsToggle" style="display:flex;align-items:center;gap:12px;cursor:pointer;">
+            <input id="randomizeOptionsToggle" type="checkbox" onchange="toggleRandomizeOptions()" style="width:20px;height:20px;">
+            <span class="randomize-label">Shuffle Options</span>
+          </label>
+        </div>
+        
         <button class="clear-filters-btn" onclick="clearFilters()" id="clearBtn" style="display: none; margin-top:20px;">✕ Clear Filters</button>
       </div>
       
@@ -1824,7 +1687,6 @@
       <div class="content-area" id="contentArea">
         <div class="welcome-section">
           <h2>Welcome to Quiz Hub ;)</h2>
-          <p>Select your cycle by clicking the cycle button on top</p>
           <p>Select a quiz from the sidebar to start</p>
           <p class="welcome-footnote">If you come across any errors or need a quiz to be added, please let us know through our discord server!</p>
         </div>
@@ -1974,6 +1836,7 @@ function getScoreColorClass(score) {
   return 'score-red';
 }
 
+// Subject color helper
 function getSubjectColor(subject) {
   const colors = {
     'Chemistry': '#FF2D2D',      // Punchy Red
@@ -1983,101 +1846,11 @@ function getSubjectColor(subject) {
     'Maths': '#9B59B6',       // Amethyst 
     'ESS': '#27AE60',             // green
     'SCR': '#9B2FD9',              // Purple
-    'COI': '#FF8C00'               // Bright Orange
+    'IKS': '#FF8C00',               // Orange
+    'COI': '#FF8C00',               // Bright Orange
+    'Kannada': '#FF69B4'             // Pink
   };
   return colors[subject] || '#999';
-}
-
-// Cycle handling: chemistry/physics
-let selectedCycle = 'chemistry';
-function isSubjectInCycle(subject, cycle) {
-  if (!subject) return false;
-  // chemistry cycle contains subjects that mention 'chem' or 'bio'
-  const isChem = /chem|bio/i.test(subject);
-  return cycle === 'chemistry' ? isChem : !isChem;
-}
-
-function loadCycle() {
-  const saved = localStorage.getItem('selectedCycle');
-  if (saved) {
-    selectedCycle = saved;
-    updateCycleUI();
-    return true;
-  }
-  // no saved cycle -> prompt user on first open
-  selectedCycle = null;
-  // show chooser after init constructs UI
-  return false;
-}
-
-function toggleCycle() {
-  selectedCycle = selectedCycle === 'chemistry' ? 'physics' : 'chemistry';
-  localStorage.setItem('selectedCycle', selectedCycle);
-  updateCycleUI();
-  renderFilters();
-  renderQuizzes();
-}
-
-function updateCycleUI() {
-  const btn = document.getElementById('cycleToggleBtn');
-  if (!btn) return;
-  document.body.classList.remove('chemistry-cycle', 'physics-cycle');
-  // clear previous cycle classes
-  btn.classList.remove('chem', 'phy');
-  if (!selectedCycle) {
-    const full = btn.querySelector('.full-label');
-    const short = btn.querySelector('.short-label');
-    if (full) full.textContent = 'Choose Cycle';
-    if (short) short.textContent = '?';
-    btn.setAttribute('title','Choose Cycle');
-    btn.style.background = 'transparent';
-    btn.style.color = '';
-    return;
-  }
-  if (selectedCycle === 'chemistry') {
-    document.body.classList.add('chemistry-cycle');
-  } else {
-    document.body.classList.add('physics-cycle');
-  }
-  // update both label variants on button
-  const full = btn.querySelector('.full-label');
-  const short = btn.querySelector('.short-label');
-  if (selectedCycle === 'chemistry') {
-    if (full) full.textContent = 'Chemistry Cycle';
-    if (short) short.textContent = 'CHEM';
-    btn.setAttribute('title','Chemistry Cycle');
-    btn.classList.add('chem');
-  } else {
-    if (full) full.textContent = 'Physics Cycle';
-    if (short) short.textContent = 'PHY';
-    btn.setAttribute('title','Physics Cycle');
-    btn.classList.add('phy');
-  }
-}
-
-
-function showCycleChooser() {
-  const modal = document.getElementById('cycleModal');
-  if (!modal) return;
-  modal.classList.add('show');
-  modal.setAttribute('aria-hidden', 'false');
-}
-
-function hideCycleChooser() {
-  const modal = document.getElementById('cycleModal');
-  if (!modal) return;
-  modal.classList.remove('show');
-  modal.setAttribute('aria-hidden', 'true');
-}
-
-function chooseCycle(cycle) {
-  if (!cycle) return;
-  selectedCycle = cycle;
-  localStorage.setItem('selectedCycle', selectedCycle);
-  updateCycleUI();
-  renderFilters();
-  renderQuizzes();
-  hideCycleChooser();
 }
 
 // Chemistry Quizzes
@@ -8292,7 +8065,6 @@ function getSCRUnit2Quiz() {
     subject: "SCR",
     unit: 2,
     name: "SCR Unit:2 - Beti Bachao Beti Padhao + Welfare",
-    cycle: "physics",
     questions: [
       { text: "Q1. Which of the following are the objectives of the Beti Bachao Beti Padhao scheme?", options: ["1,3,4", "2,3,4", "3 and 4", "All"], correct: 3 },
       { text: "Q2. Which festival was organized on the theme of Beti Bachao Beti Padhao?", options: ["Kala Mahotsava", "Mala Utsav", "Jana Utsav", "Kala Utsav"], correct: 3 },
@@ -8408,7 +8180,6 @@ function getSCRQuiz() {
     subject: "SCR",
     unit: 1,
     name: "SCR Unit:1 - Rural & Social Topics",
-    cycle: "physics",
     questions: [
       { text: "Q1. Which of the following is not a feature of a village?", options: ["Less population", "Less diversity", "Impersonal relationship", "Predominance of primary sector and allied activities"], correct: 2 },
       { text: "Q2. Which among the following is not a form of diversity in India?", options: ["Geographical diversity", "Linguistic diversity", "Religious diversity", "None of the above"], correct: 3 },
@@ -8536,7 +8307,6 @@ function getCOIQuiz() {
     subject: "COI",
     unit: 1,
     name: "Unit 1",
-    cycle: "physics",
     questions: [
       { text: "Q1. The Constitution of India was enacted by a Constituent Assembly set up", options: ["under a resolution of the Provisional Government", "under the Cabinet Mission Plan, 1946", "by the Indian National Congress", "under the Indian Independence Act, 1947"], correct: 1 },
       { text: "Q2. The members of the Constituent Assembly were", options: ["directly elected by the people", "nominated by various political parties", "nominated by the rulers of the Indian state", "elected by the provincial assemblies"], correct: 3 },
@@ -8649,7 +8419,6 @@ function getCOIQuiz_Unit2() {
     subject: "COI",
     unit: 2,
     name: "Unit 2",
-    cycle: "physics",
     questions: [
       { text: "Q1. The power to form new states or change the boundaries of existing states rests with", options: ["the Election Commission", "the President", "the Parliament", "none of these"], correct: 3 },
       { text: "Q2. The states were reorganized on linguistic basis in", options: ["1956", "1951", "1947", "1966"], correct: 2 },
@@ -8764,6 +8533,7 @@ let quizAttempts = {};
 let currentTab = 'quiz';
 let activeFilters = { subjects: new Set(), units: new Set() };
 let randomizeQuestions = localStorage.getItem('randomizeQuestions') === 'true';
+let randomizeOptions = localStorage.getItem('randomizeOptions') === 'true';
 let quizStartTime = null;
 let currentQuizStartTime = null;
 let timerInterval = null;
@@ -8839,11 +8609,27 @@ function makeQuizInstance(baseQuiz) {
     subject: baseQuiz.subject,
     unit: baseQuiz.unit,
     name: baseQuiz.name,
-    questions: baseQuiz.questions.map(q => ({
-      text: q.text,
-      options: q.options.slice(),
-      correct: q.correct
-    }))
+    questions: baseQuiz.questions.map(q => {
+      let options = q.options.slice();
+      let correct = q.correct;
+      if (randomizeOptions) {
+        // Create array of [option, originalIndex] pairs
+        const indexedOptions = options.map((opt, i) => [opt, i]);
+        // Shuffle the indexed options
+        for (let i = indexedOptions.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [indexedOptions[i], indexedOptions[j]] = [indexedOptions[j], indexedOptions[i]];
+        }
+        // Extract shuffled options and find new correct index
+        options = indexedOptions.map(pair => pair[0]);
+        correct = indexedOptions.findIndex(pair => pair[1] === q.correct);
+      }
+      return {
+        text: q.text,
+        options: options,
+        correct: correct
+      };
+    })
   };
   if (randomizeQuestions) {
     copy.questions = shuffle(copy.questions);
@@ -8864,31 +8650,409 @@ function toggleRandomize() {
   }
 }
 
+function toggleRandomizeOptions() {
+  try {
+    const el = document.getElementById('randomizeOptionsToggle');
+    randomizeOptions = !!(el && el.checked);
+    localStorage.setItem('randomizeOptions', randomizeOptions ? 'true' : 'false');
+    if (currentQuiz && currentQuiz.id) {
+      selectQuiz(currentQuiz.id);
+    }
+  } catch (err) {
+    console.warn('Unable to toggle randomize options', err);
+  }
+}
+
+function getKannadaQuizzes() {
+  const rawQuestions = `1	Avana hesaru enu ?' in English is __________ .	What is his name ?	His name is 	your name is 	What is her name ?
+2	Who is she ? ' in Kannada is _________	Avalu yaaru ? 	naanu yaaru	avanu yaru	ivaru yaaru
+3	________  yaava uuru ?	idu	nanna	ninna	avara
+4	_______ yaaru ? 	niivu	nimma	hege	summane
+5	_______ huDugi .	avaLu  	avanu	ivanu	iva 
+6	adu namma _______ .	kaaleeju	adyapaka	upanyasaka	pranshupaala
+7	ivanu namma _________	aNNa	tangi	akka	amma
+8	nimma hesru _____ 	eenu 	yaru	yake	yaavaga
+9	If 'niivu' becomes 'nimma' what would be 'naanu'  ?	nanna	avana	avala	adara
+10	What is  English translation of the word 'naanu' ?	I 	you	he	she
+11	What is English translation of the word 'naavu' ?	We	I	you 	She
+12	What is English translation of the word 'namma' ?	our	their	your  	her
+13	What is  English translation of the word 'avaLu' ?	she	her	him	his
+14	What is English translation of the word 'namage' ?	us	our	your 	their
+15	What is English translation of the word 'nanna' ?	my	I	we	us
+16	What is Kannada translation of the word 'this' ?	idu	adu	yaaru	eenu
+17	What is Kannada translation of the word 'they' ?	avaru 	avanu	naavu	nanna
+18	What is Kannada translation of the word 'who' ?	yaaru 	yaake	yaavaga	yaaraddu
+19	What is Kannada translation of the word 'your'?	ninna	naavu	namage	nimage
+20	What is Kannada translation of the word 'her' ?	avaLa	avana	avanu  	avaru
+21	What is Kannada translation of the word 'it' ?	idu	eenu	heege	enthadu
+22	Naanu NITTE vidyaarthi ' in English is _______ .	I am NITTE student	NITTE student I am	I NITTE student	I student of NITTE
+23	Ivaru namma taayi' in English is _________.	She is my mother	She my mother	My mother is She	She my mother is
+24	AvaLu nanna tangi' in English is _______ 	She is my sister	She is my mother	He is my brother	She is my aunt
+25	Avru VTU vidyaarthi ' in English is_______ 	They are VTU student	He is VTU student	She is VTU student	I am VTU student
+26	 'idu Udupi ' in Engliish is ________	This is Udupi	That is Udupi	There is Udupi	Here is Udupi
+27	The Kannada question “Avalu hege mathanaaduthale” is “How does she speak?” . English equivalent word for the interrogative 'Hege'is ______.	how	why	where	when
+28	Interrogative or Questioning words are called ______ in Kannada language.	Prashnaarthaka Padagalu	kriya padagalu	naama padagalu	none
+29	The pronoun 'It' in Kannada is  _________________.	idu	avanu	naanu	namma
+30	“Avaru Mumbaige hodaru" The English equivalent of the sentence is “They went to Mumbai”: In this sentence ______ is a Pronoun.	avaru 	mumbai	hodaru	none of these
+31	In the Kannada sentence “Nimma hesaru enu”? which means “What is your name”?____ is the interrogative word.	enu	hesaru	nimma	none of these
+32	In the Kannada sentence “Aa huDuga yaaru”? which means “Who is that boy”?____ is the interrogative word.	yaaru 	huDuga	Aa	none of these
+33	In the Kannada sentence “Nimma uuru yaavudu”? which means “ Which is your native place”?____ is the interrogative word.	yaavudu	nimma	uuru	none of these
+34	“Avanu nanna maga" The English equivalent of the sentence is “He is my son”.In this sentence ______ is a Pronoun.	avanu	nanna	maga	none of these
+35	“Avaru nanna tande" The English equivalent of the sentence is “He is my fother”. In this sentence ______ is a Pronoun.	avaru 	nanna	tande	all the above 
+36	Idu computer' it means _______ .	this is computer	that is computer	there is computer	none of these 
+37	"ivaLu nanna magaLu'. The English equivalent of the sentence is "She is my daughter". In the sentence ______ is a pronoun.	ivaLu	nanna	magaLu	none of these
+38	idu yaara ruumu ?' in English is _______ .	Whose room is this ?	What room is this ?	Which room is this ?	none of these
+39	Aa gaaDi nimmadaa ?' in  English is ____.	Is that vehicle yours ?	Is this your vehicle ?	Whose vehicle is that	none of these
+40	dhanyavaada saar' in English is _____ .	Thank you sir	sorry sir	 Welcome sir	bye sir
+41	“Avaru Delhige hodaru” The English equivalent of the sentence is “They went to Delhi”  In this sentence ____ is a Noun.	Delhi	avaru	hodaru	none of these
+42	“Sachin elli” The English equivalent of the sentence is “Where is Sachin?”  In this sentence ____ is a Noun.	Sachin	elli	Sachin ellli	none of these
+43	The equivalent Kannada sentence for “Do you want coffee?" in Kannada is______.	Nimage Kaafi beke?	Nanage Kaafi beke?	Avarigee Kaafi beke?	ivarigee Kaafi beke?
+44	The equivalent Kannada sentence for “Is that your house ?" in Kannada is______.	adu nimma manenaa ?	yavudu nimma mane ?	nimma mane elli ?	none of these
+45	The equivalent Kannada sentence for "Which book is that?"  in Kannada is______.	Yaava pustakaa adu ? 	yaara pustaka ?	nsnns pustakavee ?	nimma pustakavee ?
+46	__________ is the meaning of the word 'hello' in Kannada language.	namaskaara	tiraskaara	upakaara	sahakaara
+47	_________ is the meaning of the word 'sorry' in Kannada language.	kshamisi	Shikshisi	smadaana	sariyaagi
+48	_________ is the meaning of the word 'house' in Kannada language.	mane	guDi	devasthana	shaale
+49	_________ is the meaning of the word 'name' in Kannada language.	hesaru	usiru	bisilu	hasiru
+50	_________ is the meaning of the word 'promise' in Kannada language.	pramaaNa	samaadaana	udaari	vihaari
+51	_________ is the meaning of the word 'marriage' in Kannada language.	maduve	upanayana	siimantha	huttu habba
+52	_________ is the meaning of the word 'drama' in Kannada language.	naataka	paata	uuta	maata
+53	_________ is the meaning of the word 'lesson' in Kannada language.	paTa	uuta	haTa	chaTa
+54	Shubharaatri in English is_______________	Good night	Good morning	Good evening	Good afternoon
+55	Shubha dina in English is____________	Good day	Bad day	Monday	Friday
+56	All the best in Kannada __________	Shubhavaagali	Shubharaatri	Arambavagali	Koneaagali
+57	Happy new year in Kannada is_____________	Hosa varShada shubhaashayagaLu	huTTu habbadha shubhaashayagaLu	madveya shubhaashayagaLu	None of these
+58	Udupi is beautiful in Kannada is __________	Udupi sundaravaagidhe	Udupi sundara	Udupi jananibiDavaagide 	None of these
+59	DhanyavaadagaLu in English is ____________.	Thank you	Welcome	Sorry	Hello
+60	Welcome in Kannada is __________.	susvaagata	abhyagata	atithi	Banni
+61	"you are beautiful' in Kannada is _______	neevu sundaravagidhiri	nivu  sundaravaagilla	 neevu chikka maguvinante	neevu chelvuve alla
+62	"may God bless you" in Kannada is.________ .	devaru oLLeyadu maaDali	devaru nimmondigirali	devaru pratyakshvaaagali	devaru vara koDli
+63	gaNita' in English is.______ 	mathematics	physics	biology	commerce
+64	Fill in the blank with the suitable Kannada form of the word given in the bracket .‘ Aa bike ______'  (mine)	nannadu	avaladu	avanadu	avaradu
+65	Fill in the blank with the suitable Kannada form of the word given in the bracket .‘ ivaru ______ tande’  (my)	nanna	ninna	avanadu	avala
+66	Fill in the blank with the suitable Kannada form of the word given in the bracket .‘ adu namma ______’ (home)	mane	gudi	devastana	mandira
+67	Fill in the blank with the suitable Kannada form of the word given in the bracket .‘ avanu ninna  ______’ (brother)	aNNa	tangi	akka	chikamma
+68	Fill in the blank with the suitable Kannada form of the word given in the bracket .‘ naanu belige _____ bande ’  (early)	bega	tadavaagi	oDoDi	nidanavagi
+69	Fill in the blank with the suitable Kannada form of the word given in the bracket .‘ naanu sanje ______bande’  (late)	tadavaagi	nidaanavaagi	bega bega	nadedu nadedu
+70	Fill in the blank with the suitable Kannada form of the word given in the bracket .‘ adu maavina ______’ (tree)	mara	gida	sasi	bija
+71	‘Nimage huttu habbada ______’(wishes).	Shubhashayagalu	vandanegalu	namaskara	none of these
+72	‘Navu ottige Delhige  ______’(go).	hogoNa	baroNa	NaDeyoNa	kurooNa
+73	Latha avana  ________(Mother).	amma	akka	tangi	chikamma
+74	Namaskara’ in Kannada language is equivalent to _______	All of these	good afternoon	hey	good morning
+75	________is used during closure of a conversation in Kannada .	Dhanyavadagalu	kshamisi	dayamaadi	none of these
+76	 'Dayamadi’ is a polite request in Kannada language which is equivalent to______	please	sorry sir	thank you	all the above 
+77	The translation of the question “Who is he?” is “Avanu yaaru?”. The Kannada equivalent word for 'Who' is ______.	yaaru 	hege	yelli 	enu
+78	alli nivu enu kelasa maDuttiraa?' The English equivalent word for 'kelasa' is _____.	work	clerk	shop	timepass
+79	avana mane elli ide?' The English equivalent word for 'elli' is _________.	where	how	when	why
+80	avara maguvina hesaru enu?' The English equivalent word for 'magu' is ________.	child	son	daughter	name
+81	Kannada term 'Yeradu' in English number system stands for ______.	2	5	9	7
+82	Kannada term 'mooru' in English number system stands for _______.	3	5	4	8
+83	Kannada term 'entu' in English number system stands for _____.	8	6	1	3
+84	The appropriate equivalent Kannada word for 'Lakh' is ______.	laksha	koti	noor	hattu
+85	The appropriate equivalent Kannada word for 'Crore' is ______.	koti	noor	entu	noora hattu
+86	Kannada term 'hannereDu' in English number system stands for _______.	12	15	17	16
+87	Kannada term 'sonne' in English number system stands for _______.	0	10	100	1
+88	Kannada term 'eeLu' in English number system stands for _______.	7	17	27	37
+89	adu hasiru mara' The English equivalent word for 'hasiru' is _____.	green	yellow	black	white
+90	aa emmeya banna kappu' The English equivalent word for 'kappu' is _____.	black	red	white	purple
+91	avaru namma maneya hiriya sadasya' The English equivalent word for 'hiriya' is _____.	old	young	new	useless
+92	avalu tumba olleya hudugi' The English equivalent word for 'olleya' is _____.	good	Bad day	smart	clever
+93	namma maneya baNNa biLi' The English equivalent word for 'biLi' is _____.	White	brown	pink	yellow
+94	adu kempu gulabi' The English equivalent word for 'kempu' is _____.	red	pink	orange	white
+95	adu tumba doDDa mara' The English equivalent word for 'doDDa' is _____.	big	small	short	height
+96	keTTa kelasa madbeda' The English equivalent word for 'keTTa' is _____.	bad	good	useless	none of these
+97	nanna mane tumba chikkadu' The English equivalent word for 'chikkadu' is _____.	small	big	large	all of these
+98	lekka maaDuvudu tumba sulabha' The English equivalent word for 'sulabha' is _____.	easy	hard	tough	painful
+99	nanna kai khaali aagide' The English equivalent word for 'khaali' is ___________.	empty	full	half	zero
+100	idu nanna hosa batte' The English equivalent word for 'hosa' is _____.	new	old	gold	none of these
+101	ii laaDu tumba gaTTi ide' The English equivalent word for 'gaTTi' is _____.	hard	soft	smooth	all of these
+102	avana chila bhaara ide' The English equivalent word for 'bhaara' is _____.	weight	height	length	none of these
+103	idu agalavaada raste' The English equivalent word for 'agala' is _____.	wide	big	small	none of these
+104	Kannada word for 'Time' is ______ .	samaya	ratri	belige	sanje
+105	Kannada word for 'Clean' is ______ .	shubra	gobbara	tabara	kabara
+106	Kannada word for 'Dry 'is ______ .	oNa	hasi	kasi	bisi
+107	Kannada word for 'Dirty' is ______ .	galiiju	suchi	ruchi	none of these
+108	Kannada word for 'Fresh' is ______ .	taaja	haLasu	haLatu	hosatu
+109	Kannada word for 'Expensive' is ______ .	dubaari	aabari	udaari	tarahevaari
+110	Kannada word for 'Light' is ______ .	hagura	bhaara	dappa	teLLage
+111	illi yaavudaadaru ruumu _______ ideyaa?  (for rent)	baaDigege	maaratakke	boogyakke	durastige
+112	________ tiLidiruvante, yaavude ruumu illi illa (for me)	nanage	ninage	avanige	avaLige
+113	_________ tumba hasivaguttide (for him)	avanige	adakke	avarige 	avugLige
+114	aa ruumu _______ athava doDDadoo. (small)	chikkadoo	olLLeyadoo	hattira	duura
+115	adu _____ mane. (whose )	yaara 	yaavudara	elliya	none of this
+116	aa mane tumbaa _______ (big)	doDDadu	haLeyadu	hosatu	chikkadu
+117	nimma maneyalli _____ iddare ?(who)	yaaru 	yaake	yavudkke	eenakke
+118	idu pustaka yaarddu ______ athava avaraddoo ?(yours)	nimmadoo	nannadoo	nammmadoo	none of this
+119	ii kaaleju _______ (yours)	nimmadaa	nammada	avaradaa	ellaradde 
+120	namma shaale tumba ______ (old)	haLeyadu	hosadu	ittiichinadu	naaLeyaddu
+121	Transform the following word of KannaDa as per the given example.saNNa -saNNadu ::  doDDa -______ 	doDDadu	chikkadu	hiriya	kiriya
+122	Transform the following word of KannaDa as per the given example. saNNa- saNNadu:: chikka -_______	chikkadu	chikkadaadaddu	chikkavarddu	chikkavaLaddu
+123	Transform the following word of KannaDa as per the given example.saNNa -saNNadu ::  haLeya -______ 	haLeyaddu	hoasatu	haLate	hoaste
+124	Transform the following word of KannaDa as per the given example. saNNa- saNNadu:: avara-_______	avaraddu	avaLaddu	avanddu	houdu
+125	Transform the following word of KannaDa as per the given example. saNNa - saNNaddu :: ivara ____	ivarddu	ivaLaddu	avanadu	avaraddu
+126	Transform the following word of KannaDa as per the given example. Raaja - Raajanadu :: ravi - ____-	raviyadu	ravienda	rajaninda	none of thies
+127	Transform the following word of KannaDa as per the given example. Raaja - Raajanadu :: amma _ ____	ammanadu	ammanige	ammanigaagi	ammanalli
+128	Transform the following word of KannaDa as per the given example.Raaja -raajanadu :: akka - ___	akkanadu	akkanigaagi	akkaninda	akkanigoskara
+129	Transform the following word of KannaDa as per the given example. Raaja - Raajandu :: nanna -___	nannadu	nanninda 	nanagaagi	nangoskara
+130	Transform the following word of KannaDa as per the given example. Raaja - Raajanadu :: snehita - ____ 	snehitanadu	snehitanige	snehitanaddu	sneha
+131	Transform the following word of KannaDa as per the given example. Mane - maneyalli :: hotel - ?	hotelinalli	hoteininda	hoteligaagi	hoteligoskara
+132	Transform the following word of KannaDa as per the given example. Mane - maneyalli :: ruumu - ____	ruuminalli	ruumige	ruuminda	yaavudu alla
+133	Transform the following word of KannaDa as per the given example. Mane - maneyalli :: uuru - ____	uurinalli 	uurige	uurinavaru	uurinda
+134	Transform the following word of KannaDa as per the given example. Mane - maneyalli :: angaDi - _______	angaDiyalli	angaDige	angaDine	 yaavudu alla
+135	Transform the following word of KannaDa as per the given example. Mane - maneyalli :: chandra -____ 	chandranalli	chandranige	chandranante	chandranee
+136	Transform the following word of KannaDa as per the given example. saNNa - saNNavaLu :: udda - ___	uddadavLu	kuLLa	giDDa	yaavudu alla
+137	Transform the following word of KannaDa as per the given example. saNNa - saNNavaLu  :: doDDa - ____	doDDavaLu	chikkavaLu	saNNavaLu	paapadavaLu
+138	Transform the following word of KannaDa as per the given example. saNNa - saNNavaLu :: ettara -  ___	ettaradavaLu	 kuLLa	udda	saNNa
+139	Transform the following word of KannaDa as per the given example. Shrinagara - shrinagaradalli :: raamanagara -   ?	raamangaradalli 	raanagarada	raamangardava	raamanagarakke
+140	Transform the following word of KannaDa as per the given example. Shrinagara - shrinagaradalli :: kaarkaLa-   ?	kaarkaLadalli	kaarakaLakke	kaarkaLadinda	yaavudu alla
+141	doDDadu  : doDDadakke :: chikkadu : ?	chikkadakke	chikka	chikkadaadaddu	chokkavadaddu
+142	doDDadu  : doDDadakke ::  haLeyadu : ?	haLeyadakke	haLatu	haLeya	naaLeya
+143	doDDadu  : doDDadakke ::  hosadu : ?	hosadakke	hasaadarinda	hosataagi	hosatu
+144	doDDadu  : doDDadakke :: nammadu : ?	nammadakke	namminda	nammadu	nammadee
+145	doDDadu  : doDDadakke :: ivaradu : ?	ivaradakke	ivarinda	ivarigaagi	ivarigoskara
+146	Raaju : Raajuvige :: ravi : ______  	ravige	raviya 	raviyannu	yaavudu alla
+147	Raaju : Raajuvige :: nanna: ____	nanage	nanninda 	nammadu	namgaagi
+148	Raaju : Raajuvige :: tamma : _____ 	tammanige	tammaninda	tammanigaagi	yaavudu alla
+149	Raaju : Raajuvige :: appa :______ 	appanige	appaninda	appane	yaavudu alla
+150	Kannada word for 'more' is ______ .	tumba	kadime	hecchu	none of these
+151	Kannada word for 'story' is ______ .	kate	purana	kadambari	kavya
+152	Kannada word for 'brother' is ______ .	aNNa	appa 	mama	akka
+153	Kannada word for 'sister' is ______ .	akka	chikkamma	amma	Doddamma
+154	Kannada word for 'good' is ______ .	oLLeya	ketta	uttama	none of these
+155	Kannada word for 'right side' is ______ .	bala badi	hinde	nadu	munde
+156	Kannada word for 'left side' is ______ .	eDa badi	nadu	munde	none of these
+157	Kannada word for 'far away' is ______ .	duura	hattira	samipa	saniha
+158	Kannada word for 'near' is ______ .	hattira	duura	kelage	mele
+159	The equivalent English word for 'tangi' is 	sister	mother	aunty	daughter
+160	The equivalent English word for 'uttama' is 	excellent	poor	lazy	useless
+161	The equivalent English word for 'kaaryakrama' is 	programme	office	meeting	none of these
+162	The equivalent English word for 'tinnu' is 	eat	sleep	play	dance
+163	The equivalent English word for 'avaru' is 	they	that	this	none of these
+164	The equivalent English word for 'santosha' is 	all the above	pleasure	satisfaction 	happiness
+165	_____ is the word used in Kannada language for the ' chair'.	kurchi	meju	tipai	none of these
+166	_____ is the word used in Kannada language for the ' money'.	all the above	haNa	kanchaNa	dhana
+167	_____ is the word used in Kannada language for the 'Information'.	mahiti	gondala	vishaya	kashaya
+168	_____ is the word used in Kannada language for the ' Cloth'.	baTTe	mannu	mara	gida
+169	_____ is the word used in Kannada language for the ' Bird'.	hakki	praani	maushya	none of these
+170	_____ is the word used in Kannada language for the ' Sad'.	besara	khushi	santosha	harusha
+171	Plural form of 'Nimma' in English is ______.	Your	Mine	Their	That
+172	Plural form of the English word 'They' in Kannada language is______.	Avaru 	Nammadu	Naavu	Neevu
+173	Kannada equivalent word for plural form 'We' is  ______.	Naavu	Neevu	Avaru	Avalu
+174	“Avana bali mooru nayigalive” is “He has three dogs”. Here the number word is_______.	Moor	bali	avana	Nayigalive
+175	"naanu eraDaneya maga" is " I am second child". Here the number word is _______.	eraDaneya	naanu	maga	none of these
+176	"ii tingaLa naalkaaneyaa tharikinandu baruttene" is " I will come on 4th of this month". Here the number word is ________.	naalkaaneyaa	tingala	baruttene	tharikinandu
+177	"naavu ottu aaru jana makkalu" is " Total we are six children". Here the number word is ____.	aaru	jana	makkalu	naavu
+178	"nanage ereDu kaNNugaLive " is " I have two eyes ". Here the number word is ________ .	ereDu	Nanage	kaNNugaLu	yaavudu alla
+179	"avanu ombattane taragatiyalli kaliyuttiddaane" is "He is studying in ninth standard" . Here the number word is _____ .	ombattane	avanu	taragati	kali
+180	" nann baLi hadinaidu buTTigaLive" is " I have fifteen baskets". Here the number word is ______ .	hadinaidu	nanna	bali	buTTi
+181	If  ondu - ondaneya :: ereDu - _____	eraDaneya	dvitiiya	dvaita	dvigu
+182	If  ondu - ondaneya :: muuru - _____	muuraneya	triimuurti	trikaraNa	trividha
+183	If  ondu - ondaneya :: aidu - _____	aidaneya	pancham	panchami	panche
+184	If  ondu - ondaneya :: enTu - _____	enTaneya	ashTa	eDuma	none of these
+185	If  ondu - ondaneya :: aaru - _____	aaraeya	aravattu	aaramba	aramane
+186	"enu ________(work) maaDuttare?"  Fill in the blank with the equivalent word for 'work'.	kelasa	uta	aata	paata
+187	"GaNeshanu esTu haNNugaLannu _____(ate)?"  Fill in the blank with the equivalent word for 'ate'.	tindanu	tinnutane	tinnuvanu	none of these
+188	"avara ________(colour) yavadu?"  Fill in the blank with the equivalent word for 'colour'.	baNNa	mane	uuru	none of these
+189	"ii tarakaariya bele ________(how much)?"  Fill in the blank with the equivalent word for 'how much'.	estu	hattu	aidu	muuru
+190	"nanage nimma maney  ________(address) koDi"  Fill in the blank with the equivalent word for 'address'.	viLaasa	vilaasa	vihara	nihara
+191	" avanu nimma ________ (son)" Fill in the blank with the equivalent word for 'son'.	maga	magalu	amma	atte
+192	"What is the date today?" Fill in the blank with the equivalentkannada word for 'today'	evattu	naale	naDidu	ninne
+193	"Udupi is a beautiful city" Fill in the blank with the equivalent word for ' beautiful'	sundara	kuurupa	ketta	none of these
+194	"Which rank he got in the examination?" Fill in the blank with the equivalent word for 'examination'	parikshe	aata	uta	none of these
+195	"This is my native place" Fill in the blank with the equivalent word for 'native'	swantha	heasru	uuru	gurugaLU
+196	"He is my younger brother" Fill in the blank with the equivalent word for 'younger brother'	tamma	appa	mama	chikappa
+197	" My elder sister is working in TCS" Fill in the blank with the equivalent word for 'elder sister'	akka	amma	attige	ajji
+198	"My grandmother is 83 years old" Fill in the blank with the equivalent word for 'grandmother'	ajji	amma	akka	sose
+199	" My grandfather is retired teacher" Fill in the blank with the equivalent word for 'grandfather'	Ajja	Appa	Mama	Anna
+200	" I have ten new book" Fill in the blank with the equivalent word for 'ten'	hattu	ombattu	naaku	ondu
+201	Fill in the blank with suitable Colour Adjectives.  idu avana_____ baNNada byagu. (white)	biLi	kempu	kappu	hasiru
+202	Fill in the blank with suitable Colour Adjectives.  kurchiya baNNa _____ . (green)	hasiru	biLi	haLadii	kapppu
+203	Fill in the blank with suitable Colour Adjectives. ______ baNNada pennu nimmada. ? (blue)	niili	biLi	kempu	gulaabi
+204	Fill in the blank with suitable Colour Adjectives. Aa _______ baNNada bussu nimmada ? (black)	kappu	kempu	haLadii	hasiru
+205	Fill in the blank with suitable Colour Adjectives. Avana maneya goDege ______ baNNa baLididdaare. (yellow)	haLadi 	hasiru	kittaLe	gulaabi
+206	The equivalent English word for 'saaku' is	enough	big	small	none of these
+207	The equivalent English word for 'taLme' is	Patience	Happy	Sad	Worry
+208	The equivalent English word for 'beeku' is	Want	Give	Take	Spend
+209	The equivalent English word for 'biDu' is	Leave	Take	Give	Ask
+210	The equivalent English word for 'bare' is	Write	Read	Speak	Talk
+211	The appropriate equivalent Kannada word for 'start' is ______.	horaDU	nillu	malagu	none of these
+212	The appropriate equivalent Kannada word for 'walk' is ______.	naDe	kuLituko	ooDu	malagi
+213	The appropriate equivalent Kannada word for 'know' is ______.	gottu	gottilla	mare	tiLi
+214	The appropriate equivalent Kannada word for 'sky' is ______.	aakaasha	niiru	bhuumi	none of these
+215	The appropriate equivalent Kannada word for 'land' is ______.	bhuumi	bhaanu	niiru	maNNNu
+216	The appropriate equivalent Kannada word for 'officer' is ______.	adhikaari	gumaasta	kaarkuuna	mestri
+217	The appropriate equivalent Kannada word for 'stop' is ______.	nillu	nadDe	kuLituko	ooDu
+218	The appropriate equivalent Kannada word for 'drink' is ______.	kuDi	tinnu 	nungu	jagiyuvudu
+219	The appropriate equivalent Kannada word for 'more' is ______.	bahaLa	kaDime	chuuru	none of these
+220	The appropriate equivalent Kannada word for 'shop' is ______.	angaDi 	nildaana	mane	koTTige
+221	" You drink the coffee" Correct translation of this sentence is 	niinu coffee kuDi.	coffee kuDibeDa	coffee kuDi	niinu kuDibeeDa
+222	" What is colour of my bag?" Correct translation of this sentence is 	nanna byagina baNNa yaavudu ?	nanna byaagu banna heegide	nanna banna byaagu yaavudu	nanna byaagu yaavudu
+223	" This is orange colour book" Correct translation of this sentence is 	idu kittaLe bannada pustaka	idu pustaka kittale	pustaka kiTTaLe 	kiTTaLe baNNa pustaka
+224	" Is it white colour car?" Correct translation of this sentence is 	idu biLi baNNada kaara ?	kaaru baNNa biLiye	biLi banna kaara	kaaru banna yaavudu
+225	" Mysore is small city" Correct translation of this sentence is 	Mysore tumba chikka paTTaNa	chikka paTTana uru	mysore paTTaNa chikka	paTTaNa mysore doDDadu
+226	" Udupi is far away from Karkala" Correct translation of this sentence is 	uDupi kaarkaLadinda duura ide	uDupi kaarkaLa dUUra	duura kaarkaLa uDupi	tumba kaarkaLa uDupi dUUra 
+227	" My college is situated in Nitte village" Correct translation of this sentence is 	nanna kaaleeju Nitte uurinallide.	nanna  Nitte uurinallide.	 Nitte uurinallide nanna kaaleeju	nanna uurinallide kaaleju
+228	" My name is Krishna" Correct translation of this sentence is 	nanna hesaru Krishna	nanna hesaru 	hesaru Krishna	nanna Krishna hesaru
+229	" Why are you angry?" Correct translation of this sentence is 	niinu yaake kopa maaDi konDiruve ?	kopa yaake	niinu yaake siTTu maaDiruve	koopa yake ninage
+230	" Today is my birthday" Correct translation of this sentence is 	ivattu nanna huTTu habba	ivattu  huTTu habba	 nanna huTTu habba	huTTu habba nandu ivattu`;
+
+  const questions = rawQuestions.trim().split(/\r?\n/).map((line) => {
+    const [number, text, ...options] = line.split('\t');
+    return {
+      text: text.trim(),
+      options: options.map((option) => option.trim()),
+      correct: 0
+    };
+  });
+
+  return [
+    {
+      id: "kannada-quiz-u1",
+      subject: "Kannada",
+      unit: 1,
+      name: "Unit 1 - Balake Kannada",
+      questions
+    }
+  ];
+}
+
+function getIKSQuiz() {
+  const rawQuestions = `1	Indian Traditional Knowledge is also referred to as:	Indian Knowledge System 	Indigenous Knowledge System 	Independent Knowledge System 	Intellectual Knowledge System 
+2	The term “Indian” in IKS refers to:	The broader cultural-geographical region of the Indian subcontinent	Only post-1947 India	A political party	Only North India
+3	Knowledge in the Indian tradition emerges through:	Observation and experimentation	Blind faith	Guesswork	Superstition
+4	The 14 Vidyasthanas were developed to:	Organize and classify knowledge	Promote foreign education	Abolish traditional learning	Establish trade routes
+5	Indian Traditional Knowledge exists in:	Both oral and written forms	Only written form	Only oral form	Only digital form
+6	Which of the following is part of the Literary Tradition?	Vedic literature	Folk storytelling	Guru–Shishya Parampara	Food habits
+7	Guru–Shishya Parampara belongs to:	Non-Literary Tradition	Modern Education System	Literary Tradition	Colonial Administration
+8	Ayurveda and Yoga are related to the domain of:	Health and Medicine	Governance	Trade	Defense
+9	Indian Traditional Knowledge promotes:	Sustainable development	Industrialisation 	Cultural erosion	Nationalism 
+10	IKS integrates Jnana, Vijnana, and:	Jeevan Darshan	Artha	Kama	Moksha
+11	One major importance of IKS is:	Strengthening civilizational continuity	Promoting superstition 	Promoting Westernisation of Indian Knowledge 	Strengthening Colonial Values 
+12	Knowledge becomes a “system” when it is:	Structured and logically arranged	Randomly collected	Politically controlled	Ignored
+13	The Indian Knowledge System aligns with:	Scientific inquiry with ethical foundations	Skepticism 	Superstition only	Colonial dominance
+14	Non-literary traditions are preserved through:	Lived practices and performance	Manuscripts only	Foreign documentation	Online platforms only
+15	The study of IKS aims to:	Address contemporary challenges using traditional wisdom	Promote nostalgia only	Replace modern education completely	Limit knowledge to religious texts
+16	Indian Knowledge System (IKS) is described as:	A civilizational and multidisciplinary framework	A purely religious framework	A colonial academic model	A modern technological invention
+17	IKS integrates which three core dimensions?	Jnana, Vijnana, Jeevana Darshana	Dharma, Artha, Kama	Religion, Politics, Economy	Theory, Practice, Trade
+18	The term “Darshana” means:	Ritual practice	Meditation technique	A way of seeing	Temple worship
+19	The six classical philosophical systems are collectively known as:	Shad-Darshanas	Vedangas 	Saptaprakriti	Upavedas
+20	The Samkhya system proposes dualism between:	Purusha and Prakriti	Dharma and Karma	Atman and Brahman	Matter and Energy
+21	The Yoga system was systematized by:	Patanjali	Kapila	Kanada	Jaimini
+22	The Nyaya system is primarily associated with:	Logic and reasoning 	Devotion	Poetry	Astronomy
+23	The Sulba Sutras are associated with:	Geometry and altar construction	Political science	Ayurveda	Music theory
+24	The medical tradition associated with surgical techniques is linked to:	Sushruta	Aryabhata	Charaka	Gautama
+25	The Iron Pillar of Delhi is an example of advanced:	Metallurgy	Temple art	Literature	Agriculture
+26	The Arthashastra discusses principles of:	Administration and statecraft	Surgery	Commerce and Economics 	Ritual chanting
+27	Temple architecture in IKS required knowledge of:	Geometry and engineering	Only art	Only sculpture	Only religion
+28	Takshashila was established around:	6th century BCE	12th century CE	5th century CE	2nd century CE
+29	Takshashila was located in the present-day:	Pakistan	Nepal	India	Sri Lanka
+30	Takshashila functioned primarily as:	A cluster of independent teachers	A centralized university with fixed syllabus	A monastery only	A military academy only
+31	Which of the following scholars is associated with Takshashila?	Panini	Kumaragupta I	Xuanzang	Bakhtiyar Khilji
+32	Nalanda University was established in the:	5th century CE	6th century BCE	8 th century CE	10th century CE
+33	Nalanda was founded by:	Kumaragupta I	Harsha	Ashoka	Chandragupta Maurya
+34	Approximately how many students studied at Nalanda according to Chinese travelers?	10,000	1,000	5,bs	20,000
+35	Nalanda’s famous library was known as:	Dharmaganja	Ratnavali	Arthashala	Granthagriha
+36	Nalanda was destroyed in 1193 CE by:	Bakhtiyar Khilji	Mahmud of Ghazni	Timur	Aurangzeb
+37	The Gurukula system was characterized by:	Residential learning with the teacher	Distance learning	Written examinations only	Digital instruction
+38	In the Gurukula system, education emphasized:	Moral, spiritual, and intellectual development	Only vocational skills	Only academic knowledge	Military training alone
+39	Intellectual debates in traditional education promoted:	Analytical thinking	Blind acceptance	Political propaganda	Memorization only
+40	Ancient Indian education was described as:	Dynamic, dialogical, and holistic	Limited to religious teaching	Static and dogmatic	Restricted to elite groups only
+41	Indian culture is described as:	An evolving system of beliefs, practices, and institutions	A static set of rituals	A modern political construct	A foreign cultural import
+42	Culture includes which of the following elements?	Both tangible and intangible aspects	Only art and architecture	Only religion	Only social customs
+43	Which of the following is a tangible aspect of culture?	Monuments	Beliefs	Ethical norms	Social attitudes
+44	Which of the following is an intangible aspect of culture?	Religious philosophies	Coins	Architecture	Clothing
+45	The concept of “unity in diversity” reflects Indian culture’s:	Pluralism	Isolation	Uniformity	Rigidity
+46	The Indo-Greeks influenced Indian culture mainly through:	Gandhara art	Agriculture	Printing technology	Commerce and Economics 
+47	The Taj Mahal represents a synthesis of:	Persian and Indian styles	Chinese and Indian styles	British and Mughal styles	Greek and Roman styles
+48	Maritime trade on India’s western coast connected it with:	Mesopotamia and West Asia	Europe only	Japan	South America
+49	The Chola expeditions facilitated cultural exchange with:	Southeast Asia	Africa 	China 	Europe
+50	British colonization introduced:	Western education and modern institutions	Only religious reforms	Temple-based administration	Vedic education
+51	Cultural nationalism emerged primarily as a response to:	Colonial domination	Mughal rule	Natural disasters	Trade expansion
+52	The Himalayas influenced Indian culture by:	Shaping climate and providing protection	Preventing all contact with other regions	Promoting desert culture	Eliminating trade routes
+53	The Indo-Gangetic plains supported:	Agricultural prosperity and urbanization	Mining economy	Desert trade caravans	Nomadic culture only
+54	The Vindhya-Satpura ranges contributed to:	Development of Dravidian languages	Isolation from trade	Elimination of regional diversity	Complete cultural uniformity
+55	Indian culture is best described as:	Pluralistic, adaptive, and evolving	Static and unchanging	Limited to religious texts	Homogeneous and rigid
+56	Historical sources used to reconstruct Indian culture are broadly classified into:	Literary and Archaeological	Religious and Secular	Ancient and Modern	Political and Economic
+57	Archaeology is particularly important for studying:	Prehistory and protohistory	Medieval trade only	Colonial administration	Modern India
+58	Prehistory refers to the period:	Before the advent of writing	During British rule	During Gupta period	After independence
+59	Protohistory refers to a period where:	Writing existed but remains undeciphered	No material remains exist	Modern languages developed	Foreign invasions began
+60	Which of the following is an example of archaeological evidence?	Stone tools and microliths	Tripitaka	Arthashastra	Upanishads
+61	The Indus Valley Civilization is dated approximately to:	3000–1500 BCE	1500–500 BCE	600–300 BCE	500–100 CE
+62	Which of the following Indus sites revealed advanced urban planning?	Harappa	Taxila	Nalanda	Pataliputra
+63	Rock paintings at Bhimbetka primarily depict:	Hunting scenes and animals	Royal ceremonies	Temple rituals	Foreign invasions
+64	Carbon-14 dating is used in archaeology to:	Establish chronology	Translate manuscripts	Identify languages	Interpret myths
+65	The four Vedas include all EXCEPT:	Ayurveda	Rigveda	Samaveda	Yajurveda
+66	The Tripitaka is associated with:	Jainism	Buddhism	Hinduism	Sikhism
+67	Rajatarangini provides historical information about:	Kashmir	Magadha	Tamil Nadu	Gujarat
+68	Foreign travellers who described India include:	Xuanzang	Ashoka	Aryabhata	Panini
+69	Agricultural festivals such as Pongal and Baisakhi reflect:	Ecological awareness and community bonding	Military victories	Colonial reforms	Industrialization
+70	A holistic understanding of Indian culture requires:	Integration of archaeological, literary, and traditional sources	Only an archaeological study	Only literary analysis	Only foreign accounts
+71	The Mature Harappan phase is generally dated to:	2600–1900 BCE	3300–2600 BCE	7000–5000 BCE	1500–1000 BCE
+72	The Harappan Civilization is also known as the:	Indus–Saraswati Civilization	Ganga Civilization	Mauryan Civilization	Vedic Civilization
+73	The Saraswati River is identified with the paleo-channel of the:	Yamuna	Ghaggar-Hakra	Narmada	Yamuna
+74	Harappan cities were divided into:	Citadel and Lower Town	Temple and Market	Palace and Slums	Port and Village
+75	A notable feature of Harappan houses was	Private bathrooms with drainage outlets	Lack of drainage	Shared public bathrooms only	Wooden construction only
+76	The Great Bath is located at:	Mohenjo-daro	Dholavira	Lothal	Harappa
+77	Dholavira is particularly famous for its:	Water harvesting system	Military fortifications	Palace complex	Pyramid structures
+78	Lothal is known as:	One of the earliest dockyards	A mining centre	A religious capital	A Vedic school
+79	In Mesopotamian texts, the Harappan region was referred to as:	Meluha	Aryavarta	Indika	Ikshvaku 
+80	Harappan exports included all EXCEPT:	Iron weapons	Cotton textiles	Beads	Shell bangles
+81	The famous bronze “Dancing Girl” statue reflects Harappan skill in:	Metallurgy	Stone carving	Textile weaving	Painting
+82	The Indus script remains:	Undeciphered	Partially translated	Fully deciphered	Written in Sanskrit
+83	One major factor suggested for the decline of the Harappan Civilization is:	Climate change and river shifts	Nuclear warfare	Immediate invasion	Epidemic disease only
+84	The greatest contribution of the Harappan Civilization was:	Scientific urban planning and sanitation	Monumental pyramids	Massive statues	Military conquest
+85	The Harappan drainage system indicates awareness of:	Public health and sanitation	Military strategy	Religious hierarchy	Royal luxury
+86	The term “Purushartha” refers to:	Goals of human life	Social classes	Political institutions	Religious rituals only
+87	The four Purusharthas include all EXCEPT:	Karma	Artha	Dharma	Moksha
+88	Dharma primarily represents:	Righteousness and duty	Emotional desire	Wealth accumulation	Political conquest
+89	Artha in the Purushartha framework signifies:	Material prosperity	Liberation	Ritual sacrifice	Renunciation
+90	Moksha refers to:	Liberation from worldly bonds	Economic success	Social mobility	Political authority
+91	The Ashrama system divides life into:	Four stages	Three stages	Five stages	Two stages
+92	The first stage of life in Chaturashrama Dharma is:	Brahmacharya	Vanaprastha	Sannyasa	Grihastha
+93	Brahmacharya primarily focused on:	Vedic study and discipline	Warfare	Trade	Political administration
+94	The Grihastha stage was considered important because it:	Supported other Ashramas economically	Promoted renunciation	Rejected social duties	Avoided ritual practices
+95	Vanaprastha and Sannyasa stages encouraged:	Spiritual reflection and detachment	Material wealth	Political expansion	Military training
+96	The four Varnas include all EXCEPT:	Nishada	Kshatriya	Vaishya	Brahmana
+97	In early Vedic society, the Varna system was initially:	Fluid and profession-based	Completely rigid and hereditary	Based only on wealth	Determined by kings
+98	The Mahajanapadas emerged mainly during:	Sixth to fourth centuries BCE	Gupta period	Harappan period	Mughal period
+99	The Guru–Shishya tradition is closely linked to:	Brahmacharya	Sannyasa	Vanaprastha	Grihastha
+100	The combined effect of Purusharthas and Varnashrama Dharma ensured:	Cultural discontinuity	Ethical integration and knowledge preservation	Political chaos	Abolition of ritual traditions`;
+
+  const questions = rawQuestions.trim().split(/\r?\n/).map((line) => {
+    const [number, text, ...options] = line.split('\t');
+    return {
+      text: text.trim(),
+      options: options.map((option) => option.trim()),
+      correct: 0
+    };
+  });
+
+  return {
+    id: "iks-u1",
+    subject: "IKS",
+    unit: 1,
+    name: "Unit 1 - Indian Knowledge System",
+    questions
+  };
+}
+
 function init() {
   loadSavedTheme();
-  const hadSavedCycle = loadCycle();
   loadSidebarState();
-  allQuizzes = [...getChemistryQuizzes(), ...getUHVQuizzes(), ...getBiologyQuizzes(), ...getEMEQuizzes(), ...getMathQuizzes()];
+  allQuizzes = [...getChemistryQuizzes(), ...getUHVQuizzes(), ...getBiologyQuizzes(), ...getEMEQuizzes(), ...getMathQuizzes(), ...getKannadaQuizzes()];
   // include unit 2, unit 4 and unit 5 math quizzes as well
   allQuizzes = allQuizzes.concat(getMathUnit2()).concat(getMathUnit3()).concat(getMathUnit4()).concat(getMathUnit5());
   allQuizzes =allQuizzes.concat(getESSQuizzes()).concat(getESSUnit2Quizzes()).concat(getESSUnit3Quizzes());
-  // Default: mark all existing quizzes as part of the chemistry cycle
-  allQuizzes.forEach(q => { if (!q.cycle) q.cycle = 'chemistry'; });
   try {
     const el = document.getElementById('randomizeToggle');
     if (el) el.checked = randomizeQuestions;
+    const elOpt = document.getElementById('randomizeOptionsToggle');
+    if (elOpt) elOpt.checked = randomizeOptions;
   } catch (e) {}
   try { const tEl = document.getElementById('timerDisplay'); if (tEl) tEl.textContent = '0s'; } catch(e) {}
-  if (hadSavedCycle) {
-    renderFilters();
-    updateFilterUI();
-    renderQuizzes();
-    updateHeader();
-  } else {
-    // Let user choose cycle before showing quizzes
-    updateHeader();
-    showCycleChooser();
-  }
+  renderFilters();
+  updateFilterUI();
+  renderQuizzes();
+  updateHeader();
   // Add swipe to close sidebar on mobile
   const sidebar = document.getElementById('sidebar');
   let startX = 0;
@@ -8904,8 +9068,8 @@ function init() {
 }
 
 function renderFilters() {
-  // Build subject list only from quizzes that belong to the selected cycle
-  const subjects = [...new Set(allQuizzes.filter(q => q.cycle === selectedCycle).map(q => q.subject))];
+  // Build subject list from all quizzes
+  const subjects = [...new Set(allQuizzes.map(q => q.subject))];
   const units = [...new Set(allQuizzes.flatMap(q => Array.isArray(q.unit) ? q.unit : [q.unit]))].sort((a, b) => a - b);
   
   document.getElementById('subjectFilters').innerHTML = subjects.map(s => 
@@ -8976,9 +9140,6 @@ function renderQuizzes() {
     });
   }
 
-  // Only show quizzes that belong to the currently selected cycle
-  filtered = filtered.filter(q => q.cycle === selectedCycle);
-  
   if (filtered.length === 0) {
     list.innerHTML = '';
     noResults.style.display = 'block';
@@ -8993,10 +9154,6 @@ function renderQuizzes() {
         ${`<span class="quiz-tag" style="background-color: ${getSubjectColor(q.subject)}; color: white;">${q.subject}</span>`}
         <span class="quiz-tag">${Array.isArray(q.unit) ? 'Units ' + q.unit.join(', ') : 'Unit ' + q.unit}</span>
         <span class="quiz-tag">${q.questions.length} Qs</span>
-        <!-- Single cycle badge: either chemistry or physics (all current quizzes default to chemistry) -->
-        ${q.cycle === 'chemistry'
-          ? `<span class="quiz-tag cycle-badge chemistry">Chemistry Cycle</span>`
-          : `<span class="quiz-tag cycle-badge physics">Physics Cycle</span>`}
       </div>
       ${q.note ? `<div class="quiz-note">${q.note}</div>` : ''}
       <div class="quiz-meta">Tap to start</div>
@@ -9284,15 +9441,8 @@ function showReview(quizId, attemptIndex) {
 }
 
 function showPerformance() {
-  if (!selectedCycle) {
-    showNoData('Please choose a cycle first.');
-    return;
-  }
-  // Only consider quizzes belonging to the selected cycle so that chemistry users
-  // don't see physics quizzes (and vice‑versa) on the dashboard.
-  const subjects = [...new Set(allQuizzes
-    .filter(q => q.cycle === selectedCycle)
-    .map(q => q.subject))];
+  // Show performance across all quizzes
+  const subjects = [...new Set(allQuizzes.map(q => q.subject))];
   if (Object.keys(quizAttempts).length === 0) {
     document.getElementById('contentArea').innerHTML = '<div class="no-attempts">No quiz attempts yet.</div>';
     updateHeader();
@@ -9301,10 +9451,10 @@ function showPerformance() {
   
   document.getElementById('contentArea').innerHTML = `
     <div class="performance-section">
-      <div class="performance-header"><h2>Performance Dashboard (${selectedCycle.charAt(0).toUpperCase() + selectedCycle.slice(1)} Cycle)</h2><p>Your performance across all subjects</p></div>
+      <div class="performance-header"><h2>Performance Dashboard</h2><p>Your performance across all subjects</p></div>
       <div class="performance-grid">
         ${subjects.map(subj => {
-          const sQuizzes = allQuizzes.filter(q => q.subject === subj && q.cycle === selectedCycle);
+          const sQuizzes = allQuizzes.filter(q => q.subject === subj);
           let tAtt = 0, tCorr = 0, tQ = 0, totalTime = 0;
           sQuizzes.forEach(qz => {
             if (quizAttempts[qz.id]?.length) {
@@ -9330,7 +9480,6 @@ function showPerformance() {
 
 function showWelcome() {
   document.getElementById('contentArea').innerHTML = `<div class="welcome-section"><h2>Welcome to Quiz Hub ;)</h2>
-    <p>Select your cycle by clicking the cycle button on top</p>
     <p>Select a quiz from the sidebar to start</p>
     <p class="welcome-footnote">If you come across any errors or need a quiz to be added, please let us know through our discord server!</p></div>`;
 }
@@ -9390,6 +9539,13 @@ init();
 const scr_quiz = getSCRQuiz();
 if (!allQuizzes.find(q => q.id === scr_quiz.id)) {
   allQuizzes.push(scr_quiz);
+  renderFilters();
+  renderQuizzes();
+}
+// Register IKS quiz after init completes
+const iks_quiz = getIKSQuiz();
+if (!allQuizzes.find(q => q.id === iks_quiz.id)) {
+  allQuizzes.push(iks_quiz);
   renderFilters();
   renderQuizzes();
 }
@@ -9454,22 +9610,6 @@ if (!allQuizzes.find(q => q.id === coi_u2_quiz.id)) {
   // ]]>
   </script>
   
-    <!-- Cycle chooser modal (injected) -->
-    <div id="cycleModal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
-      <div class="modal-card">
-        <div class="modal-title">Choose a Cycle</div>
-        <div class="modal-description">Pick which cycle you'd like to view. This will filter available quizzes.</div>
-
-        
-        
-
-        <div class="modal-actions">
-          <button class="modal-btn chem" onclick="chooseCycle('chemistry')">Chemistry Cycle</button>
-          <button class="modal-btn phy" onclick="chooseCycle('physics')">Physics Cycle</button>
-        </div>
-      </div>
-    </div>
-
   <script>
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
   </script>

@@ -1607,7 +1607,7 @@
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
           <circle cx="12" cy="7" r="4"></circle>
         </svg>
-        Visits: 12.9k
+        Visits: 11.2k
       </span>
     </div>
     <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle dark/light mode">
@@ -8915,6 +8915,314 @@ function getKannadaQuizzes() {
   ];
 }
 
+function getKannadaQuiz2() {
+  const rawQuestions = `231	Fill in the blank using the correct form of Kannada word given in the bracket. NaaLe ______ uurige hogoNvaa ? (WE)	naavu	niivu	taavu	avaru
+232	Fill in the blank using the correct form of Kannada word given in the bracket. ninna ______ enu  ? (name)	hesaru	uuru	tamma	haLLi
+233	Fill in the blank using the correct form of Kannada word given in the bracket. nimage kaafii ______ ?.(don't)	bEDave	bEke	kuDiyiri	sEvisi
+234	Fill in the blank using the correct form of Kannada word given in the bracket. naanu _____ benglurige hoguve .(tomorrow)	nALe	ninne	ivattu	monne
+235	Fill in the blank using the correct form of Kannada word given in the bracket. namma kaalejina raste ________ ? (which)	yAvudu	yaaru	elli	hEge
+236	Fill in the blank using the correct form of Kannada word given in the bracket. avanige ii viShayavannu niivu kuddagi ______ (inform)	tiLisi	heLisi	talupisi	nenpisi
+237	Fill in the blank using the correct form of Kannada word given in the bracket. ________ Raamuge heLuttiraa ? (you)	niivu	avaru	ivaru	tamma
+238	Kannada translation of 'stand up' is	nillu	kuLituko	ODu	baa
+239	Kannada translation of 'come fast' is	bega baa	nidaanavaagi baa	mella baa	tirugi baa
+240	Kannada translation of 'please you go to bangalore.' is	niinu dayavittu bengaLurige hOgu.	niinu bengaLurige baa	bengLUrinind baa dayamaadi	none of these
+241	Kannada translation of 'Will you come to college today ?' is	ivttu niinu kaalejige bruttiya ?	ninna kaalejige barutti ?	baruttiya niinu ninna kaaleju ?	kaaleju niiinu baruttade
+242	Kannada translation of 'get out' is	eddu  hOgu	olge baa	edddu kuLituko	nadDedu baa
+243	Kannada translation of 'when you come ?' is	yavaaga bandiri	elli bandiri	hege bandiri	ellinda bandiri
+244	Kannada translation of 'shall I go ?' is	naanu hogala	avanu hogala	avalu hoguvaLu	none of these
+245	Fill in the blank using the correct form of Kannada word given in the bracket. Niinu ________ (come)	baa	hogu	malagu	none of these
+246	If kuDi : kuDiyiri :: tinni : _________	tinniri	tinnoNa	tinnu	uNNu
+247	If kuDi : kuDiyiri :: hogu : _________	hogiri	hoguv	hoogisu	hoogli
+248	If kuDi : kuDiyiri :: baa : _________	banniri	banni	barali	none of these
+249	If kuDi : kuDiyiri :: ese : _________	eseyiri	bisaaku	bisaaDu	biisu
+250	If kuDi : kuDiyiri :: haaku : _________	haakiri	haakikoLLi	haakisi	haakuva
+251	If kuDi : kuDiyiri :: nuDi : _________	nuDiyiri	nudisi	heLisi	haaDisi
+252	If kuDi : kuDiyiri :: koLLu : _________	koLLiri	konDukoLLi	koDisi	koDu
+253	If kuDi : kuDiyiri :: noDu : _________	noDiri	noDONa	noDikoLLi	none of these
+254	If hogu : hogoNaa :: tinnu : _________	tinnoNaa	tinnisi	tinnisu	tinnali
+255	If hogu : hogoNaa :: maDu : _________	madoNaa	maaDuva	maaDisu	maaDikoLLU
+256	If hogu : hogoNaa :: koDu : ____________	koDoNaa	koDabeDa	koDadiru	koDabeeDa
+257	If hogu : hogoNaa :: baa : ____________	baroNaa	banni	barali	baruvantaagli
+258	If hogu : hogoNaa :: odu : _________	odoNaa	oodali	oodisi	oodikoLLi
+259	If hogu : hogoNaa :: bare : _________	bareyoNaa	baredukoLLooNa	bareyali	baresiri
+260	Fill in the blank using the correct form of Kannada word given in the bracket. niinu_______ ( may come)	barabahudu	baa	banniri	hoogiri
+261	Fill in the blank using the correct form of Kannada word given in the bracket. naaLe ______ uurige hogoNavaa ? (I and you)	naanu niinu	avanu ivanu	avaru ivaru	adu idu
+262	Fill in the blank using the correct form of Kannada word given in the bracket. nimma kaalejinaa ______ enu ? (name)	hesaru	daari	uuru	haLLi
+263	Fill in the blank using the correct form of Kannada word given in the bracket. nanage tea _____ (don't)	beDa	beku	bekittu	bekaagittfu
+264	Fill in the blank using the correct form of Kannada word given in the bracket. naanu ____ Hasanake hoguve. (tommorrow)	naaLe	ninne	monne	andu
+265	Fill in the blank using the correct form of Kannada word given in the bracket. namma kaalejina raste _______ (Which)	yaavudu	elli	ellinda	illiye
+266	Fill in the blank using the correct form of Kannada word given in the bracket. avanige ii viSayavannu nivu ________ ( inform)	tiLisi	heLiri	kaLisiri	none of these
+267	Fill in the blank using the correct form of Kannada word given in the bracket. GaNesha mattu Raamuge ______ heLuttiraa ? (you)	nivu	naanu	avanu	avaLu
+268	Fill in the blank using the correct form of Kannada word given in the bracket. angaDige niinu bega hogi _______ (come)	baa	banniri	kuLituko	hogu
+269	Fill in the blank using the correct form of Kannada word given in the bracket. naanu _____ kaayuttiruttene ( for you)	ninagaagi	ninninda	ninnalli	nanagaagi
+270	Fill in the blank using the correct form of Kannada word given in the bracket. beDa amele _____ (go)	hogu	baaa	nillu	oDu
+271	Fill in the blank using the correct form of Kannada word given in the bracket. saar niivu _______ maaDi (lesson)	paaTa	aata	uuTa	noTa
+272	Fill in the blank using the correct form of Kannada word given in the bracket. saar nanage gaNit pustaka ______ (want)	beku	beDa	tanni	koDi
+273	Fill in the blank using the correct form of Kannada word given in the bracket. iiga _____ maaDali (what)	eenu	yaake	elli	hege
+274	Fill in the blank using the correct form of Kannada word given in the bracket. indu niinu vijnaan pustakvannu _______ . (read)	odu	odisu	bareyali	tiLiyali
+275	Fill in the blank using the correct form of Kannada word given in the bracket. naaLe _____ .( don't come )	barabeDa	baa	hogu	nilli
+276	Fill in the blank using the correct form of Kannada word given in the bracket. naaLe uurige ____ . (don't go)	hogabeDa	hogu	banniri	baa
+277	Fill in the blank using the correct form of Kannada word given in the bracket. niinu nanna hesarannu ______ . (write)	bare	odu	noDu	tiLi
+278	Fill in the blank using the correct form of Kannada word given in the bracket. avanige pustaka ________ .( don't give )	koDabeDa	koDu	koDisu	koDamaaDu
+279	Fill in the blank using the correct form of Kannada word given in the bracket. niinu sihi tinDi ________ (don't eat)	tinnabeDa	tinnu	tinnisu	tinduko
+280	Fill in the blank using the correct form of Kannada word given in the bracket. naaLe manege ______ . (May come)	barabahuda	banni	banniri	baaradiri
+281	Fill in the blank using the correct form of Kannada word given in the bracket. eSTu _____ ninna hattira ide .? (money)	haNa	cillare	batte	none of these
+282	Fill in the blank using the correct form of Kannada word given in the bracket. nanage ninna pustakavannu ______ (give)	koDu	keLu	taa	torisu
+283	Fill in the blank using the correct form of Kannada word given in the bracket. naanu _____ hoguttene ( library)	granthaalaya	mange	shaalege	uurige
+284	Fill in the blank using the correct form of Kannada word given in the bracket. nanage iigale _____ aagide .( hungry)	hasivu	baayarike	daaha	aasaru
+285	English sentence "tomorrow is holiday." in Kannada is	naLe raje	ninne raje	monne raje	none of these
+286	English sentence "I am in college ." in Kannada is	naanu kaalejinalli iddene	naanu kalejige baruve	iddene naanu kaleju	kaalejinalli niinu iddene
+287	English sentence "where are you." in Kannada is	niinu elli iddiya ?	yaaru niinu ?	niinu yaake bande ?	ninna uurelli. ?
+288	English sentence "when you'r father will come ?" in Kannada is	nimma appa yaavaaga baruttare ?	ninna appa yaaru	niinu yaaru	appa elliddare
+289	English sentence "will you come to our home ?" in Kannada is	niinu namma manege bruttiya ?	ninnu manege namma hogutti ?	niinu manege iruttiya	niinu maneyinda hoguttiya ?
+290	English sentence "be in home." in Kannada is	maneyalliye iru.	maneyalli irabeDa	manege hogu	manege banniri
+291	English sentence "holiday is given to  college .'' in Kannada is	kaalejige raje koTTiddare.	kaalejige rajeye	raje kaaleju	kaalejige barabeke ?
+292	English sentence "where is vegetable shop ?" in Kannada is	tarakari angaDi ellide ?	tarakari ellide ?	tarakari yavudu ?	yava tarakari beku ?
+293	English sentence "where is he  ?" in Kannada is	avanu elliddane /	avanu yaaru ?	avanu bandane ?	avanige bar heLi
+294	English sentence "I will go to movie theatre with my brother" in Kannada is	naanu nanna aNNan jote sinimaakke hoguttene.	naanu obbane sinimakke hoguttene.	nani sinema nodide	naanu sinemaa noDuvudilla
+295	Fill in the blank using the correct form of Kannada word given in the bracket. nammurige niinu _____ (new)	hosaba	haLaba	aprarupada	none of these
+296	Fill in the blank using the correct form of Kannada word given in the bracket. indu naaanu kaalejige ______(go)	hoguttene	hogalla	hogiru	hogabeDa
+297	Fill in the blank using the correct form of Kannada word given in the bracket. nanage iiga ____ beDa .( meals)	uuTa	tinDi	tinisu	chaa
+298	Fill in the blank using the correct form of Kannada word given in the bracket. nannannu _____ (leave)	biDu	hiDi	kare	kaLisu
+299	If kaaleju + inda = kaalejininda then mane + inda = _______	maneyinda	manege	maneyalli	maneya
+300	If kaaleju + inda = kaalejininda then canTeen + inda = _______	canTeeninda	canteenina	canTeenige	canTeenigagi
+301	If kaaleju + inda = kaalejininda then haasana+ inda = _______	haasanadinda	hasanakke	hasaanad	hasanakke
+302	If kaaleju + inda = kaalejininda then pustaka + inda = _______	pustakadinda	pustakakke	pustakada	pustakadalli
+303	If kaaleju + inda = kaalejininda then pensil + inda = _______	pensillininda	pensilligaagi	pensillu	pennupensil
+304	If kaaleju + inda = kaalejininda then kannaDa + inda = _______	kannaDadinda	kannaDakke	kannaDada	kannaDadalli
+305	If kaaleju + inda = kaalejininda then mobile + inda = _______	mobilininda	mobilige	mobilu	mobilinalli
+306	If kaaleju + inda = kaalejininda then bassu + inda = _______	bassininda	bassinalli	bassigaagi	bassanneri
+307	If kaaleju + inda = kaalejininda then kaar + inda = _______	kaarininda	kaarinalli	kaarige	kaarigaagi
+308	If kaaleju + inda = kaalejininda then avana + inda = _______	avaninda	avaLige	avarige	avaralli
+309	Fill in the blank using the correct form of Kannada word given in the bracket. nanage sakkare ______saaku. (less)	kaDime	heccu	jaasti	none of these
+310	Use of local language______.	All of these	Makes life easier	Ensures security	Enables mingling with locals
+311	______ improves with the use of language.	Vocabulary	Alphabet	listening skills	None
+312	______ is the official language of Karnataka state.	Kannada	Hindi	Tulu	Marathi
+313	______ compiled the first Kannada- English dictionary .	Ferdinand Kittel	Ferdinand Magellan	Kuvempu	S. Nijalingappa
+314	Name of Karnataka state before 1973 was______	Mysore	Calcutta	Madras	Bangalore
+315	Letters in Kannada Language are called _________.	Aksharagalu	Padagalu	Vaakyagalu	Sankhyegalu
+316	Number of Letters (Akshara) in Kannada Language is _________.	49.0	32.0	44.0	21.0
+317	Vowels are called _________in Kannada Language.	Swaragalu	Vyanjanagalu	Yogavahagalu	Aksharagalu
+318	Consonants are called_________ in Kannada Language.	Vyanjanagalu	Yogavahagalu	Aksharagalu	None of these
+319	Semi-Consonants or Part Vowel, Part Consonants are called_________.	Yogavahagalu	Vyanjanagalu	Swaragalu	None of these
+320	Yogavaha means _________.	moving along with	Spinning	Twirling	None of these
+321	Kannada word for 'Time' is ______	samaya	ninne	ivattu	naale
+322	Kannada word for 'Medicine' is ______	auShada	cikitse	vaidya	daadi
+323	Kannada word for 'ginger' is ______	beLLuLLi	iruLLi	geDDe	geNasu
+324	Kannada word for 'onion' is ______	niiruLLi	beLLuLLi	suvarna geDDe	muLLu soute
+325	Kannada word for 'green chilly' is ______	meNasinakaayi	kempu meNasu	jeerige meNasu	none of these
+326	Kannada word for 'health is ______	aarogya	anarogya	vaidya	daadi
+327	Kannada word for 'fruits' is ______	haNNu	tarakari	biija	ciguru
+328	Kannada word for 'train' is ______	railu	bassu	skutar	banDi
+329	Kannada word for 'holiday' is ______	raje	kelas	uddime	basavaLike
+330	Kannada word for 'station' is ______	nildaaNa	devastana	mane	goDE
+331	Kannada word for 'fee' is ______	Sulka	Sifarassu	ucita	ThevaNe
+332	Kannada word for 'song' is ______	haaDu	haaDisu	haaDina	haadiga
+333	Fill in the blank by using the appropriate verb form given in the bracket. avanu kaalejige naale ______ ganTege barutthane (samaya bareyiri)	enTu	eStu	yavaaga	elli
+334	Fill in the blank by using the appropriate verb form given in the bracket. indu niivellaru oTTagi asignmenTTannu ______ (sallisu)	sallisi	koDi	tanni	niiDi
+335	Fill in the blank by using the appropriate verb form given in the bracket. prinsipalaru kaaryakramakke ______ (baru)	baruttare	baruvaru	bandiddare	banni
+336	Fill in the blank by using the appropriate verb form given in the bracket. avanige tumba cennagi haaDunnu _____ baruttade. (haaDu)	haaDalu	haaDisalu	keLalu	heLalu
+337	Fill in the blank by using the appropriate verb form given in the bracket. suuryanu paschima dikkinalli ____ (muLu)	muLugida	nintha	aDagida	muuDida
+338	Fill in the blank by using the appropriate verb form given in the bracket. avanu crickeTannu _______ (aaDu)	aaDuttane	noDuttane	aaDida	aaDuttidda
+339	Fill in the blank by using the appropriate verb form given in the bracket. nanage iijalu _______ (baru)	baruttade	bandide	bande	baradu
+340	Fill in the blank by using the appropriate verb form given in the bracket. iiga namage taragati _____ ( praramba)	praarambavaguttade	prarambavagide	prarambavagli	none of these
+341	Fill in the blank by using the appropriate verb form given in the bracket. namma tande holadalli kelas _______ (maaDu)	maaDuttiddare	maaDiddaare	maaDu	maaDikoLLU
+342	Fill in the blank by using the appropriate verb form given in the bracket. naanu naaLe mangalurige ________ (hogu)	hoguttene	hoguvenu	hogali	baarali
+343	Select the correct negative form of the word 'hoguttane'	hoguvudilla	hogalaara	hoguvanu	hogalaagadu
+344	Select the correct negative form of the word 'bandide'	bandilla	baruvudu	barabahudu	baralagadu
+345	Select the correct negative form of the word 'ide'	illa	iru	iralara	iradu
+346	Select the correct negative form of the word 'ittu'	iralilla	iradu	iralaaradu	irabeku
+347	Select the correct negative form of the word ' kuDidanu'	kuDiyalilla	kuDisida	keLida	none of these
+348	Select the correct negative form of the word 'aayitu'	aagalilla	aagide	aaguvudu	aagadagadu
+349	Select the correct negative form of the word 'noDutthane'	noDuvudilla	nodida	noDalaagalilla	noDalaagdu
+350	Kannada word for 'assignment' is ______	niyoojane	ayoojane	anukaraNe	none of these
+351	Kannada word for 'submit'  is ______	sallisu	sallisida	sallisadiru	sallisabeDa
+352	Kannada word for 'chemistry' is ______	rasayaanaShastra	rasavidye	rasa jnana	vignaana
+353	Kannada word for 'banana' is ______	baLehaNNu	kadaLi	nendra	gaaLi
+354	Kannada word for 'film' is ______	sinimaa	dharavaahi	kirucitra	none of these
+355	Kannada word for 'strike' is ______	band	hiDi	nillu	hogu
+356	Kannada word for 'mango' is ______	maavu	halasu	alasanDe	hagalakayee
+357	Kannada word for 'physics' is ______	bhouthaShastra	bhugooLa	jiivaShastra	jivagnana
+358	Kannada word for 'history' is ______	itihaasa	samaaja Shastra	bhugooLa	rajakiya Sastra
+359	Kannada word for 'economics' is ______	artha Shstra	samaaja Shastra	bhugooLa	rajakiya Sastra
+360	Verb is known as___________ in Kannada language.	Kriya Pada	Naamapada	Pada Vishesha	Upasarga
+361	The sentence “Avalu oduttale”, means “She is reading” . The word 'Oduttale' is _________.	Verb	Pronoun	Adjective	None of these
+362	The sentence “neenu yenu maaDiruve?”, means “what did you do?” . The word 'maaDiruve' is _________	Verb	Pronoun	Adjective	None of these
+363	If 'bare' is 'barede' , 'tinnu' is _______	tinde	tiinisi	tinnu	tinnanu
+364	If 'bare' is 'barede' , 'baa' is _____	bande	banni	baa	hogu
+365	If 'bare' is 'barede' , 'taa' is ___________	tande	taru	tago	tegeduko
+366	If 'bare' is 'barede' , 'kare' is ___________	karede	kareyiri	kaaNiri	kanasu
+367	If 'bare' is 'barede' , 'gellu' is ________	gedde	gellisu	giddiri	gedduko
+368	If 'bare' is 'barede' , 'beeLu' is ___________	bidde	biiLisu	biiLadiru	bidduko
+369	If 'bare' is 'barede' , 'beLe' is _______	beLede	beLeyabeDa	beLeduko	bEeLesiri
+370	If 'kali' is 'kalite' , 'mare' is _______	marete	maretu	marevu	mareya
+371	If 'kali' is 'kalite' , 'kiiLu' is ____	kitte	kiilalagade	kiiLalare	kiiLisu
+372	If 'kali' is 'kalite' , 'soolu' is __________	soote	soolisu	solisa beDa	sootu hoogu
+373	if ' sundara + aagi = sundaravaagi, ' doDDadu + aagi ='	doDDadaagi	doDDadu	doDDadaad	none of these
+374	if ' sundara + aagi = sundaravaagi,  'cikkadu + aagi ='	chikkadaagi	chokkavagi	Shuddavagi	svachavaagi
+375	if ' sundara + aagi = sundaravaagi, 'keTTadu + aagi ='	keTTadaagi	kiiLaagi	chikkadaagi	saNNadaagi
+376	if ' sundara + aagi = sundaravaagi, 'kempu + aagi ='	kempaagi	kempaadaddu	kempagina	kempu taavare
+377	What is the capital of Karnataka ?	BengaLuru	mangaluru	mandya	mysore
+378	How many districts in Karnataka?	31.0	22.0	44.0	25.0
+379	In which district, the Jog Falls is located.	Shivamogga	Udupi	Bijapur	Mangalore
+380	Which is the famous Wildlife Sanctuaries of Karnataka?	Nagarahole	Sultan Batteri	Karwara	Dandeli
+381	Shravanabelagola is famous for _______.	Statue of Baahubali	Statue of Liberty	Statue of Unity	Statue of Shiva
+382	Belur and Halebidu is located in _______ district.	Hassan	Udupi	Mangalore	Bidar
+383	_____ is the famous tourist spot of Bijapur.	Golgumbaz	Taj Mahal	Rock Chariot	Sun Temple
+384	Who is Mayurvarma?	Founder of Kadamba Dynasty	Singer	Politician	Poet
+385	The most famous dynasty that ruled Karnataka is __________	Vijayanagara	Mughals	Tughlaq	Persians
+386	The capital of Vijayanagara kingdom was ______.	Hampi	Udupi	Karkala	Mysore
+387	Vijayanagara kingdom was situated on the bank of _____ river.	Tunga	Kaveri	Godavari	Netravati
+388	Another name for Kannambadi Dam is ___________.	Krishnaraja Sagara	Bheema Sagara	Chinmay Sagara	Basava Sagara
+389	What is the state song of Karnataka?	Jaya Bharata Jananiya Tanujate	Vande Mataram	Janagana mana	None of these
+390	Name the only major port in Karnataka?	New Mangalore Port	Malpe	Padubidri	Suratkal
+391	When was Karnataka formed?	1st November 1956	2nd March 1990	1st March 1968	1st December 1956
+392	Who is the first poet of Kannada Literature?	Pampa	Ranna	Kuvempu	Chinmay
+393	Freedom fighters who belong to Karnataka state are __________	Sangolli rayanna and kitturu chennamma	Shivaji	Tanaaji	Ranajith singh
+394	How many river basin are there in Karnataka ?	7.0	9.0	11.0	13.0
+395	Architect behind KSR dam , mysore was ______ .	Sir.M.vishveshvarayya	c.rangaacharlu	sheshadri ayyar	Odeyar
+396	Yakshagana is the popular dance form of _____ state	Karnataka	Mandya	T.naadu	Kerala
+397	Another name for Kodagu is _____.	Madikeri	budaalu	Mandya	mysore
+398	Myosre palace is located in ______ district	Mysore	Mandya	Bengaluru	Mangalore
+399	Where is Tunga Bhadra dam  located ?	Hosapete	Bagalakote	KRS	Kabini
+400	For Sharavati river dam is built at _______ place.	Linganamakki	kabini	Bidar	Kolara
+401	Kannada word for 'culture' is ______	samskriti	asamskriti	puratana	hosatu
+402	Kannada word for 'language' is ______	bhaaShe	pada	maatu	nuDi
+403	Kannada word for 'encourage' is ______	protsaahisu	munnaDesu	munduvaresu	none of these
+404	Kannada word for 'award' is ______	praSasti	sambrama	sanmana	seve
+405	Kannada word for 'tradition' is ______	parampare	pfrachiina	pragatipara	none of these
+406	Kannada word for 'available' is ______	doraku	odagisu	odagu	doarakisida
+407	English word for 'hemme' is ______	proud	pride	jamba	soul
+408	English word for 'sahanasheelavyakti' is ______	tolerant	model	level	profuct
+409	English word for 'giridhama' is ______	Hill station	river bank	sea bank	field
+410	English word for 'maTTa' is ______	Level	hight	down	none of these
+411	English word for 'kaigarike' is ______	Factory	factore	force	feare
+412	English word for 'maadari' is ______	model	nodel	avileble	iron
+413	English word for 'saamrajya' is ______	Kingdom	random	protect	worthy
+414	English word for 'naisargika' is ______	Natural	tradition	award	wealth
+415	How old is History of Kannada language ?	2500yrs	2000yrs	3000yrs	1700yrs
+416	The Halmidi inscription was found in which district of Karnataka ?	Hassan	Beluru	Shravanabelgola	Hampi
+417	Who of the following is the author of the state anthem of Karnataka?	Kuvempu	Shivaram Karanth	Bendre	Byrappa
+418	On which of the follwing river is Jog Falls situated?	Sharavati	Kaveri	Hemavati	Gataprabha
+419	Who was the first person to be awarded the Jnanapitha award for Kannada?	Kuvempu	Shivram Karanth	Gokak	Bendre
+420	Chennapatna a place in Ramnagara district is famous for _______.	Toys	Silk	Agarbatti	Sandalwood
+421	Which of the follwing place is famous for metal handcraft known as 'Bidriware'?	Bidar	Udupi	Hassan	Mysore
+422	At which place is the Suvarna Vidhan Souda located?	Belagavi	Bidar	Chikmangalur	Bijapur
+423	Where is the Nuclear power plant situated in Karnataka?	Kiga	Karkala	Karwara	Badami
+424	In which year was Kannda granted the status of a classical language by the central government?	2008.0	2011.0	2005.0	2020.0
+425	_________ is the famous poet of 'Hale Kannada' literature.	Ponna	Karant	Bendre	Kuvempu
+426	Modern Kannada literature is influenced by ________ language.	English	Marathi	Tulu	Konkani
+427	Tamil, Kannada, Telugu and Tulu are ___________ languages.	Dravidian	Arya	Brahuhi	Brahmi
+428	Rich vocabulary in Kannada language facilitates ______.	Meaningful communication	Ineffective conversation	Ambiguous communication	Incoherent dialogue
+429	__________ is the meaning of the word 'source' in Kannada language.	aadhara	niradhara	aasare	niraase
+430	__________ is the meaning of the word 'beginning' in Kannada language.	aaramba	kone	mugi	haleya
+431	__________ is the meaning of the word 'dialect' in Kannada language.	upabaaSe	hosabaSe	nudi	hosakannaD
+432	__________ is the meaning of the word 'lifesytle' in Kannada language.	jiivanakrama	jiivan vikrama	jivana akram	jana jivana
+433	__________ is the meaning of the word 'period' in Kannada language.	avadhi	adhikara	hosa kaala	haLekaala
+434	__________ is the meaning of the word 'technical education' in Kannada language.	taantrika SikshaNa	kala SikshaNa	vaaNijya Sikshana	sangeetha SikshaNa
+435	__________ is the meaning of the word 'medievel kannada' in Kannada language.	madyakaaliina kannaDa	hosa gannaDa	haLe kannaDa	none of these
+436	__________ is the meaning of the word 'variety' in Kannada language.	prabhedha	upabhedha	sahabedha	saha prakara
+437	__________ is the meaning of the word 'scholar' in Kannada language.	panDitha	kalivava	kalisuvava	kaliyuttiruvava
+438	__________ is the meaning of the word 'scientific' in Kannada language.	vaijnanika	ajnana	apaarajnaan	avajnaana
+439	__________ is the meaning of the word 'peculiar' in Kannada language.	vicitra	khachita	aparicita	none of these
+440	__________ is the meaning of the word 'niyama' in English language.	Rule	Rare	Roar	Random
+441	__________ is the meaning of the word 'abhipraya' in English language.	Opinion	Lesson	Education	Ability
+442	__________ is the meaning of the word 'manya' in English language.	Acceptable	Sure	Waste	None of these
+443	__________ is the meaning of the word 'HaLe Kannada' in English language.	Old Kannada	Modern Kannada	Medieval Kannada	None of these
+444	__________ is the meaning of the word 'shasana' in English language.	Inscription	Letter	Word	Painting
+445	__________ is the meaning of the word 'samanya jana' in English language.	Ordinary People	Strange people	Crazy people	Mad People
+446	Who is the 'Tripadi poet' of Kannada?	Sarvajnya	Chinmay	Bharat	Rama
+447	________ was the first person to get the title of 'Rashtrakavi' from Karnataka.	Govinda Pai	Panaje Mangeshraya	Ugrana Mangeshraya	C. Kambara
+448	The famous work of Kuvempu is __________.	Shri Ramayana Darshanam	Daatu	Alidamele	Gere
+449	_________ was the first dynasty of Karnataka.	Kadamba	Mughals	Maratha	Vijayanagara
+450	The first Kannada inscription is _________.	Halmidi	Badami	Udupi	Mangaladevi
+451	Kannada word for 'dignity' is ______ .	Ghanate	gourava	gamana	hirime
+452	Kannada word for 'discuss' is ______ .	carce	maatu	nuDi	keLu
+453	Kannada word for 'mistake' is ______ .	tappu	sari	naDe	ooDu
+454	Kannada word for 'daily' is ______ .	dinanitya	anitya	naaLe	ninne
+455	Kannada word for 'continuous' is ______ .	nirantara	sthagita	avasar	yaavudu alla
+456	Kannada word for 'methodologies' is ______ .	maargopaayagaLu	daarigaLu	haaDi	biidi
+457	Kannada word for 'environment' is ______ .	parisara	parampare	praciina	puratana
+458	Kannada word for 'discourage' is ______ .	nirutsaaha	utsaaha	cetana	jigupse
+459	Kannada word for 'concentration' is ______ .	eekaagrate	vikeendra	ondu	halavu
+460	Kannada word for 'memory' is ______ .	nenepu	marevu	hasivu	aLivu
+461	To write a language on must know about the ______ of the language.	Script	History	Words	None of these
+462	Advantage of learning a local/regional language is	All of these	Purpose of communication	Purpose of education	New Business
+463	Kannada is the language widely spoken in _________ state.	Karnataka	Goa	Kerala	Gujrat
+464	In the first step of learning a new language we should start with _________ activies.	Listening and Hearing	Reading	Talking	None of these
+465	_________is the Stressed letter in the word  ಅಪ್ಪ Father (Appa)	Ppa	PaP	pa	p a
+466	________is the Stressed letter in the word ಅಮ್ಮ Mother (Amma)	Mma	MaM	Ma	M a
+467	Unlike in English, there are ______ types of Genders in Kannada language.	4.0	6.0	2.0	1.0
+468	_____________ is the similar term in Kannada for Feminine Gender.	Stree Linga	Pullinga	Napumsaka Linga	Saamanya Linga
+469	If the word King / Raaja is masculine in gender,the feminine gender form in Kannada language is ___.	Raani	Hudugi	Hengasu	None of these
+470	Gender of the Kannada word 'Jaana Huduga' is ______	Masculine	Feminine	Neutar	None of these
+471	Naanya, a Kannada word means 'Coin' is an example for ______ Gender.	Neutar	Masculine	Feminine	None of these
+472	Opposite words/ Antonyms are called ______ in Kannada language.	Viruddha Padagalu	Prashnaarthaka Padagalu	Naama Padagalu	None
+473	Antonym of Kannada word 'Baa' (come) is______.	Hogu	Sari	Hosadu	Illa
+474	Antonym of  'Thappu' (wrong) is	Sari	Beku	Beda	Illa
+475	Antonym of 'Beku' (Want) is ______.	Beda	Hawdu	Illa	None
+476	Noun is called ____________ in Kannada language.	Naamapada	Kriya Pada	Sarvanaamapada	Kriya Visheshana
+477	Kannada word for 'put' is ______ .	haaku	haakikoLLi	tegeyiri	etti
+478	Kannada word for 'ask' is ______ .	keeLu	heeLu	oodu	mare
+479	Kannada word for 'tell' is ______ .	heeLu	keeLu	oodu	bare
+480	Kannada word for 'chest' is ______ .	ede	kaalu	kai	muugu
+481	Kannada word for 'finger' is ______ .	beraLu	kai	kaalu	kivi
+482	Kannada word for 'shoulder' is ______ .	bhuja	ede	hradaya	kai
+483	Kannada word for 'wife' is ______ .	henDati	tangi	taayi	akka
+484	Kannada word for 'grandson' is ______ .	mommaga	mommagaLu	tangi	tamma
+485	Kannada word for 'grandfather' is ______ .	ajja	ajji	amma	akka
+486	Kannada word for 'blind' is ______ .	kuruDu	kivuDu	mooka	naraka
+487	Kannada word for 'lady' is ______ .	hengasu	gandasu	magu	huDugi
+488	Kannada word for 'soil' is ______ .	maNNu	nela	nearaLu	niiru
+489	Kannada word for 'floor' is ______ .	nela	maraLu	maNNu	giDa
+490	Kannada word for 'shadow' is ______ .	neraLu	bisilu	maLe	gaaLi
+491	The appropriate equivalent Kannada word for 'mosquito' is ______.	soLLe	iruve	mola	haavu
+492	The appropriate equivalent Kannada word for 'ant' is ______.	iruve	ili	aLilu	mola
+493	The appropriate equivalent Kannada word for 'sparrow' is ______.	gubbacci	kogile	kaage	onTe
+494	The appropriate equivalent Kannada word for 'wolf' is ______.	nari	sihma	naayi	kudure
+495	The appropriate equivalent Kannada word for 'goat' is ______.	kuri	nari	aaDu	meke
+496	The appropriate equivalent Kannada word for 'south' is ______.	dakShiNa	puurva	uttara	yaavudu alla
+497	The appropriate equivalent Kannada word for 'west' is ______.	pascima	puurva	dakSiNa	aagneya
+498	The appropriate equivalent Kannada word for 'ghee' is ______.	tuppa	beNNe	haalu	mosaru
+499	The appropriate equivalent Kannada word for 'butter' is ______.	beNNe	mosaru	kene	majjige
+500	The appropriate equivalent Kannada word for 'buttermilk' is ______.	majjige	mosaru	tea	kafee
+501	The appropriate equivalent Kannada word for 'curd' is ______.	mosaru	majjige	haalu	niiru
+502	The appropriate equivalent Kannada word for 'pickle' is ______.	uppinakaayi	jaamuunu	tinDi	uuTa
+503	The appropriate equivalent Kannada word for 'meal' is ______.	uuTa	tinDi	sihi	tea
+504	The appropriate equivalent Kannada word for 'bitter' is ______.	kahi	sihi	huLI	cappe
+505	The appropriate equivalent Kannada word for 'sprouts' is ______.	molake	iDi kaalu	hasi kaaLu	yaavudu alla
+506	The appropriate equivalent Kannada word for 'horsegram' is ______.	huruLi	hesaru	uddu	goodi
+507	The appropriate equivalent English word for 'akki' is ______.	Rice	Fruit	Wheat	Vegetable
+508	The appropriate equivalent English word for 'kaaLu' is ______.	Leg	Hand	Eyes	Body
+509	The appropriate equivalent English word for 'nagu' is ______.	Laugh	Cry	Shout	Silent
+510	The appropriate equivalent English word for 'santosha' is ______.	Happy	Sad	Unhappy	Sick
+511	The appropriate equivalent English word for 'arogya' is ______.	Health	Wealth	Money	timepass
+512	The appropriate equivalent English word for 'noovu' is ______.	Pain	Happy	Sad	None
+513	The appropriate equivalent English word for 'gaaya' is ______.	Wound	Park	Jack	Night
+514	The appropriate equivalent English word for 'suuji' is ______.	Needle	Sweedle	pensillu	None
+515	The appropriate equivalent English word for 'haasige' is ______.	Bed	Chair	Table	None
+516	The appropriate equivalent English word for 'souTu' is ______.	Spoon	Plate	Glass	None
+517	The appropriate equivalent English word for 'looTa' is ______.	Glass	Plate	Spoon	None
+518	The appropriate equivalent English word for 'taTTe' is ______.	Plate	Glass	Spoon	None
+519	The appropriate equivalent English word for 'paaTre' is ______.	Vessels	Pen	Book	Bucket
+520	The appropriate equivalent English word for 'biidi' is ______.	Street	Light	Dark	Morning`;
+  const questions = rawQuestions.trim().split(/\r?\n/).map((line) => {
+    const [number, text, ...options] = line.split('\t');
+    return {
+      text: text.trim(),
+      options: options.map((option) => option.trim()),
+      correct: 0
+    };
+  });
+  return {
+    id: "kannada-quiz-u2",
+    subject: "Kannada",
+    unit: 2,
+    name: "Unit 2 - Balake Kannada",
+    questions
+  };
+}
+
 function getIKSQuiz() {
   const rawQuestions = `1	Indian Traditional Knowledge is also referred to as:	Indian Knowledge System 	Indigenous Knowledge System 	Independent Knowledge System 	Intellectual Knowledge System 
 2	The term “Indian” in IKS refers to:	The broader cultural-geographical region of the Indian subcontinent	Only post-1947 India	A political party	Only North India
@@ -9038,7 +9346,7 @@ function getIKSQuiz() {
 function init() {
   loadSavedTheme();
   loadSidebarState();
-  allQuizzes = [...getChemistryQuizzes(), ...getUHVQuizzes(), ...getBiologyQuizzes(), ...getEMEQuizzes(), ...getMathQuizzes(), ...getKannadaQuizzes()];
+  allQuizzes = [...getChemistryQuizzes(), ...getUHVQuizzes(), ...getBiologyQuizzes(), ...getEMEQuizzes(), ...getMathQuizzes(), ...getKannadaQuizzes(), getKannadaQuiz2()];
   // include unit 2, unit 4 and unit 5 math quizzes as well
   allQuizzes = allQuizzes.concat(getMathUnit2()).concat(getMathUnit3()).concat(getMathUnit4()).concat(getMathUnit5());
   allQuizzes =allQuizzes.concat(getESSQuizzes()).concat(getESSUnit2Quizzes()).concat(getESSUnit3Quizzes());

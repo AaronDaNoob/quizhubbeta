@@ -9738,7 +9738,7 @@ function showReview(quizId, attemptIndex) {
               ${q.options.map((opt, j) => {
                 let cls = '';
                 if (j === q.correct) cls = 'correct';
-                else if (j === ua && !isC) cls = 'incorrect';
+                else if (j === ua && isIncorrect) cls = 'incorrect';
                 return `<div class="review-option ${cls}">${opt}</div>`;
               }).join('')}
             </div>

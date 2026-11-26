@@ -40,7 +40,7 @@ The current tag set covers areas such as chemistry, biology, mathematics, enviro
 
 ## Visit counter
 
-The displayed visit total is updated through `/api/visits` when deployed on Vercel. The endpoint uses a server-side counter and a short-lived hashed visitor key to avoid counting repeated refreshes from the same visitor throughout the day. It does not expose credentials or accept arbitrary counter values from the browser. If the service is unavailable, the interface falls back to `Visits: —` without interrupting the quiz.
+The displayed visit total is updated through `/api/visits` when deployed on Vercel. The counter starts from the existing 13,900 visits and increments from there. The endpoint uses a server-side counter and a short-lived hashed visitor key to avoid counting repeated refreshes from the same visitor throughout the day. It does not expose credentials or accept arbitrary counter values from the browser. If the service is unavailable, the interface keeps the 13,900 baseline instead of showing an empty value or interrupting the quiz.
 
 ## Run locally
 

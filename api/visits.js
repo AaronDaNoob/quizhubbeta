@@ -2,6 +2,8 @@ import { kv } from '@vercel/kv';
 import { createHash } from 'node:crypto';
 
 const DAY = 60 * 60 * 24;
+const INITIAL_VISITS = 13900;
+const VISITS_KEY = 'quiz-hub:visits';
 
 function getClientKey(request) {
   const forwarded = request.headers.get('x-forwarded-for') || '';
@@ -26,15 +28,22 @@ export default async function handler(request) {
   }
 
   try {
+    await kv.set(VISITS_KEY, INITIAL_VISITS, { nx: true });
+
     if (request.method === 'POST') {
       const visitorKey = `quiz-hub:visitor:${getClientKey(request)}`;
       const firstVisit = await kv.set(visitorKey, '1', { nx: true, ex: DAY });
-      if (firstVisit) await kv.incr('quiz-hub:visits');
+      if (firstVisit) await kv.incr(VISITS_KEY);
     }
 
-    const visits = Number(await kv.get('quiz-hub:visits')) || 0;
+    let visits = Number(await kv.get(VISITS_KEY));
+    if (!Number.isFinite(visits) || visits < INITIAL_VISITS) {
+      await kv.set(VISITS_KEY, INITIAL_VISITS);
+      visits = INITIAL_VISITS;
+    }
+
     return response({ visits });
   } catch {
-    return response({ error: 'Visit counter unavailable' }, 503);
+    return response({ visits: INITIAL_VISITS, fallback: true });
   }
 }

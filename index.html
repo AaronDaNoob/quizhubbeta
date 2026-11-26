@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -1701,8 +1701,9 @@
     <span>Join our Discord!</span>
   </a>
 
+  <script src="iks-unit3.js"></script>
   <script>
-let sidebarCollapsed = false; // track collapsed state (sidebar overlays content)
+ let sidebarCollapsed = false; // track collapsed state (sidebar overlays content)
 
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
@@ -9865,6 +9866,13 @@ if (!allQuizzes.find(q => q.id === iks_quiz.id)) {
 const iks_u2_quiz = getIKSQuiz2();
 if (!allQuizzes.find(q => q.id === iks_u2_quiz.id)) {
   allQuizzes.push(iks_u2_quiz);
+  renderFilters();
+  renderQuizzes();
+}
+// Register IKS Unit 3 quiz after init completes
+const iks_u3_quiz = getIKSQuiz3();
+if (!allQuizzes.find(q => q.id === iks_u3_quiz.id)) {
+  allQuizzes.push(iks_u3_quiz);
   renderFilters();
   renderQuizzes();
 }

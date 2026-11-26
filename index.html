@@ -1709,7 +1709,14 @@ async function updateVisitCounter() {
   const counter = document.querySelector('#visitCounter span');
   if (!counter) return;
   try {
-    const response = await fetch('/api/visits', { method: 'POST', cache: 'no-store' });
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+    const response = await fetch('/api/visits', {
+      method: 'POST',
+      cache: 'no-store',
+      signal: controller.signal
+    });
+    clearTimeout(timeout);
     if (!response.ok) throw new Error('Visit counter request failed');
     const data = await response.json();
     counter.textContent = `Visits: ${Number(data.visits || 0).toLocaleString()}`;

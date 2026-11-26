@@ -1607,7 +1607,7 @@
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
           <circle cx="12" cy="7" r="4"></circle>
         </svg>
-        <span>Visits: —</span>
+        <span>Visits: 13,900</span>
       </span>
     </div>
     <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle dark/light mode">
@@ -9867,8 +9867,8 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-init();
 updateVisitCounter();
+init();
 // Register SCR quiz after init completes
 const scr_quiz = getSCRQuiz();
 if (!allQuizzes.find(q => q.id === scr_quiz.id)) {
